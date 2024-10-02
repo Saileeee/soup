@@ -90,8 +90,9 @@ tile_map_data = PackedByteArray("AAAAAAEAAgAAAAAAAAABAAEAAgABAAAAAAACAAEAAgAAAAA
 tile_set = SubResource("TileSet_d3ayc")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(478, 176)
+position = Vector2(584, 180)
 script = ExtResource("3_y6h8f")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 53)
