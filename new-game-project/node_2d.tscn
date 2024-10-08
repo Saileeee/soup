@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://mgdvfg2ogayq"]
+
+[ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="1_q6bmi"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -39296)
+scale = Vector2(35201, 39297)
+texture = ExtResource("1_q6bmi")
