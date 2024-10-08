@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dtwo5c65ymkeq"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_krs7i"]
+[ext_resource type="Script" path="res://character.gd" id="1_krs7i"]
 [ext_resource type="Texture2D" uid="uid://svfy1rdsd76c" path="res://Art/New Piskel.png" id="2_lqvd3"]
 [ext_resource type="Script" path="res://main_camera.gd" id="3_nicrq"]
 

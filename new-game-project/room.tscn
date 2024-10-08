@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpt6u03k8yclk"]
+
+[ext_resource type="PackedScene" uid="uid://b0nj375db5qvi" path="res://pause_screen.tscn" id="1_v85i7"]
+[ext_resource type="PackedScene" uid="uid://dtwo5c65ymkeq" path="res://character.tscn" id="2_2eloi"]
+[ext_resource type="PackedScene" uid="uid://d4ekh484m0" path="res://tile_map_layer.tscn" id="3_m7ydy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xunhs"]
+size = Vector2(20, 123)
+
+[node name="room" type="Node2D"]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("3_m7ydy")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_2eloi")]
+
+[node name="Pause screen" parent="." instance=ExtResource("1_v85i7")]
+visible = false
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="door collision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door collision"]
+position = Vector2(1161, 256)
+shape = SubResource("RectangleShape2D_xunhs")
+
+[connection signal="hidden" from="Pause screen" to="CharacterBody2D" method="_on_pause_screen_hidden"]
