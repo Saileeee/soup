@@ -18,3 +18,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 	
 	move_and_slide()
+
+
+func _on_pause_screen_hidden() -> void:
+	$main_camera.make_current()
