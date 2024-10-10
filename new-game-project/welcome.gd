@@ -15,7 +15,9 @@ func _process(delta: float) -> void:
 		$TextEdit.hide()
 		$Label2.show()
 		var button = Button.new()
-		button.text = "Click me"
+		button.text = "Click to start!"
+		button.position = $TextEdit.position
+		button.size = $TextEdit.size
 		button.pressed.connect(self._button_pressed)
 		add_child(button)
 

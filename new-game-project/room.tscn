@@ -11,9 +11,9 @@ size = Vector2(20, 123)
 [node name="room" type="Node2D"]
 
 [node name="TileMapLayer" parent="." instance=ExtResource("3_m7ydy")]
-position = Vector2(2, 0)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_2eloi")]
+position = Vector2(574, 323)
 
 [node name="Pause screen" parent="." instance=ExtResource("1_v85i7")]
 visible = false
@@ -29,3 +29,4 @@ shape = SubResource("RectangleShape2D_xunhs")
 [node name="Welcome" parent="." instance=ExtResource("4_secm3")]
 
 [connection signal="hidden" from="Pause screen" to="CharacterBody2D" method="_on_pause_screen_hidden"]
+[connection signal="hidden" from="Welcome" to="CharacterBody2D" method="_on_welcome_hidden"]
