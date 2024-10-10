@@ -1,10 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://mgdvfg2ogayq"]
+[gd_scene load_steps=7 format=3 uid="uid://mgdvfg2ogayq"]
 
-[ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="1_q6bmi"]
+[ext_resource type="Texture2D" uid="uid://df1v1cca3emts" path="res://Art/shippp.png" id="1_tl7em"]
+[ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="2_lvgub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vju8e"]
+atlas = ExtResource("1_tl7em")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eo0y"]
+atlas = ExtResource("1_tl7em")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3rkkd"]
+resource_local_to_scene = true
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vju8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0eo0y")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 4.0
+}]
+
+[sub_resource type="TileSet" id="TileSet_jguwf"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -39296)
-scale = Vector2(35201, 39297)
-texture = ExtResource("1_q6bmi")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(275, 205)
+sprite_frames = SubResource("SpriteFrames_3rkkd")
+animation = &"new_animation"
+frame_progress = 0.274551
+
+[node name="Shippp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1042, 371)
+texture = ExtResource("1_tl7em")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(211, 205)
+texture = ExtResource("2_lvgub")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_jguwf")
