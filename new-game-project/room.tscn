@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qncouuoknvhv"]
+[gd_scene load_steps=6 format=3 uid="uid://dpt6u03k8yclk"]
 
 [ext_resource type="PackedScene" uid="uid://b0nj375db5qvi" path="res://pause_screen.tscn" id="1_v85i7"]
-[ext_resource type="PackedScene" uid="uid://sm4wakmdb85m" path="res://character.tscn" id="2_2eloi"]
+[ext_resource type="PackedScene" uid="uid://dtwo5c65ymkeq" path="res://character.tscn" id="2_2eloi"]
 [ext_resource type="PackedScene" uid="uid://d4ekh484m0" path="res://tile_map_layer.tscn" id="3_m7ydy"]
+[ext_resource type="PackedScene" uid="uid://dx2crtk7j00dl" path="res://welcome.tscn" id="4_secm3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xunhs"]
 size = Vector2(20, 123)
@@ -12,6 +13,7 @@ size = Vector2(20, 123)
 [node name="TileMapLayer" parent="." instance=ExtResource("3_m7ydy")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_2eloi")]
+position = Vector2(574, 323)
 
 [node name="Pause screen" parent="." instance=ExtResource("1_v85i7")]
 visible = false
@@ -24,4 +26,7 @@ offset_right = 1.0
 position = Vector2(1161, 256)
 shape = SubResource("RectangleShape2D_xunhs")
 
+[node name="Welcome" parent="." instance=ExtResource("4_secm3")]
+
 [connection signal="hidden" from="Pause screen" to="CharacterBody2D" method="_on_pause_screen_hidden"]
+[connection signal="hidden" from="Welcome" to="CharacterBody2D" method="_on_welcome_hidden"]
