@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://main_camera.gd" id="3_nicrq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah63b"]
-size = Vector2(94, 20)
+size = Vector2(149, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n7ms"]
 atlas = ExtResource("2_661op")
@@ -42,7 +42,7 @@ script = ExtResource("1_krs7i")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 125)
+position = Vector2(10.5, 125)
 shape = SubResource("RectangleShape2D_ah63b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -51,4 +51,6 @@ scale = Vector2(4.28709, 4.51115)
 sprite_frames = SubResource("SpriteFrames_bkgo7")
 
 [node name="main_camera" type="Camera2D" parent="."]
+visible = false
+enabled = false
 script = ExtResource("3_nicrq")
