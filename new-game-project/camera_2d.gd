@@ -5,9 +5,9 @@ var current_room = "room1"
 func _ready() -> void:
 	#these values are based off the room size, should make them clearer
 	limit_left = 0
-	limit_top = -85
+	limit_top = -84
 	limit_bottom = 640
-	limit_right = 1150.2
+	limit_right = 1152
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,5 +21,5 @@ func _on_pause_screen_hidden() -> void:
 
 func _on_door_collision_body_entered(body: Node2D) -> void:
 	current_room = "room2"
-	limit_left = 1185.4
-	limit_right = 2337.6
+	limit_left = 1186
+	limit_right = 2338
