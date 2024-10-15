@@ -28,6 +28,7 @@ zoom = Vector2(2, 2)
 script = ExtResource("3_fu63x")
 
 [node name="Pause screen" parent="." instance=ExtResource("1_v85i7")]
+visible = false
 offset_left = 1.0
 offset_right = 1.0
 
@@ -38,6 +39,7 @@ position = Vector2(1169, 256)
 shape = SubResource("RectangleShape2D_xunhs")
 
 [node name="Welcome" parent="." instance=ExtResource("4_secm3")]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, 28)
