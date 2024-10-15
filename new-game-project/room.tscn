@@ -43,13 +43,19 @@ position = Vector2(-21, 255.25)
 shape = SubResource("RectangleShape2D_654nx")
 
 [node name="Pause screen" parent="." instance=ExtResource("1_v85i7")]
-offset_left = 1.0
-offset_right = 1.0
+offset_left = 5.0
+offset_top = -652.0
+offset_right = 5.0
+offset_bottom = -652.0
 
 [node name="Welcome" parent="." instance=ExtResource("4_secm3")]
+offset_left = 4.0
+offset_top = -652.0
+offset_right = 4.0
+offset_bottom = -652.0
 
 [node name="screen camera" type="Camera2D" parent="."]
-position = Vector2(575, 326)
+position = Vector2(579, -326)
 script = ExtResource("6_v7rvs")
 
 [connection signal="body_entered" from="door collision" to="CharacterBody2D/Camera2D" method="_on_door_collision_body_entered"]
