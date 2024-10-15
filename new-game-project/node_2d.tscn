@@ -38,7 +38,7 @@ animations = [{
 position = Vector2(275, 205)
 sprite_frames = SubResource("SpriteFrames_3rkkd")
 animation = &"new_animation"
-frame_progress = 0.526189
+frame_progress = 0.442854
 
 [node name="Shippp" type="Sprite2D" parent="."]
 visible = false
