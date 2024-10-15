@@ -36,4 +36,4 @@ func _on_door_collision_body_entered(body: Node2D) -> void:
 		#brieeeeeee
 
 func _on_welcome_hidden() -> void:
-	pass # Replace with function body.
+	make_current()
