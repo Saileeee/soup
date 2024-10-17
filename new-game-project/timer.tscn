@@ -7,4 +7,22 @@
 [node name="Timer" type="Timer" parent="."]
 script = ExtResource("1_aeeac")
 
+[node name="ColorRect" type="ColorRect" parent="Timer"]
+offset_right = 815.0
+offset_bottom = 369.0
+color = Color(0.905882, 0.854902, 0.72549, 0.839216)
+
+[node name="Label" type="Label" parent="Timer"]
+offset_left = 99.0
+offset_top = 91.0
+offset_right = 696.0
+offset_bottom = 291.0
+theme_override_font_sizes/font_size = 100
+text = "          0
+"
+
+[node name="TextEdit" type="TextEdit" parent="Timer"]
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
