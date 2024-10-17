@@ -20,20 +20,21 @@ func _on_pause_screen_hidden() -> void:
 	make_current()
 
 
-func _on_door_collision_body_entered(body: Node2D) -> void:
-	if current_room == "room1":
-		current_room = "room2"
-		limit_left = dimensions2[0]
-		limit_right = dimensions2[1]
-		limit_top = dimensions2[2]
-		limit_bottom = dimensions2[3]
-	elif current_room == "room2":
-		current_room = "room1"
-		limit_left = dimensions1[0]
-		limit_right = dimensions1[1]
-		limit_top = dimensions1[2]
-		limit_bottom = dimensions1[3]
-		#brieeeeeee
-
 func _on_welcome_hidden() -> void:
 	make_current()
+
+
+func _on_room_1_area_body_entered(body: Node2D) -> void:
+	current_room = "room2"
+	limit_left = dimensions2[0]
+	limit_right = dimensions2[1]
+	limit_top = dimensions2[2]
+	limit_bottom = dimensions2[3]
+
+
+func _on_room_2_area_body_entered(body: Node2D) -> void:
+	current_room = "room1"
+	limit_left = dimensions1[0]
+	limit_right = dimensions1[1]
+	limit_top = dimensions1[2]
+	limit_bottom = dimensions1[3]
