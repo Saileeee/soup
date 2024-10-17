@@ -26,10 +26,10 @@ position = Vector2(-18, 258.875)
 shape = SubResource("RectangleShape2D_654nx")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(2, -6)
+position = Vector2(-268, -485)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(2317, 263)
+position = Vector2(2588, 744)
 shape = SubResource("RectangleShape2D_654nx")
 
 [node name="Room1" parent="." instance=ExtResource("3_m7ydy")]
@@ -59,6 +59,9 @@ position = Vector2(1, 0)
 zoom = Vector2(2, 2)
 script = ExtResource("3_fu63x")
 
+[node name="room move timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.3
+
 [node name="Pause screen" parent="." instance=ExtResource("1_v85i7")]
 offset_left = 5.0
 offset_top = -664.0
@@ -75,8 +78,11 @@ offset_bottom = -652.0
 position = Vector2(579, -326)
 script = ExtResource("6_v7rvs")
 
+[connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D" method="_on_room_1_area_body_entered"]
 [connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D/Camera2D" method="_on_room_1_area_body_entered"]
+[connection signal="body_entered" from="Room2/Room2 Area" to="CharacterBody2D" method="_on_room_2_area_body_entered"]
 [connection signal="body_entered" from="Room2/Room2 Area" to="CharacterBody2D/Camera2D" method="_on_room_2_area_body_entered"]
+[connection signal="timeout" from="CharacterBody2D/room move timer" to="CharacterBody2D" method="_on_room_move_timer_timeout"]
 [connection signal="hidden" from="Pause screen" to="CharacterBody2D" method="_on_pause_screen_hidden"]
 [connection signal="hidden" from="Pause screen" to="CharacterBody2D/Camera2D" method="_on_pause_screen_hidden"]
 [connection signal="hidden" from="Welcome" to="CharacterBody2D" method="_on_welcome_hidden"]

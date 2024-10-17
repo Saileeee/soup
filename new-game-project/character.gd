@@ -3,7 +3,8 @@ extends CharacterBody2D
 var start = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+var room_move = 0
+var entered_room = false
 
 func _physics_process(delta: float) -> void:
 	if start:
@@ -17,6 +18,11 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play()
 		else:
 			$AnimatedSprite2D.stop()
+		if entered_room:
+			$"room move timer".start()
+			entered_room = false
+		if room_move != 0:
+			velocity.x = room_move
 		
 		move_and_slide()
 
@@ -27,3 +33,18 @@ func _on_pause_screen_hidden() -> void:
 
 func _on_welcome_hidden() -> void:
 	start = true
+	room_move = 0
+
+
+func _on_room_1_area_body_entered(body: Node2D) -> void:
+	room_move = -450
+	entered_room = true
+
+
+func _on_room_2_area_body_entered(body: Node2D) -> void:
+	room_move = 450
+	entered_room = true
+
+
+func _on_room_move_timer_timeout() -> void:
+	room_move = 0
