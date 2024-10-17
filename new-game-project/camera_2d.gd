@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(position)
+	print(get_screen_center_position())
 
 
 func _on_pause_screen_hidden() -> void:
@@ -27,7 +27,7 @@ func _on_welcome_hidden() -> void:
 
 func _on_room_1_area_body_entered(body: Node2D) -> void:
 	print("room1 entered")
-	current_room = "room2"
+	current_room = "room1"
 	limit_left = dimensions2[0]
 	limit_right = dimensions2[1]
 	limit_top = dimensions2[2]
@@ -36,7 +36,7 @@ func _on_room_1_area_body_entered(body: Node2D) -> void:
 
 func _on_room_2_area_body_entered(body: Node2D) -> void:
 	print("room2 entered")
-	current_room = "room1"
+	current_room = "room2"
 	limit_left = dimensions1[0]
 	limit_right = dimensions1[1]
 	limit_top = dimensions1[2]
