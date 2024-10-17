@@ -14,7 +14,7 @@ size = Vector2(1151.5, 448.5)
 size = Vector2(1147, 449)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_654nx"]
-size = Vector2(30, 122.5)
+size = Vector2(27, 128.25)
 
 [node name="room" type="Node2D"]
 
@@ -71,7 +71,7 @@ script = ExtResource("6_v7rvs")
 position = Vector2(3, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(2317, 261)
+position = Vector2(2316.5, 258.875)
 shape = SubResource("RectangleShape2D_654nx")
 
 [connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D/Camera2D" method="_on_room_1_area_body_entered"]
