@@ -1,22 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj6mpkui0kjct"]
+[gd_scene load_steps=3 format=3 uid="uid://dj6mpkui0kjct"]
 
-[ext_resource type="Texture2D" uid="uid://dupe4x5cb0h2h" path="res://Art/microwave.png" id="1_eetag"]
+[ext_resource type="Texture2D" uid="uid://18mvwxd6gxlm" path="res://Art/less big microwave.png" id="1_6k7cv"]
+[ext_resource type="Script" path="res://display.gd" id="2_mrb4t"]
 
 [node name="microwave" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 11.0
+offset_right = 1.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = -165.0
+offset_right = 1023.0
+offset_bottom = 736.0
+texture = ExtResource("1_6k7cv")
+
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 0
-offset_left = 723.0
-offset_top = 345.0
-offset_right = 932.0
-offset_bottom = 489.0
-theme_override_font_sizes/font_size = 20
+offset_left = 795.0
+offset_top = 300.0
+offset_right = 940.0
+offset_bottom = 405.0
+theme_override_font_sizes/font_size = 13
 allow_reselect = true
 text_overrun_behavior = 0
 item_count = 12
@@ -36,8 +49,15 @@ item_9/text = "STOP"
 item_10/text = "0"
 item_11/text = "START"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Display" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_eetag")
+offset_left = 796.0
+offset_top = 214.0
+offset_right = 940.0
+offset_bottom = 244.0
+theme_override_font_sizes/font_size = 13
+script = ExtResource("2_mrb4t")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="item_clicked" from="ItemList" to="Display" method="_on_item_list_item_clicked"]
