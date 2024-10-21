@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_654nx")
 position = Vector2(-268, -485)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(2586, 869.5)
+position = Vector2(2587, 870)
 shape = SubResource("RectangleShape2D_654nx")
 
 [node name="Room1" parent="." instance=ExtResource("3_m7ydy")]
