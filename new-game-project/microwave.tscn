@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dj6mpkui0kjct"]
+
+[node name="microwave" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_right = 249.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 20
+allow_reselect = true
+text_overrun_behavior = 0
+item_count = 12
+max_columns = 3
+same_column_width = true
+item_0/text = "1"
+item_1/text = "2"
+item_2/text = "3"
+item_3/text = "4"
+item_4/text = "5"
+item_5/text = "6"
+item_6/text = "7"
+item_7/text = "8"
+item_8/text = "9"
+item_9/text = "STOP"
+item_10/text = "0"
+item_11/text = "START"
