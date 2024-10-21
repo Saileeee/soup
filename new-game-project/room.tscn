@@ -11,10 +11,10 @@
 size = Vector2(30, 126.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xu6e"]
-size = Vector2(1152, 448)
+size = Vector2(1146, 448)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o8xm"]
-size = Vector2(1152, 448)
+size = Vector2(1145, 448)
 
 [node name="room" type="Node2D"]
 
@@ -37,7 +37,7 @@ shape = SubResource("RectangleShape2D_654nx")
 [node name="Room1 Area" type="Area2D" parent="Room1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/Room1 Area"]
-position = Vector2(577, 409)
+position = Vector2(574, 409)
 shape = SubResource("RectangleShape2D_6xu6e")
 
 [node name="Room2" parent="." instance=ExtResource("3_m7ydy")]
@@ -48,7 +48,7 @@ tile_map_data = PackedByteArray("AAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAA
 position = Vector2(-2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2/Room2 Area"]
-position = Vector2(578, 416)
+position = Vector2(581.5, 416)
 shape = SubResource("RectangleShape2D_1o8xm")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_2eloi")]
