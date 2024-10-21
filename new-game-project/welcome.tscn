@@ -13,8 +13,8 @@ script = ExtResource("1_orny5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 647.0
+offset_right = 1152.0
+offset_bottom = 648.0
 color = Color(0.470476, 0.500649, 0.656089, 1)
 
 [node name="Label" type="Label" parent="."]

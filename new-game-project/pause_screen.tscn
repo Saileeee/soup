@@ -13,8 +13,8 @@ script = ExtResource("1_dy1dk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 649.0
+offset_right = 1152.0
+offset_bottom = 648.0
 color = Color(0.779984, 0.679626, 0.413639, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -27,4 +27,4 @@ theme_override_font_sizes/font_size = 100
 text = "Paused"
 
 [node name="paused_camera" type="Camera2D" parent="."]
-position = Vector2(576, 325)
+position = Vector2(576, 324)
