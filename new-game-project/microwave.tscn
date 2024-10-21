@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dj6mpkui0kjct"]
+[gd_scene load_steps=2 format=3 uid="uid://dj6mpkui0kjct"]
+
+[ext_resource type="Texture2D" uid="uid://dupe4x5cb0h2h" path="res://Art/microwave.png" id="1_eetag"]
 
 [node name="microwave" type="Control"]
 layout_mode = 3
@@ -10,14 +12,17 @@ grow_vertical = 2
 
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 0
-offset_right = 249.0
-offset_bottom = 136.0
+offset_left = 723.0
+offset_top = 345.0
+offset_right = 932.0
+offset_bottom = 489.0
 theme_override_font_sizes/font_size = 20
 allow_reselect = true
 text_overrun_behavior = 0
 item_count = 12
 max_columns = 3
 same_column_width = true
+icon_mode = 0
 item_0/text = "1"
 item_1/text = "2"
 item_2/text = "3"
@@ -30,3 +35,9 @@ item_8/text = "9"
 item_9/text = "STOP"
 item_10/text = "0"
 item_11/text = "START"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_eetag")
