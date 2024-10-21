@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj46w3sn6hnvr"]
+
+[ext_resource type="Texture2D" uid="uid://ha50briro206" path="res://Art/shippp.png" id="1_6e4f4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o1nyx"]
+radius = 29.0
+height = 112.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfqch"]
+atlas = ExtResource("1_6e4f4")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc6g5"]
+atlas = ExtResource("1_6e4f4")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3gev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfqch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc6g5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ship" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(298, 165)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o1nyx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(313, 166)
+sprite_frames = SubResource("SpriteFrames_i3gev")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(248, 142)

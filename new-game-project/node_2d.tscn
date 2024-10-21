@@ -1,36 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://mgdvfg2ogayq"]
+[gd_scene load_steps=5 format=3 uid="uid://mgdvfg2ogayq"]
 
-[ext_resource type="Texture2D" uid="uid://ha50briro206" path="res://Art/shippp.png" id="1_eceit"]
+[ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ukmkt"]
+[ext_resource type="PackedScene" uid="uid://dj46w3sn6hnvr" path="res://ship.tscn" id="2_dyqd4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80eve"]
+texture = ExtResource("1_ukmkt")
+texture_region_size = Vector2i(1, 1)
+31:19/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_jguwf"]
+sources/1 = SubResource("TileSetAtlasSource_80eve")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vranj"]
-atlas = ExtResource("1_eceit")
-region = Rect2(0, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b0cag"]
-atlas = ExtResource("1_eceit")
-region = Rect2(192, 0, 192, 192)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1ddwn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vranj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b0cag")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Node2D" type="Node2D"]
+[node name="space" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_jguwf")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_1ddwn")
-frame_progress = 0.818784
+[node name="ship" parent="." instance=ExtResource("2_dyqd4")]
