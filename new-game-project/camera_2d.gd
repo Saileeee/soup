@@ -21,7 +21,9 @@ func _process(delta: float) -> void:
 	if count == 100:
 		print(get_screen_center_position())
 		count = 0
-
+	
+	$clock.position = Vector2(get_screen_center_position().x+150,get_screen_center_position().y-175)
+	
 
 func _on_pause_screen_hidden() -> void:
 	make_current()
