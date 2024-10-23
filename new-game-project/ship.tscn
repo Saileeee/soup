@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgh7btrxbony3" path="res://Art/shippp.png" id="1_6e4f4"]
 [ext_resource type="Script" path="res://ship.gd" id="1_l0u82"]
-[ext_resource type="Script" path="res://camera_2d.gd" id="3_w5umw"]
+[ext_resource type="Script" path="res://CameraYay.gd" id="3_k5l3j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o1nyx"]
 radius = 29.0
@@ -56,4 +56,4 @@ position = Vector2(248, 142)
 ignore_rotation = false
 enabled = false
 drag_horizontal_enabled = true
-script = ExtResource("3_w5umw")
+script = ExtResource("3_k5l3j")
