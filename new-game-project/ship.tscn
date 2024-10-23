@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://mfsefxtaxkvq"]
+[gd_scene load_steps=5 format=3 uid="uid://pvl731u13arb"]
 
-[ext_resource type="Texture2D" uid="uid://ha50briro206" path="res://Art/shippp.png" id="1_6e4f4"]
 [ext_resource type="Script" path="res://ship.gd" id="1_l0u82"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_w5umw"]
 
@@ -8,31 +7,17 @@
 radius = 29.0
 height = 112.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yfqch"]
-atlas = ExtResource("1_6e4f4")
-region = Rect2(0, 0, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hc6g5"]
-atlas = ExtResource("1_6e4f4")
-region = Rect2(192, 0, 192, 192)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3gev"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yfqch")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hc6g5")
-}],
+"frames": [],
 "loop": true,
-"name": &"default",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
 [node name="ship" type="CharacterBody2D"]
-disable_mode = 2
 motion_mode = 1
+platform_on_leave = 1
 script = ExtResource("1_l0u82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -43,8 +28,11 @@ shape = SubResource("CapsuleShape2D_o1nyx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(313, 166)
 sprite_frames = SubResource("SpriteFrames_i3gev")
+animation = &"new_animation"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(248, 142)
+ignore_rotation = false
+enabled = false
 drag_horizontal_enabled = true
 script = ExtResource("3_w5umw")
