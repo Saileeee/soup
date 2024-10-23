@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dpt6u03k8yclk"]
+[gd_scene load_steps=11 format=4 uid="uid://dpt6u03k8yclk"]
 
 [ext_resource type="PackedScene" uid="uid://coetw5qtmqcsj" path="res://pause_screen.tscn" id="1_v85i7"]
 [ext_resource type="PackedScene" uid="uid://dtwo5c65ymkeq" path="res://character.tscn" id="2_2eloi"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_fu63x"]
 [ext_resource type="PackedScene" uid="uid://d4ekh484m0" path="res://tile_map_layer.tscn" id="3_m7ydy"]
+[ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="4_bmuc7"]
 [ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://welcome.tscn" id="4_secm3"]
 [ext_resource type="Script" path="res://screen_camera.gd" id="6_v7rvs"]
 
@@ -59,6 +60,11 @@ position = Vector2(569, 343)
 position = Vector2(1, 0)
 zoom = Vector2(2, 2)
 script = ExtResource("3_fu63x")
+
+[node name="clock" parent="CharacterBody2D/Camera2D" instance=ExtResource("4_bmuc7")]
+top_level = true
+position = Vector2(142, -170)
+scale = Vector2(0.157721, 0.157721)
 
 [node name="room move timer" type="Timer" parent="CharacterBody2D"]
 wait_time = 0.3
