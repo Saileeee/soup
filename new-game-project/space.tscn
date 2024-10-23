@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://mgdvfg2ogayq"]
+[gd_scene load_steps=5 format=4 uid="uid://bpdswvfp87dg7"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ikeul"]
-[ext_resource type="PackedScene" uid="uid://mfsefxtaxkvq" path="res://ship_sprite.tscn" id="2_mp744"]
+[ext_resource type="PackedScene" uid="uid://b4fsg2fgc763o" path="res://ship_sprite.tscn" id="2_mp744"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80eve"]
 resource_name = "a"

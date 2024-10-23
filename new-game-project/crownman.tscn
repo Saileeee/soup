@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtwo5c65ymkeq"]
+[gd_scene load_steps=9 format=3 uid="uid://cytuh4l6irupc"]
 
 [ext_resource type="Script" path="res://crowman.gd" id="1_krs7i"]
 [ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="2_661op"]

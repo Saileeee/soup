@@ -16,13 +16,14 @@ func _physics_process(delta: float) -> void:
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * SPEED
 			$AnimatedSprite2D.play()
-		else:
+		elif room_move==0:
 			$AnimatedSprite2D.stop()
 		if entered_room:
 			$"room move timer".start()
 			entered_room = false
 		if room_move != 0:
 			velocity.x = room_move
+			$AnimatedSprite2D.play()
 		
 		move_and_slide()
 

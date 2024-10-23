@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://mfsefxtaxkvq"]
+[gd_scene load_steps=8 format=3 uid="uid://b4fsg2fgc763o"]
 
 [ext_resource type="Texture2D" uid="uid://bgh7btrxbony3" path="res://Art/shippp.png" id="1_6e4f4"]
 [ext_resource type="Script" path="res://ship_sprite.gd" id="1_l0u82"]

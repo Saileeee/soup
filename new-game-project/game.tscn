@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://dpt6u03k8yclk"]
+[gd_scene load_steps=11 format=4 uid="uid://c4bagks4reojt"]
 
-[ext_resource type="PackedScene" uid="uid://d4ekh484m0" path="res://starter_room.tscn" id="1_6hynw"]
-[ext_resource type="PackedScene" uid="uid://dtwo5c65ymkeq" path="res://crownman.tscn" id="2_if3jr"]
+[ext_resource type="PackedScene" uid="uid://ii3yjo1cbujs" path="res://starter_room.tscn" id="1_6hynw"]
+[ext_resource type="PackedScene" uid="uid://cytuh4l6irupc" path="res://crownman.tscn" id="2_if3jr"]
 [ext_resource type="Script" path="res://tracking_camera.gd" id="3_mdauh"]
 [ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="4_s5e13"]
 [ext_resource type="PackedScene" uid="uid://coetw5qtmqcsj" path="res://pause_screen.tscn" id="5_u7g4k"]
