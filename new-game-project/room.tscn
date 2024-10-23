@@ -62,7 +62,8 @@ zoom = Vector2(2, 2)
 script = ExtResource("3_fu63x")
 
 [node name="clock" parent="CharacterBody2D/Camera2D" instance=ExtResource("4_bmuc7")]
-position = Vector2(-292, -171)
+top_level = true
+position = Vector2(142, -170)
 scale = Vector2(0.157721, 0.157721)
 
 [node name="room move timer" type="Timer" parent="CharacterBody2D"]
