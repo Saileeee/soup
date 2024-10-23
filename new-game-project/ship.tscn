@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj46w3sn6hnvr"]
+[gd_scene load_steps=8 format=3 uid="uid://mfsefxtaxkvq"]
 
 [ext_resource type="Texture2D" uid="uid://ha50briro206" path="res://Art/shippp.png" id="1_6e4f4"]
+[ext_resource type="Script" path="res://ship.gd" id="1_l0u82"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="3_w5umw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o1nyx"]
 radius = 29.0
@@ -29,6 +31,9 @@ animations = [{
 }]
 
 [node name="ship" type="CharacterBody2D"]
+disable_mode = 2
+motion_mode = 1
+script = ExtResource("1_l0u82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(298, 165)
@@ -41,3 +46,5 @@ sprite_frames = SubResource("SpriteFrames_i3gev")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(248, 142)
+drag_horizontal_enabled = true
+script = ExtResource("3_w5umw")

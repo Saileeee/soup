@@ -49,6 +49,7 @@ shape = SubResource("RectangleShape2D_ah63b")
 position = Vector2(5, -7)
 scale = Vector2(4.28709, 4.51115)
 sprite_frames = SubResource("SpriteFrames_bkgo7")
+frame_progress = 0.269736
 
 [node name="main_camera" type="Camera2D" parent="."]
 visible = false
