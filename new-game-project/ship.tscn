@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://pvl731u13arb"]
+[gd_scene load_steps=9 format=3 uid="uid://pvl731u13arb"]
 
+[ext_resource type="Texture2D" uid="uid://bgh7btrxbony3" path="res://Art/shippp.png" id="1_6e4f4"]
 [ext_resource type="Script" path="res://ship.gd" id="1_l0u82"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_w5umw"]
 
@@ -7,11 +8,32 @@
 radius = 29.0
 height = 112.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvqca"]
+atlas = ExtResource("1_6e4f4")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co5um"]
+atlas = ExtResource("1_6e4f4")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y400c"]
+atlas = ExtResource("1_6e4f4")
+region = Rect2(384, 0, 192, 192)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3gev"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_fvqca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co5um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y400c")
+}],
 "loop": true,
-"name": &"new_animation",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -26,11 +48,10 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_o1nyx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(313, 166)
+position = Vector2(314, 166)
 sprite_frames = SubResource("SpriteFrames_i3gev")
-animation = &"new_animation"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="CameraYay" type="Camera2D" parent="."]
 position = Vector2(248, 142)
 ignore_rotation = false
 enabled = false

@@ -55,5 +55,5 @@ floor_constant_speed = true
 floor_block_on_wall = false
 platform_floor_layers = 4294967040
 
-[node name="CameraYay" type="Camera2D" parent="ship"]
+[node name="CameraYay2" type="Camera2D" parent="ship"]
 position = Vector2(259, 163)
