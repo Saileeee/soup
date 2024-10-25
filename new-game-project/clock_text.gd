@@ -18,6 +18,11 @@ func _on_timer_timeout() -> void:
 	if a==60:
 		a=0
 		c+=1
+		if c==22:
+			c=0;
+			a=0;
+			text = str(c)+":0"+str(a)
+			$timer.stop()
 		text = str(c)+":0"+str(a)
 	else:
 		text = str(c)+":"+str(a)
