@@ -1,86 +1,90 @@
 [gd_scene load_steps=13 format=3 uid="uid://bxv6qc5dqy501"]
 
-[ext_resource type="Texture2D" uid="uid://cd3nlubxjps8q" path="res://Art/murder rock!.png" id="1_xpabf"]
+[ext_resource type="Texture2D" uid="uid://xq4kx1n356yk" path="res://Art/murder rock! (1).png" id="1_6p4wc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x2mwg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkiwb"]
+atlas = ExtResource("1_6p4wc")
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t0h4h"]
-atlas = ExtResource("1_xpabf")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_raagj"]
+atlas = ExtResource("1_6p4wc")
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_js5c7"]
-atlas = ExtResource("1_xpabf")
-region = Rect2(64, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek6s2"]
+atlas = ExtResource("1_6p4wc")
+region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mpt4"]
-atlas = ExtResource("1_xpabf")
-region = Rect2(128, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7ckb"]
+atlas = ExtResource("1_6p4wc")
+region = Rect2(0, 128, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bl3od"]
-atlas = ExtResource("1_xpabf")
-region = Rect2(192, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7upoa"]
+atlas = ExtResource("1_6p4wc")
+region = Rect2(128, 128, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_20vvh"]
-atlas = ExtResource("1_xpabf")
-region = Rect2(256, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c3y7"]
+atlas = ExtResource("1_6p4wc")
+region = Rect2(256, 128, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ty1em"]
-atlas = ExtResource("1_xpabf")
-region = Rect2(320, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qysif"]
+atlas = ExtResource("1_6p4wc")
+region = Rect2(0, 256, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rad66"]
-atlas = ExtResource("1_xpabf")
-region = Rect2(384, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dekyf"]
+atlas = ExtResource("1_6p4wc")
+region = Rect2(128, 256, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6b6i"]
-atlas = ExtResource("1_xpabf")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tt2op"]
-atlas = ExtResource("1_xpabf")
-region = Rect2(512, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2o0a"]
+atlas = ExtResource("1_6p4wc")
+region = Rect2(256, 256, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y8s68"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t0h4h")
+"texture": SubResource("AtlasTexture_tkiwb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_js5c7")
+"texture": SubResource("AtlasTexture_raagj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3mpt4")
+"texture": SubResource("AtlasTexture_ek6s2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bl3od")
+"texture": SubResource("AtlasTexture_j7ckb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_20vvh")
+"texture": SubResource("AtlasTexture_7upoa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ty1em")
+"texture": SubResource("AtlasTexture_6c3y7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rad66")
+"texture": SubResource("AtlasTexture_qysif")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q6b6i")
+"texture": SubResource("AtlasTexture_dekyf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tt2op")
+"texture": SubResource("AtlasTexture_c2o0a")
 }],
 "loop": true,
-"name": &"default",
+"name": &"new_animation",
 "speed": 5.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x2mwg"]
+radius = 37.0
+height = 98.0
 
 [node name="murder rock!" type="CharacterBody2D"]
 motion_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_x2mwg")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(201, 165)
 sprite_frames = SubResource("SpriteFrames_y8s68")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(208, 160)
+shape = SubResource("CapsuleShape2D_x2mwg")
