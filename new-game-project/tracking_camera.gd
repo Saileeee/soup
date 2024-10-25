@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	count += 1
 	if count == 100:
 		print(get_screen_center_position())
@@ -38,7 +38,7 @@ func _on_welcome_hidden() -> void:
 	make_current()
 
 
-func _on_room_1_area_body_entered(body: Node2D) -> void:
+func _on_room_1_area_body_entered(_body: Node2D) -> void:
 	print("room1 entered")
 	current_room = "room1"
 	limit_left = left1
@@ -47,7 +47,7 @@ func _on_room_1_area_body_entered(body: Node2D) -> void:
 	limit_bottom = top1 + height
 
 
-func _on_room_2_area_body_entered(body: Node2D) -> void:
+func _on_room_2_area_body_entered(_body: Node2D) -> void:
 	print("room2 entered")
 	current_room = "room2"
 	limit_left = left2

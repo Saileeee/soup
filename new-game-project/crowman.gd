@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -400.0
 var room_move = 0
 var entered_room = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if start:
 		var x_direction = Input.get_axis("move_left", "move_right")
 		velocity.x = x_direction
@@ -37,12 +37,12 @@ func _on_welcome_hidden() -> void:
 	room_move = 0
 
 
-func _on_room_1_area_body_entered(body: Node2D) -> void:
+func _on_room_1_area_body_entered(_body: Node2D) -> void:
 	room_move = -500
 	entered_room = true
 
 
-func _on_room_2_area_body_entered(body: Node2D) -> void:
+func _on_room_2_area_body_entered(_body: Node2D) -> void:
 	room_move = 500
 	entered_room = true
 
