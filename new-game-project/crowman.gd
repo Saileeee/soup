@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 var start = false
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 var room_move = 0
 var entered_room = false
 

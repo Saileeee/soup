@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://bxv6qc5dqy501"]
+
+[ext_resource type="Texture2D" uid="uid://cd3nlubxjps8q" path="res://Art/murder rock!.png" id="1_xpabf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x2mwg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0h4h"]
+atlas = ExtResource("1_xpabf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js5c7"]
+atlas = ExtResource("1_xpabf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mpt4"]
+atlas = ExtResource("1_xpabf")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl3od"]
+atlas = ExtResource("1_xpabf")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20vvh"]
+atlas = ExtResource("1_xpabf")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty1em"]
+atlas = ExtResource("1_xpabf")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rad66"]
+atlas = ExtResource("1_xpabf")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6b6i"]
+atlas = ExtResource("1_xpabf")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt2op"]
+atlas = ExtResource("1_xpabf")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8s68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0h4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js5c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mpt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl3od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20vvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty1em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rad66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6b6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt2op")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="murder rock!" type="CharacterBody2D"]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_x2mwg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(201, 165)
+sprite_frames = SubResource("SpriteFrames_y8s68")

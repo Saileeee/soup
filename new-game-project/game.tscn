@@ -54,7 +54,7 @@ position = Vector2(578, 416)
 shape = SubResource("RectangleShape2D_1o8xm")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_if3jr")]
-position = Vector2(569, 343)
+position = Vector2(600, 362)
 motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
