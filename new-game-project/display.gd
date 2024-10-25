@@ -1,6 +1,7 @@
 extends Label
 var timeStr: String
 var time = 0
+var t
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,8 +14,12 @@ func _process(_delta: float) -> void:
 		time = 0
 		$Timer.stop()
 	if time != 0:
-		text = "0".repeat(4-timeStr.length())+str(int($Timer.time_left))
+		t = int($Timer.time_left)
+		time = int(t/60*100+t%60)
+		text = "0".repeat(4-intLen(time))+str(time)
 		text = text.insert(2, ":")
+		timeStr = ""
+	
 	
 
 func _on_item_list_item_clicked(index: int, _at_position: Vector2, _mouse_button_index: int) -> void:
@@ -35,14 +40,18 @@ func _on_item_list_item_clicked(index: int, _at_position: Vector2, _mouse_button
 			print(int(text.get_slice(":",1)))
 			$Timer.wait_time = time
 			$Timer.start()
-			timeStr = ""
 		text = "0".repeat(4-timeStr.length())+str(timeStr)
 		text = text.insert(2, ":")
 	if $Timer.is_paused():
 		if index == 9: #timer running, stop pressed
-			timeStr = ""
+			time = 0
+			text = "00:00"
 		elif index == 11:
 			$Timer.set_paused(false)
 	else:
 		if index == 9:
 			$Timer.set_paused(true)
+			
+func intLen(value):
+	if value == 0: return 1 
+	return int(log(value)/log(10))+1
