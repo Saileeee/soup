@@ -5,9 +5,20 @@ const SPEED = 300.0
 var room_move = 0
 var entered_room = false
 var speaking = false
+var count = 0
 
+func _ready() -> void:
+	position = Vector2(536,566)
+	
 func _physics_process(_delta: float) -> void:
+	count += 1
+	if count > 100:
+		print(speaking)
+		count = 0
 	if start and not speaking:
+		if count > 100: 
+			print("can move")
+			count = 0
 		var x_direction = Input.get_axis("move_left", "move_right")
 		velocity.x = x_direction
 		var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
@@ -26,11 +37,6 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite2D.play()
 		
 		move_and_slide()
-
-
-func _on_pause_screen_hidden() -> void:
-	$main_camera.make_current()
-
 
 func _on_welcome_hidden() -> void:
 	start = true
@@ -53,3 +59,12 @@ func _on_room_move_timer_timeout() -> void:
 
 func _on_murder_rock_dialog() -> void:
 	speaking = true
+	print("dialog recieved")
+	
+
+
+func _on_dialog_end_convo() -> void:
+	speaking = false
+	print("end_convo recieved")
+	$Camera2D.make_current()
+	

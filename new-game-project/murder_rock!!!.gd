@@ -10,15 +10,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if in_range and Input.is_action_pressed("enter"):
+	if in_range and Input.is_action_just_pressed("interact"):
 		dialog.emit()
 
 
 func _on_body_entered(body: Node2D) -> void:
-	in_range = true
-	$Label.show()
+	if body is CharacterBody2D:
+		print("character body entered")
+		in_range = true
+		$Label.show()
 
 
 func _on_body_exited(body: Node2D) -> void:
-	in_range = false
-	$Label.hide()
+	if body is CharacterBody2D:
+		print("character body exited")
+		in_range = false
+		$Label.hide()

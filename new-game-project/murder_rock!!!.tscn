@@ -93,4 +93,5 @@ offset_left = 464.0
 offset_top = 314.0
 offset_right = 608.0
 offset_bottom = 337.0
-text = "Press space to talk"
+text = "Press v to talk
+Press enter to end"
