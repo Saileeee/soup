@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dn7roektby4v5"]
+[gd_scene load_steps=12 format=4 uid="uid://dpt6u03k8yclk"]
 
 [ext_resource type="PackedScene" uid="uid://jqaloto22mwj" path="res://starter_room.tscn" id="1_6hynw"]
 [ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://crownman.tscn" id="2_if3jr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://coetw5qtmqcsj" path="res://pause_screen.tscn" id="5_u7g4k"]
 [ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://welcome.tscn" id="6_lhfc1"]
 [ext_resource type="Script" path="res://screen_camera.gd" id="7_8lrgp"]
+[ext_resource type="Script" path="res://ship_health.gd" id="8_chbgb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_654nx"]
 size = Vector2(30, 127.5)
@@ -80,6 +81,9 @@ offset_bottom = -648.0
 [node name="screen camera" type="Camera2D" parent="."]
 position = Vector2(576, -324)
 script = ExtResource("7_8lrgp")
+
+[node name="ShipHealth" type="Node2D" parent="."]
+script = ExtResource("8_chbgb")
 
 [connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D" method="_on_room_1_area_body_entered"]
 [connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D/Camera2D" method="_on_room_1_area_body_entered"]

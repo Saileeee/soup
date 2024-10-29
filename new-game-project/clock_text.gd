@@ -22,7 +22,7 @@ func _on_timer_timeout() -> void:
 			c=0;
 			a=0;
 			text = str(c)+":0"+str(a)
-			$timer.stop()
+			$Timer.stop()
 		text = str(c)+":0"+str(a)
 	else:
 		text = str(c)+":"+str(a)
