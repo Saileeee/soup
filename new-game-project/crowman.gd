@@ -4,9 +4,10 @@ var start = false
 const SPEED = 300.0
 var room_move = 0
 var entered_room = false
+var speaking = false
 
 func _physics_process(_delta: float) -> void:
-	if start:
+	if start and not speaking:
 		var x_direction = Input.get_axis("move_left", "move_right")
 		velocity.x = x_direction
 		var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
@@ -48,3 +49,7 @@ func _on_room_2_area_body_entered(_body: Node2D) -> void:
 
 func _on_room_move_timer_timeout() -> void:
 	room_move = 0
+
+
+func _on_murder_rock_dialog() -> void:
+	speaking = true
