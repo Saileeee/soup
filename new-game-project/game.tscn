@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://coetw5qtmqcsj" path="res://pause_screen.tscn" id="5_u7g4k"]
 [ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://welcome.tscn" id="6_lhfc1"]
 [ext_resource type="Script" path="res://screen_camera.gd" id="7_8lrgp"]
-[ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://murder_rock!!!.tscn" id="8_khou2"]
-[ext_resource type="PackedScene" uid="uid://dtl86llex088q" path="res://dialog.tscn" id="9_medwn"]
+[ext_resource type="PackedScene" path="res://murder_rock!!!.tscn" id="8_khou2"]
+[ext_resource type="PackedScene" path="res://dialog.tscn" id="9_medwn"]
 [ext_resource type="Script" path="res://dialog.gd" id="10_i3kik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_654nx"]
