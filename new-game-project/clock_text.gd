@@ -1,7 +1,7 @@
 extends Label
 
 var a = 0
-var c = 6
+var c = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +18,9 @@ func _on_timer_timeout() -> void:
 	if a==60:
 		a=0
 		c+=1
+		if c==21:
+			set_modulate(Color(0.5,0.5,0.5))
+			
 		if c==22:
 			c=0;
 			a=0;
