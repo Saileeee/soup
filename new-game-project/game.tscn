@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://dpt6u03k8yclk"]
 
 [ext_resource type="PackedScene" uid="uid://d4ekh484m0" path="res://starter_room.tscn" id="1_6hynw"]
-[ext_resource type="PackedScene" uid="uid://dtwo5c65ymkeq" path="res://crownman.tscn" id="2_if3jr"]
+[ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://crownman.tscn" id="2_if3jr"]
 [ext_resource type="Script" path="res://tracking_camera.gd" id="3_mdauh"]
 [ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="4_s5e13"]
 [ext_resource type="PackedScene" uid="uid://coetw5qtmqcsj" path="res://pause_screen.tscn" id="5_u7g4k"]
@@ -54,6 +54,18 @@ position = Vector2(-2, 0)
 position = Vector2(578, 416)
 shape = SubResource("RectangleShape2D_1o8xm")
 
+[node name="Pause screen" parent="." instance=ExtResource("5_u7g4k")]
+offset_top = -649.0
+offset_bottom = -649.0
+
+[node name="Welcome" parent="." instance=ExtResource("6_lhfc1")]
+offset_top = -648.0
+offset_bottom = -648.0
+
+[node name="screen camera" type="Camera2D" parent="."]
+position = Vector2(576, -324)
+script = ExtResource("7_8lrgp")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_if3jr")]
 position = Vector2(569, 343)
 motion_mode = 1
@@ -71,18 +83,6 @@ scale = Vector2(0.157721, 0.157721)
 [node name="room move timer" type="Timer" parent="CharacterBody2D"]
 wait_time = 0.3
 
-[node name="Pause screen" parent="." instance=ExtResource("5_u7g4k")]
-offset_top = -649.0
-offset_bottom = -649.0
-
-[node name="Welcome" parent="." instance=ExtResource("6_lhfc1")]
-offset_top = -648.0
-offset_bottom = -648.0
-
-[node name="screen camera" type="Camera2D" parent="."]
-position = Vector2(576, -324)
-script = ExtResource("7_8lrgp")
-
 [node name="ShipHealth" type="Node2D" parent="."]
 script = ExtResource("8_chbgb")
 
@@ -90,8 +90,8 @@ script = ExtResource("8_chbgb")
 [connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D/Camera2D" method="_on_room_1_area_body_entered"]
 [connection signal="body_entered" from="Room2/Room2 Area" to="CharacterBody2D" method="_on_room_2_area_body_entered"]
 [connection signal="body_entered" from="Room2/Room2 Area" to="CharacterBody2D/Camera2D" method="_on_room_2_area_body_entered"]
-[connection signal="timeout" from="CharacterBody2D/room move timer" to="CharacterBody2D" method="_on_room_move_timer_timeout"]
 [connection signal="hidden" from="Pause screen" to="CharacterBody2D" method="_on_pause_screen_hidden"]
 [connection signal="hidden" from="Pause screen" to="CharacterBody2D/Camera2D" method="_on_pause_screen_hidden"]
 [connection signal="hidden" from="Welcome" to="CharacterBody2D" method="_on_welcome_hidden"]
 [connection signal="hidden" from="Welcome" to="CharacterBody2D/Camera2D" method="_on_welcome_hidden"]
+[connection signal="timeout" from="CharacterBody2D/room move timer" to="CharacterBody2D" method="_on_room_move_timer_timeout"]

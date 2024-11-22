@@ -2,6 +2,7 @@ extends Label
 
 var a = 0
 var c = 20
+var night = ColorRect.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +20,8 @@ func _on_timer_timeout() -> void:
 		a=0
 		c+=1
 		if c==21:
-			set_modulate(Color(0.5,0.5,0.5))
+			var col = Color(0,0,0,1)
+			night.color=col
 			
 		if c==22:
 			c=0;
