@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://jqaloto22mwj" path="res://starter_room.tscn" id="1_6hynw"]
 [ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://crownman.tscn" id="2_if3jr"]
 [ext_resource type="Script" path="res://tracking_camera.gd" id="3_mdauh"]
-[ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="4_s5e13"]
 [ext_resource type="PackedScene" uid="uid://coetw5qtmqcsj" path="res://pause_screen.tscn" id="5_u7g4k"]
 [ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://welcome.tscn" id="6_lhfc1"]
+[ext_resource type="PackedScene" uid="uid://1aectrgdt3o5" path="res://task-ui/task_ui.tscn" id="6_t7qfc"]
 [ext_resource type="Script" path="res://screen_camera.gd" id="7_8lrgp"]
-[ext_resource type="PackedScene" path="res://murder_rock!!!.tscn" id="8_khou2"]
-[ext_resource type="PackedScene" path="res://dialog.tscn" id="9_medwn"]
+[ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://murder_rock!!!.tscn" id="8_khou2"]
+[ext_resource type="PackedScene" uid="uid://dtl86llex088q" path="res://dialog.tscn" id="9_medwn"]
 [ext_resource type="Script" path="res://dialog.gd" id="10_i3kik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_654nx"]
@@ -45,6 +45,7 @@ script = null
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/Room1 Area"]
 position = Vector2(576, 416)
 shape = SubResource("RectangleShape2D_6xu6e")
+metadata/_edit_lock_ = true
 
 [node name="Room2" parent="." instance=ExtResource("1_6hynw")]
 position = Vector2(1152, 128)
@@ -62,18 +63,13 @@ shape = SubResource("RectangleShape2D_1o8xm")
 position = Vector2(1289, 268)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_if3jr")]
-position = Vector2(566, 536)
+position = Vector2(-243, 466)
 motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(1, 0)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.6, 1.6)
 script = ExtResource("3_mdauh")
-
-[node name="clock" parent="CharacterBody2D/Camera2D" instance=ExtResource("4_s5e13")]
-top_level = true
-position = Vector2(142, -170)
-scale = Vector2(0.157721, 0.157721)
 
 [node name="room move timer" type="Timer" parent="CharacterBody2D"]
 wait_time = 0.3
@@ -96,6 +92,15 @@ script = ExtResource("10_i3kik")
 [node name="screen camera" type="Camera2D" parent="."]
 position = Vector2(576, -324)
 script = ExtResource("7_8lrgp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="stupidthing" type="Node2D" parent="CanvasLayer"]
+top_level = true
+
+[node name="taskUI" parent="CanvasLayer/stupidthing" instance=ExtResource("6_t7qfc")]
+top_level = true
+position = Vector2(207, 333)
 
 [connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D" method="_on_room_1_area_body_entered"]
 [connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D/Camera2D" method="_on_room_1_area_body_entered"]

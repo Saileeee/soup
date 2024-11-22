@@ -23,11 +23,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	count += 1
+	#$stupidthing.set_position(get_screen_center_position());
 	if count == 100:
-		print(get_screen_center_position())
+		#print(get_screen_center_position())
 		count = 0
+		#print("next line")
+		#print($stupidthing.position)
+		#print("next line tas")
+		#print($stupidthing/taskUI.position)
+
+	##$stupidthing.position = Vector2(get_screen_center_position());
+	##visibility button.
+	##get_screen_center_position().x, get_screen_center_position().y)
 	
-	$clock.position = Vector2(get_screen_center_position().x+150,get_screen_center_position().y-175)
 	
 
 func _on_pause_screen_hidden() -> void:

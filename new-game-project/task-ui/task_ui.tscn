@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://1aectrgdt3o5"]
+
+[ext_resource type="Script" path="res://task-ui/task_ui.gd" id="1_b0xnu"]
+[ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="2_te8gi"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="task-ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b0xnu")
+metadata/_edit_group_ = true
+
+[node name="clock" parent="task-ui" instance=ExtResource("2_te8gi")]
+position = Vector2(310.5, 179.5)
+scale = Vector2(0.0977517, 0.0977517)
+
+[node name="ColorRect" type="ColorRect" parent="task-ui"]
+offset_right = 720.0
+offset_bottom = 26.0
+color = Color(0.168627, 0.227451, 0.584314, 1)
+
+[node name="Label" type="Label" parent="task-ui"]
+offset_left = 16.0
+offset_top = 27.0
+offset_right = 213.0
+offset_bottom = 54.0
+text = "Character Name"
+
+[node name="TabBar" type="TabBar" parent="task-ui"]
+offset_left = 356.0
+offset_top = 25.0
+offset_right = 721.0
+offset_bottom = 65.0
+tab_alignment = 2
+deselect_enabled = true
+tab_count = 2
+tab_0/title = "tasks"
+tab_1/title = "switch character"
+
+[node name="tasks" type="ColorRect" parent="task-ui"]
+offset_left = 164.0
+offset_top = 180.0
+offset_right = 204.0
+offset_bottom = 220.0
+color = Color(0.913725, 0.768627, 0.133333, 1)
+
+[node name="other characters" type="ColorRect" parent="task-ui"]
+offset_left = 469.0
+offset_top = 177.0
+offset_right = 509.0
+offset_bottom = 217.0
+color = Color(0.427451, 0.309804, 0.792157, 1)
+
+[node name="none" type="Button" parent="task-ui"]
+offset_left = 126.0
+offset_top = 310.0
+offset_right = 562.0
+offset_bottom = 341.0
+text = "fun! doesn't do anything :( but is necessary for the code"
+
+[node name="reference" type="Camera2D" parent="task-ui"]
+position = Vector2(360, 203)
+enabled = false
+zoom = Vector2(1.6, 1.6)
+
+[connection signal="tab_changed" from="task-ui/TabBar" to="task-ui" method="_on_tab_bar_tab_changed"]
