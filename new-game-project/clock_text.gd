@@ -1,8 +1,7 @@
-extends Label
+extends Label 
 
 var a = 0
 var c = 20
-var night = ColorRect.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +10,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if c==21:
+			
+			#var col = Color(0,0,0,1)
+			var night = ColorRect
+			night.get_Color.set_Color(0,0,0,1)
 
 
 func _on_timer_timeout() -> void:
@@ -19,9 +22,7 @@ func _on_timer_timeout() -> void:
 	if a==60:
 		a=0
 		c+=1
-		if c==21:
-			var col = Color(0,0,0,1)
-			night.color=col
+		
 			
 		if c==22:
 			c=0;

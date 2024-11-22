@@ -67,7 +67,7 @@ position = Vector2(576, -324)
 script = ExtResource("7_8lrgp")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_if3jr")]
-position = Vector2(569, 343)
+position = Vector2(598, 526)
 motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
