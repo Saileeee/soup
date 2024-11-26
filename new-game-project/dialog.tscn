@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtl86llex088q"]
-
-[ext_resource type="Script" path="res://dialog_camera.gd" id="1_hc1qp"]
+[gd_scene format=3 uid="uid://dtl86llex088q"]
 
 [node name="Dialog" type="Control"]
 layout_mode = 3
@@ -29,7 +27,6 @@ text = "Blah blah blah"
 
 [node name="Dialog camera" type="Camera2D" parent="."]
 position = Vector2(576, 324)
-script = ExtResource("1_hc1qp")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
