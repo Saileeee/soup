@@ -1,21 +1,22 @@
 extends CharacterBody2D
 
-var start = false
+var started = false
+var paused = false
+var speaking = false
+var entered_room = false
 const SPEED = 300.0
 var room_move = 0
-var entered_room = false
-var speaking = false
 var count = 0
 
 func _ready() -> void:
-	position = Vector2(536,566)
+	position = Vector2(-1726,461)
 	
 func _physics_process(_delta: float) -> void:
 	count += 1
 	if count > 100:
 		print(speaking)
 		count = 0
-	if start and not speaking:
+	if started and not speaking and not paused:
 		if count > 100: 
 			print("can move")
 			count = 0
@@ -27,8 +28,9 @@ func _physics_process(_delta: float) -> void:
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * SPEED
 			$AnimatedSprite2D.play()
-		elif room_move==0:
-			$AnimatedSprite2D.stop()
+		#elif room_move==0:
+			#$AnimatedSprite2D.stop()
+			
 		if entered_room:
 			$"room move timer".start()
 			entered_room = false
@@ -36,10 +38,10 @@ func _physics_process(_delta: float) -> void:
 			velocity.x = room_move
 			$AnimatedSprite2D.play()
 		
-		move_and_slide()
+	move_and_slide()
 
 func _on_welcome_hidden() -> void:
-	start = true
+	started = true
 	room_move = 0
 
 
@@ -68,3 +70,6 @@ func _on_dialog_end_convo() -> void:
 	print("end_convo recieved")
 	$Camera2D.make_current()
 	
+
+func _on_pause_screen_visibility_changed() -> void:
+	paused = not paused

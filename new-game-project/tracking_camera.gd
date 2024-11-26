@@ -1,8 +1,8 @@
 extends Camera2D
 var current_room
-var left1 = 0
+var left1 = -2314
 var top1 = 0
-var left2 = 1152
+var left2 = -1152
 var top2 = 0
 var count
 var width = 1152
@@ -22,15 +22,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	count += 1
-	#$stupidthing.set_position(get_screen_center_position());
-	if count == 100:
-		#print(get_screen_center_position())
-		count = 0
-		#print("next line")
-		#print($stupidthing.position)
-		#print("next line tas")
-		#print($stupidthing/taskUI.position)
+	pass
+	#to print something to console regularly
+	#count += 1
+	#if count == 100:
+		#count = 0
 
 	##$stupidthing.position = Vector2(get_screen_center_position());
 	##visibility button.
