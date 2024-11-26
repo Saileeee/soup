@@ -6,30 +6,25 @@ var speaking = false
 var entered_room = false
 const SPEED = 300.0
 var room_move = 0
-var count = 0
 
 func _ready() -> void:
 	position = Vector2(-1726,461)
 	
 func _physics_process(_delta: float) -> void:
-	count += 1
-	if count > 100:
-		print(speaking)
-		count = 0
-	if started and not speaking and not paused:
-		if count > 100: 
-			print("can move")
-			count = 0
-		var x_direction = Input.get_axis("move_left", "move_right")
-		velocity.x = x_direction
-		var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
-		velocity.y = y_direction
+	if started and not speaking: #it's possible to be in the pause screen as you move through rooms
+		if not paused: #but it doesn't seem to cause issues
+			var x_direction = Input.get_axis("move_left", "move_right")
+			velocity.x = x_direction
+			var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
+			velocity.y = y_direction
+		else:
+			velocity = Vector2.ZERO
 		
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * SPEED
 			$AnimatedSprite2D.play()
-		#elif room_move==0:
-			#$AnimatedSprite2D.stop()
+		elif room_move==0:
+			$AnimatedSprite2D.stop()
 			
 		if entered_room:
 			$"room move timer".start()
