@@ -1,19 +1,49 @@
-[gd_scene load_steps=11 format=4 uid="uid://dn7roektby4v5"]
+[gd_scene load_steps=12 format=4 uid="uid://dn7roektby4v5"]
 
 [ext_resource type="PackedScene" uid="uid://jqaloto22mwj" path="res://starter_room.tscn" id="1_6hynw"]
-[ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://crownman.tscn" id="2_if3jr"]
+[ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://Characters/crownman.tscn" id="2_if3jr"]
 [ext_resource type="Script" path="res://tracking_camera.gd" id="3_mdauh"]
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="6_t7qfc"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="6_ucbhr"]
 [ext_resource type="PackedScene" uid="uid://cvvwpf6wgsbi1" path="res://Screens/pause_screen.tscn" id="7_yipv8"]
-[ext_resource type="PackedScene" path="res://Screens/welcome.tscn" id="8_6bsyb"]
-[ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://murder_rock!!!.tscn" id="8_khou2"]
+[ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://Screens/welcome.tscn" id="8_6bsyb"]
+[ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://Characters/murder_rock!!!.tscn" id="8_khou2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xu6e"]
 size = Vector2(1152, 448)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o8xm"]
 size = Vector2(1152, 448)
+
+[sub_resource type="GDScript" id="GDScript_lgt6r"]
+script/source = "extends Control
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+	#$Label2.hide()
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(\"enter\"):
+		$Label2.text = \"Hello \"+$TextEdit.text.trim_suffix(\"\\n\")+\"!\"
+		#$TextEdit.clear()
+		$TextEdit.hide()
+		hide()
+		#start button code
+		#$Label2.show()
+		#var button = Button.new()
+		#button.text = \"Click to start!\"
+		#button.position = $TextEdit.position
+		#button.size = $TextEdit.size
+		#button.pressed.connect(self._button_pressed)
+		#add_child(button)
+
+func _button_pressed():
+	hide()
+"
 
 [node name="room" type="Node2D"]
 
@@ -49,16 +79,16 @@ shape = SubResource("RectangleShape2D_1o8xm")
 [node name="murder rock!!!" parent="." instance=ExtResource("8_khou2")]
 position = Vector2(-764, 189)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_if3jr")]
+[node name="crowman" parent="." instance=ExtResource("2_if3jr")]
 position = Vector2(-1726, 461)
 motion_mode = 1
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="crowman"]
 position = Vector2(1, 0)
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("3_mdauh")
 
-[node name="room move timer" type="Timer" parent="CharacterBody2D"]
+[node name="room move timer" type="Timer" parent="crowman"]
 wait_time = 0.3
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -78,6 +108,7 @@ layer = 2
 [node name="Pause screen" parent="Screens" instance=ExtResource("7_yipv8")]
 
 [node name="Welcome" parent="Screens" instance=ExtResource("8_6bsyb")]
+script = SubResource("GDScript_lgt6r")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 visible = false
@@ -85,20 +116,20 @@ offset_left = -1152.0
 offset_right = 1.0
 offset_bottom = 769.0
 
-[connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D" method="_on_room_1_area_body_entered"]
-[connection signal="body_entered" from="Room1/Room1 Area" to="CharacterBody2D/Camera2D" method="_on_room_1_area_body_entered"]
+[connection signal="body_entered" from="Room1/Room1 Area" to="crowman" method="_on_room_1_area_body_entered"]
+[connection signal="body_entered" from="Room1/Room1 Area" to="crowman/Camera2D" method="_on_room_1_area_body_entered"]
 [connection signal="body_entered" from="Room1/Room1 Area" to="Screens/Pause screen" method="_on_room_1_area_body_entered"]
-[connection signal="body_entered" from="Room2/Room2 Area" to="CharacterBody2D" method="_on_room_2_area_body_entered"]
-[connection signal="body_entered" from="Room2/Room2 Area" to="CharacterBody2D/Camera2D" method="_on_room_2_area_body_entered"]
+[connection signal="body_entered" from="Room2/Room2 Area" to="crowman" method="_on_room_2_area_body_entered"]
+[connection signal="body_entered" from="Room2/Room2 Area" to="crowman/Camera2D" method="_on_room_2_area_body_entered"]
 [connection signal="body_entered" from="Room2/Room2 Area" to="Screens/Pause screen" method="_on_room_2_area_body_entered"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
-[connection signal="dialog" from="murder rock!!!" to="CharacterBody2D" method="_on_murder_rock_dialog"]
+[connection signal="dialog" from="murder rock!!!" to="crowman" method="_on_murder_rock_dialog"]
 [connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]
-[connection signal="timeout" from="CharacterBody2D/room move timer" to="CharacterBody2D" method="_on_room_move_timer_timeout"]
-[connection signal="timeout" from="CharacterBody2D/room move timer" to="Screens/Pause screen" method="_on_room_move_timer_timeout"]
-[connection signal="end_convo" from="Dialog" to="CharacterBody2D" method="_on_dialog_end_convo"]
-[connection signal="hidden" from="Screens/Pause screen" to="CharacterBody2D/Camera2D" method="_on_pause_screen_hidden"]
-[connection signal="visibility_changed" from="Screens/Pause screen" to="CharacterBody2D" method="_on_pause_screen_visibility_changed"]
-[connection signal="hidden" from="Screens/Welcome" to="CharacterBody2D" method="_on_welcome_hidden"]
-[connection signal="hidden" from="Screens/Welcome" to="CharacterBody2D/Camera2D" method="_on_welcome_hidden"]
+[connection signal="timeout" from="crowman/room move timer" to="crowman" method="_on_room_move_timer_timeout"]
+[connection signal="timeout" from="crowman/room move timer" to="Screens/Pause screen" method="_on_room_move_timer_timeout"]
+[connection signal="end_convo" from="Dialog" to="crowman" method="_on_dialog_end_convo"]
+[connection signal="hidden" from="Screens/Pause screen" to="crowman/Camera2D" method="_on_pause_screen_hidden"]
+[connection signal="visibility_changed" from="Screens/Pause screen" to="crowman" method="_on_pause_screen_visibility_changed"]
+[connection signal="hidden" from="Screens/Welcome" to="crowman" method="_on_welcome_hidden"]
+[connection signal="hidden" from="Screens/Welcome" to="crowman/Camera2D" method="_on_welcome_hidden"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://blax6asrlquxi"]
+[gd_scene load_steps=8 format=3 uid="uid://blax6asrlquxi"]
 
-[ext_resource type="Script" path="res://crowman.gd" id="1_krs7i"]
+[ext_resource type="Script" path="res://Characters/crowman.gd" id="1_krs7i"]
 [ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="2_661op"]
-[ext_resource type="Script" path="res://main_camera.gd" id="3_nicrq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah63b"]
 size = Vector2(149, 20)
@@ -50,8 +49,3 @@ position = Vector2(5, -7)
 scale = Vector2(4.28709, 4.51115)
 sprite_frames = SubResource("SpriteFrames_bkgo7")
 frame_progress = 0.269736
-
-[node name="main_camera" type="Camera2D" parent="."]
-visible = false
-enabled = false
-script = ExtResource("3_nicrq")
