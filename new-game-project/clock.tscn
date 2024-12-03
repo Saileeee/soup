@@ -27,6 +27,7 @@ script = ExtResource("1_06j2a")
 metadata/_edit_use_anchors_ = true
 
 [node name="night" type="ColorRect" parent="Label"]
+layout_mode = 0
 offset_left = -4047.0
 offset_top = -100.0
 offset_right = 684.0
