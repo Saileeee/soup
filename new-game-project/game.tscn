@@ -1,14 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://dn7roektby4v5"]
+[gd_scene load_steps=11 format=4 uid="uid://dn7roektby4v5"]
 
 [ext_resource type="PackedScene" uid="uid://jqaloto22mwj" path="res://starter_room.tscn" id="1_6hynw"]
 [ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://crownman.tscn" id="2_if3jr"]
 [ext_resource type="Script" path="res://tracking_camera.gd" id="3_mdauh"]
-[ext_resource type="PackedScene" uid="uid://coetw5qtmqcsj" path="res://pause_screen.tscn" id="5_u7g4k"]
-[ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://welcome.tscn" id="6_lhfc1"]
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="6_t7qfc"]
+[ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="6_ucbhr"]
+[ext_resource type="PackedScene" uid="uid://cvvwpf6wgsbi1" path="res://Screens/pause_screen.tscn" id="7_yipv8"]
+[ext_resource type="PackedScene" path="res://Screens/welcome.tscn" id="8_6bsyb"]
 [ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://murder_rock!!!.tscn" id="8_khou2"]
-[ext_resource type="PackedScene" uid="uid://dtl86llex088q" path="res://dialog.tscn" id="9_medwn"]
-[ext_resource type="Script" path="res://dialog.gd" id="10_i3kik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xu6e"]
 size = Vector2(1152, 448)
@@ -64,25 +63,21 @@ wait_time = 0.3
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="stupidthing" type="Node2D" parent="HUD"]
-top_level = true
-
 [node name="taskUI" parent="HUD" instance=ExtResource("6_t7qfc")]
 top_level = true
 
-[node name="Dialog" parent="." instance=ExtResource("9_medwn")]
-offset_left = -1152.0
+[node name="Dialog" parent="." instance=ExtResource("6_ucbhr")]
+offset_left = -1149.0
 offset_top = 138.0
-offset_right = -1152.0
+offset_right = -1149.0
 offset_bottom = 138.0
-script = ExtResource("10_i3kik")
 
 [node name="Screens" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="Welcome" parent="Screens" instance=ExtResource("6_lhfc1")]
+[node name="Pause screen" parent="Screens" instance=ExtResource("7_yipv8")]
 
-[node name="Pause screen" parent="Screens" instance=ExtResource("5_u7g4k")]
+[node name="Welcome" parent="Screens" instance=ExtResource("8_6bsyb")]
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 visible = false
@@ -103,7 +98,7 @@ offset_bottom = 769.0
 [connection signal="timeout" from="CharacterBody2D/room move timer" to="CharacterBody2D" method="_on_room_move_timer_timeout"]
 [connection signal="timeout" from="CharacterBody2D/room move timer" to="Screens/Pause screen" method="_on_room_move_timer_timeout"]
 [connection signal="end_convo" from="Dialog" to="CharacterBody2D" method="_on_dialog_end_convo"]
-[connection signal="hidden" from="Screens/Welcome" to="CharacterBody2D" method="_on_welcome_hidden"]
-[connection signal="hidden" from="Screens/Welcome" to="CharacterBody2D/Camera2D" method="_on_welcome_hidden"]
 [connection signal="hidden" from="Screens/Pause screen" to="CharacterBody2D/Camera2D" method="_on_pause_screen_hidden"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="CharacterBody2D" method="_on_pause_screen_visibility_changed"]
+[connection signal="hidden" from="Screens/Welcome" to="CharacterBody2D" method="_on_welcome_hidden"]
+[connection signal="hidden" from="Screens/Welcome" to="CharacterBody2D/Camera2D" method="_on_welcome_hidden"]
