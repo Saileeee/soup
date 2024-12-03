@@ -11,8 +11,8 @@ func _ready() -> void:
 	position = Vector2(-1726,461)
 	
 func _physics_process(_delta: float) -> void:
-	if started and not speaking: #it's possible to be in the pause screen as you move through rooms
-		if not paused: #but it doesn't seem to cause issues
+	if started and not speaking: 
+		if not paused: 
 			var x_direction = Input.get_axis("move_left", "move_right")
 			velocity.x = x_direction
 			var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
