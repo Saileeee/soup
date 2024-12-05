@@ -114,7 +114,7 @@ script = ExtResource("7_rww84")
 visible = false
 position = Vector2(-1906, 248)
 
-[node name="stickCam" type="Camera2D" parent="characters/stickman"]
+[node name="Camera2D" type="Camera2D" parent="characters/stickman"]
 visible = false
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("9_i1uqc")
@@ -123,23 +123,23 @@ script = ExtResource("9_i1uqc")
 position = Vector2(-1726, 461)
 motion_mode = 1
 
-[node name="crowCam" type="Camera2D" parent="characters/crowman"]
+[node name="Camera2D" type="Camera2D" parent="characters/crowman"]
 position = Vector2(1, 0)
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("3_mdauh")
 
 [connection signal="body_entered" from="Room1/Room1 Area" to="Screens/Pause screen" method="_on_room_1_area_body_entered"]
 [connection signal="body_entered" from="Room1/Room1 Area" to="characters/crowman" method="_on_room_1_area_body_entered"]
-[connection signal="body_entered" from="Room1/Room1 Area" to="characters/crowman/crowCam" method="_on_room_1_area_body_entered"]
+[connection signal="body_entered" from="Room1/Room1 Area" to="characters/crowman/Camera2D" method="_on_room_1_area_body_entered"]
 [connection signal="body_entered" from="Room2/Room2 Area" to="Screens/Pause screen" method="_on_room_2_area_body_entered"]
 [connection signal="body_entered" from="Room2/Room2 Area" to="characters/crowman" method="_on_room_2_area_body_entered"]
-[connection signal="body_entered" from="Room2/Room2 Area" to="characters/crowman/crowCam" method="_on_room_2_area_body_entered"]
+[connection signal="body_entered" from="Room2/Room2 Area" to="characters/crowman/Camera2D" method="_on_room_2_area_body_entered"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
 [connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]
 [connection signal="dialog" from="murder rock!!!" to="characters/crowman" method="_on_murder_rock_dialog"]
 [connection signal="end_convo" from="Dialog" to="characters/crowman" method="_on_dialog_end_convo"]
-[connection signal="hidden" from="Screens/Pause screen" to="characters/crowman/crowCam" method="_on_pause_screen_hidden"]
+[connection signal="hidden" from="Screens/Pause screen" to="characters/crowman/Camera2D" method="_on_pause_screen_hidden"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters/crowman" method="_on_pause_screen_visibility_changed"]
 [connection signal="hidden" from="Screens/Welcome" to="characters/crowman" method="_on_welcome_hidden"]
-[connection signal="hidden" from="Screens/Welcome" to="characters/crowman/crowCam" method="_on_welcome_hidden"]
+[connection signal="hidden" from="Screens/Welcome" to="characters/crowman/Camera2D" method="_on_welcome_hidden"]

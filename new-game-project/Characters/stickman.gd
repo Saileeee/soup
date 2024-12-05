@@ -6,12 +6,15 @@ var speaking = false
 var entered_room = false
 const SPEED = 300.0
 var room_move = 0
+var room_move_timer = Timer.new()
+var isCurrChar = true
 
 func _ready() -> void:
 	position = Vector2(-1726,461)
+	room_move_timer.wait_time = 0.3
 	
 func _physics_process(_delta: float) -> void:
-	if started and not speaking: 
+	if started and not speaking and isCurrChar: 
 		if not paused: 
 			var x_direction = Input.get_axis("move_left", "move_right")
 			velocity.x = x_direction
@@ -27,11 +30,10 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite2D.stop()
 			
 		if entered_room:
-			$"room move timer".start()
+			room_move_timer.start()
 			entered_room = false
 		if room_move != 0:
 			velocity.x = room_move
 			$AnimatedSprite2D.play()
 		
 	move_and_slide()
-	
