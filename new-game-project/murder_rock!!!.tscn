@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://baoc77sueil74"]
+
+[ext_resource type="Script" path="res://murder_rock!!!.gd" id="1_4pty3"]
+[ext_resource type="Texture2D" uid="uid://xq4kx1n356yk" path="res://Art/murder rock! (1).png" id="1_lmac1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_014gc"]
+atlas = ExtResource("1_lmac1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv5wy"]
+atlas = ExtResource("1_lmac1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d2kx"]
+atlas = ExtResource("1_lmac1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbx3n"]
+atlas = ExtResource("1_lmac1")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0mk1"]
+atlas = ExtResource("1_lmac1")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo5t5"]
+atlas = ExtResource("1_lmac1")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5rxx"]
+atlas = ExtResource("1_lmac1")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ska5q"]
+atlas = ExtResource("1_lmac1")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev37n"]
+atlas = ExtResource("1_lmac1")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e63pu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_014gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv5wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d2kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbx3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0mk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo5t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5rxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ska5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev37n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b2pk2"]
+radius = 226.221
+
+[node name="murder rock!!!" type="Area2D"]
+script = ExtResource("1_4pty3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(529, 264)
+sprite_frames = SubResource("SpriteFrames_e63pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(535, 266)
+shape = SubResource("CircleShape2D_b2pk2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 464.0
+offset_top = 314.0
+offset_right = 608.0
+offset_bottom = 337.0
+text = "Press v to talk
+Press enter to end"

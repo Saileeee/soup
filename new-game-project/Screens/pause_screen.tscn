@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://l4ipr8flaxir"]
+[gd_scene load_steps=2 format=3 uid="uid://cvvwpf6wgsbi1"]
 
 [ext_resource type="Script" path="res://pause_screen.gd" id="1_dy1dk"]
 
@@ -15,7 +15,7 @@ script = ExtResource("1_dy1dk")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.779984, 0.679626, 0.413639, 1)
+color = Color(0.777078, 0.674407, 0.478143, 0.498039)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -25,3 +25,14 @@ offset_right = 728.0
 offset_bottom = 366.0
 theme_override_font_sizes/font_size = 100
 text = "Paused"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1057.0
+offset_top = 20.0
+offset_right = 1135.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 50
+text = "X"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
