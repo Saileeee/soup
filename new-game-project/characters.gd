@@ -8,15 +8,18 @@ const SPEED = 300.0
 var room_move = 0
 var currChar = "crowman"
 var chars = ["stickman", "crowman"]
+var room_move_timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	room_move_timer.wait_time = 0.3
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if started and not speaking and entered_room: 
+		room_move_timer.start()
+		entered_room = false
 
 func _on_welcome_hidden() -> void:
 	for char in chars:
