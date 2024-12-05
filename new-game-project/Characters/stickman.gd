@@ -34,3 +34,4 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite2D.play()
 		
 	move_and_slide()
+	
