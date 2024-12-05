@@ -39,7 +39,6 @@ func _on_welcome_hidden() -> void:
 	started = true
 	room_move = 0
 
-
 func _on_room_1_area_body_entered(_body: Node2D) -> void:
 	room_move = -500
 	entered_room = true
