@@ -5,9 +5,11 @@ var paused = false
 var speaking = false
 var entered_room = false
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 var room_move = 0
 
+func _ready() -> void:
+	position = Vector2(-1726,461)
+	
 func _physics_process(_delta: float) -> void:
 	if started and not speaking: 
 		if not paused: 
@@ -23,6 +25,7 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite2D.play()
 		elif room_move==0:
 			$AnimatedSprite2D.stop()
+			
 		if entered_room:
 			$"room move timer".start()
 			entered_room = false
@@ -48,3 +51,19 @@ func _on_room_2_area_body_entered(_body: Node2D) -> void:
 
 func _on_room_move_timer_timeout() -> void:
 	room_move = 0
+
+
+func _on_murder_rock_dialog() -> void:
+	speaking = true
+	print("dialog recieved")
+	
+
+
+func _on_dialog_end_convo() -> void:
+	speaking = false
+	print("end_convo recieved")
+	$Camera2D.make_current()
+	
+
+func _on_pause_screen_visibility_changed() -> void:
+	paused = not paused
