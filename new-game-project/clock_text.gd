@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	if c==21:
 		var night = ColorRect
 		
-		night.get.color.set_color=Color(0,0,0,1)
+		night.color.set_color=Color(0,0,0,1)
 
 
 func _on_timer_timeout() -> void:
