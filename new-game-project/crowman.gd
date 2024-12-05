@@ -3,18 +3,12 @@ extends CharacterBody2D
 var started = false
 var paused = false
 var speaking = false
+var entered_room = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var room_move = 0
-var entered_room = false
 
 func _physics_process(_delta: float) -> void:
-	##if start:
-		#var x_direction = Input.get_axis("move_left", "move_right")
-		#velocity.x = x_direction
-		#var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
-		#velocity.y = y_direction
-		
 	if started and not speaking: 
 		if not paused: 
 			var x_direction = Input.get_axis("move_left", "move_right")
@@ -37,9 +31,6 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite2D.play()
 		
 		move_and_slide()
-
-func _ready() -> void:
-	$Camera2D.make_current()
 
 func _on_welcome_hidden() -> void:
 	started = true
