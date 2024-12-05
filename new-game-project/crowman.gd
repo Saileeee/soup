@@ -27,14 +27,8 @@ func _physics_process(_delta: float) -> void:
 		
 		move_and_slide()
 
-
-func _on_pause_screen_hidden() -> void:
-	$main_camera.make_current()
-
-
-func _on_welcome_hidden() -> void:
-	start = true
-	room_move = 0
+func _ready() -> void:
+	$Camera2D.make_current()
 
 
 func _on_room_1_area_body_entered(_body: Node2D) -> void:
