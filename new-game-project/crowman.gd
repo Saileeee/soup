@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 var started = false
+var paused = false
+var speaking = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var room_move = 0
@@ -8,19 +10,19 @@ var entered_room = false
 
 func _physics_process(_delta: float) -> void:
 	##if start:
-		var x_direction = Input.get_axis("move_left", "move_right")
-		velocity.x = x_direction
-		var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
-		velocity.y = y_direction
+		#var x_direction = Input.get_axis("move_left", "move_right")
+		#velocity.x = x_direction
+		#var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
+		#velocity.y = y_direction
 		
-		#if started and not speaking: 
-			#if not paused: 
-				#var x_direction = Input.get_axis("move_left", "move_right")
-				#velocity.x = x_direction
-				#var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
-				#velocity.y = y_direction
-		#else:
-			#velocity = Vector2.ZERO
+	if started and not speaking: 
+		if not paused: 
+			var x_direction = Input.get_axis("move_left", "move_right")
+			velocity.x = x_direction
+			var y_direction = Input.get_axis("move_up", "move_down") #up is negative and down is positive
+			velocity.y = y_direction
+		else:
+			velocity = Vector2.ZERO
 		
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * SPEED
