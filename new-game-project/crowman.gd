@@ -30,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 			velocity.x = room_move
 			$AnimatedSprite2D.play()
 		
-		move_and_slide()
+	move_and_slide()
 
 func _on_welcome_hidden() -> void:
 	started = true
