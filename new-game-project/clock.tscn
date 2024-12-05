@@ -26,17 +26,16 @@ text = "6:00
 script = ExtResource("1_06j2a")
 metadata/_edit_use_anchors_ = true
 
+[node name="Timer" type="Timer" parent="Label"]
+script = ExtResource("2_qpbd5")
+
 [node name="night" type="ColorRect" parent="Label"]
 layout_mode = 0
 offset_left = -4047.0
 offset_top = -100.0
 offset_right = 684.0
 offset_bottom = 2726.0
-localize_numeral_system = false
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 0.368627)
 script = ExtResource("2_stiw3")
-
-[node name="Timer" type="Timer" parent="Label"]
-script = ExtResource("2_qpbd5")
 
 [connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]
