@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://clock_text.gd" id="1_06j2a"]
 [ext_resource type="Script" path="res://shhhh_real_clock.gd" id="2_qpbd5"]
 
-[node name="clock" type="Node2D"]
+[node name="clock2" type="Node2D"]
 position = Vector2(172, 140)
 
 [node name="ColorRect" type="ColorRect" parent="."]

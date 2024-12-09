@@ -10,7 +10,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if c==21:
+		var night = ColorRect
+		
+		#night.color.set_color=Color(0,0,0,1)
 
 
 func _on_timer_timeout() -> void:
