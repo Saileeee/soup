@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="6_t7qfc"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="6_ucbhr"]
 [ext_resource type="PackedScene" uid="uid://cvvwpf6wgsbi1" path="res://Screens/pause_screen.tscn" id="7_yipv8"]
-[ext_resource type="PackedScene" path="res://Screens/welcome.tscn" id="8_6bsyb"]
-[ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://murder_rock!!!.tscn" id="8_khou2"]
+[ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://Screens/welcome.tscn" id="8_6bsyb"]
+[ext_resource type="PackedScene" path="res://murder_rock!!!.tscn" id="8_khou2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xu6e"]
 size = Vector2(1152, 448)
