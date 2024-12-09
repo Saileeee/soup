@@ -7,9 +7,9 @@ var entered_room = false
 const SPEED = 300.0
 var room_move = 0
 
-func _ready() -> void:
-	position = Vector2(-1726,461)
-	
+func _init() -> void:
+	position = Vector2(-760,-1089)
+
 func _physics_process(_delta: float) -> void:
 	if started and not speaking: 
 		if not paused: 
