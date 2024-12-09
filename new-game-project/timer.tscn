@@ -29,6 +29,7 @@ metadata/_edit_use_anchors_ = true
 script = ExtResource("1_aeeac")
 
 [node name="ColorRect2" type="ColorRect" parent="Label"]
+layout_mode = 0
 offset_left = -10869.0
 offset_top = -100.0
 offset_right = 774.0

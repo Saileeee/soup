@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=4 uid="uid://dpt6u03k8yclk"]
 
-[ext_resource type="PackedScene" uid="uid://jqaloto22mwj" path="res://starter_room.tscn" id="1_6hynw"]
+[ext_resource type="PackedScene" path="res://starter_room.tscn" id="1_6hynw"]
 [ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://crownman.tscn" id="2_if3jr"]
 [ext_resource type="Script" path="res://tracking_camera.gd" id="3_mdauh"]
 [ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="4_s5e13"]
-[ext_resource type="PackedScene" uid="uid://coetw5qtmqcsj" path="res://pause_screen.tscn" id="5_u7g4k"]
-[ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://welcome.tscn" id="6_lhfc1"]
+[ext_resource type="PackedScene" uid="uid://l4ipr8flaxir" path="res://pause_screen.tscn" id="5_u7g4k"]
+[ext_resource type="PackedScene" uid="uid://djyku8rsg3hjc" path="res://welcome.tscn" id="6_lhfc1"]
 [ext_resource type="Script" path="res://screen_camera.gd" id="7_8lrgp"]
 [ext_resource type="Script" path="res://ship_health.gd" id="8_chbgb"]
 
