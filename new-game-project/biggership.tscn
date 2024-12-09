@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bbs101ulhxbs5"]
+[gd_scene load_steps=23 format=4 uid="uid://bbs101ulhxbs5"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
@@ -82,6 +82,9 @@ size = Vector2(898, 446)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eon30"]
 size = Vector2(960.5, 261)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbme"]
+size = Vector2(54, 6)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1652, -880)
 
@@ -163,7 +166,13 @@ layer = 2
 top_level = true
 
 [node name="murder rock!!!" parent="." instance=ExtResource("9_c6752")]
-position = Vector2(-1302, -296)
+position = Vector2(-1002, -432)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="murder rock!!!"]
+position = Vector2(533, 306)
+shape = SubResource("RectangleShape2D_6xbme")
+one_way_collision = true
+one_way_collision_margin = 0.0
 
 [node name="Dialog" parent="." instance=ExtResource("10_uxkbi")]
 offset_left = -1211.0
