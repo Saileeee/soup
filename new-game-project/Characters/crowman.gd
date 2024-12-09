@@ -10,10 +10,11 @@ var room_move = 0
 var isCurrChar = true
 
 func _ready() -> void:
-	position = Vector2(-1726,461)
+	position = Vector2(-1726,250) #461
 
 	
 func _physics_process(_delta: float) -> void:
+	print("started ",started," speaking ",speaking," iscurrchar ", isCurrChar," paused ",paused," room_move", room_move)
 	if started and not speaking and isCurrChar: 
 		if not paused: 
 			var x_direction = Input.get_axis("move_left", "move_right")

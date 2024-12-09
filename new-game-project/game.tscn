@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=4 uid="uid://dn7roektby4v5"]
 
 [ext_resource type="PackedScene" uid="uid://jqaloto22mwj" path="res://starter_room.tscn" id="1_6hynw"]
-[ext_resource type="PackedScene" path="res://Characters/crownman.tscn" id="2_if3jr"]
+[ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://Characters/crownman.tscn" id="2_if3jr"]
 [ext_resource type="Script" path="res://tracking_camera.gd" id="3_mdauh"]
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="6_t7qfc"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="6_ucbhr"]
 [ext_resource type="Script" path="res://characters.gd" id="7_rww84"]
 [ext_resource type="PackedScene" uid="uid://cvvwpf6wgsbi1" path="res://Screens/pause_screen.tscn" id="7_yipv8"]
 [ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://Screens/welcome.tscn" id="8_6bsyb"]
-[ext_resource type="PackedScene" path="res://Characters/murder_rock!!!.tscn" id="8_khou2"]
-[ext_resource type="PackedScene" path="res://Characters/stickman.tscn" id="8_o01qh"]
+[ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://Characters/murder_rock!!!.tscn" id="8_khou2"]
+[ext_resource type="PackedScene" uid="uid://b8oxswyq1jcin" path="res://Characters/stickman.tscn" id="8_o01qh"]
 [ext_resource type="Script" path="res://Characters/stick_cam.gd" id="9_i1uqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xu6e"]
@@ -114,7 +114,7 @@ script = ExtResource("7_rww84")
 visible = false
 position = Vector2(-1906, 248)
 
-[node name="Camera2D" type="Camera2D" parent="characters/stickman"]
+[node name="camera" type="Camera2D" parent="characters/stickman"]
 visible = false
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("9_i1uqc")
@@ -123,20 +123,35 @@ script = ExtResource("9_i1uqc")
 position = Vector2(-1726, 461)
 motion_mode = 1
 
-[node name="Camera2D" type="Camera2D" parent="characters/crowman"]
+[node name="camera" type="Camera2D" parent="characters/crowman"]
 position = Vector2(1, 0)
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("3_mdauh")
 
+[node name="room move timer" type="Timer" parent="characters"]
+wait_time = 0.3
+
 [connection signal="body_entered" from="Room1/Room1 Area" to="Screens/Pause screen" method="_on_room_1_area_body_entered"]
 [connection signal="body_entered" from="Room1/Room1 Area" to="characters" method="_on_room_1_area_body_entered"]
+[connection signal="body_entered" from="Room1/Room1 Area" to="characters/stickman/camera" method="_on_room_1_area_body_entered"]
+[connection signal="body_entered" from="Room1/Room1 Area" to="characters/crowman/camera" method="_on_room_1_area_body_entered"]
+[connection signal="body_exited" from="Room1/Room1 Area" to="characters" method="_on_room_1_area_body_exited"]
+[connection signal="body_exited" from="Room1/Room1 Area" to="characters/stickman/camera" method="_on_room_1_area_body_exited"]
+[connection signal="body_exited" from="Room1/Room1 Area" to="characters/crowman/camera" method="_on_room_1_area_body_exited"]
 [connection signal="body_entered" from="Room2/Room2 Area" to="Screens/Pause screen" method="_on_room_2_area_body_entered"]
 [connection signal="body_entered" from="Room2/Room2 Area" to="characters" method="_on_room_2_area_body_entered"]
+[connection signal="body_entered" from="Room2/Room2 Area" to="characters/stickman/camera" method="_on_room_2_area_body_entered"]
+[connection signal="body_entered" from="Room2/Room2 Area" to="characters/crowman/camera" method="_on_room_2_area_body_entered"]
+[connection signal="body_exited" from="Room2/Room2 Area" to="characters" method="_on_room_2_area_body_exited"]
+[connection signal="body_exited" from="Room2/Room2 Area" to="characters/stickman/camera" method="_on_room_2_area_body_exited"]
+[connection signal="body_exited" from="Room2/Room2 Area" to="characters/crowman/camera" method="_on_room_2_area_body_exited"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
 [connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]
 [connection signal="dialog" from="murder rock!!!" to="characters" method="_on_murder_rock_dialog"]
 [connection signal="end_convo" from="Dialog" to="characters" method="_on_dialog_end_convo"]
-[connection signal="hidden" from="Screens/Pause screen" to="characters/crowman/Camera2D" method="_on_pause_screen_hidden"]
+[connection signal="hidden" from="Screens/Pause screen" to="characters/crowman/camera" method="_on_pause_screen_hidden"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
 [connection signal="hidden" from="Screens/Welcome" to="characters" method="_on_welcome_hidden"]
+[connection signal="hidden" from="Screens/Welcome" to="characters/crowman/camera" method="_on_welcome_hidden"]
+[connection signal="timeout" from="characters/room move timer" to="characters" method="_on_room_move_timer_timeout"]
