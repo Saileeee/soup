@@ -34,12 +34,6 @@ func _process(_delta: float) -> void:
 	
 	
 
-func _on_pause_screen_hidden() -> void:
-	make_current()
-
-
-func _on_welcome_hidden() -> void:
-	make_current()
 
 
 func _on_room_1_area_body_entered(_body: Node2D) -> void:

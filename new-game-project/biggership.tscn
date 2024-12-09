@@ -1,11 +1,15 @@
-[gd_scene load_steps=18 format=4 uid="uid://bbs101ulhxbs5"]
+[gd_scene load_steps=22 format=4 uid="uid://bbs101ulhxbs5"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
 [ext_resource type="Texture2D" uid="uid://b04xdi4ueppvb" path="res://Art/Door.png" id="3_7cd2n"]
 [ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://crownman.tscn" id="3_kfdvt"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="5_pk3k4"]
+[ext_resource type="PackedScene" uid="uid://cvvwpf6wgsbi1" path="res://Screens/pause_screen.tscn" id="6_dyqnk"]
 [ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://Screens/welcome.tscn" id="7_ejty5"]
+[ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="8_2pdsk"]
+[ext_resource type="PackedScene" path="res://murder_rock!!!.tscn" id="9_c6752"]
+[ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7vld"]
 texture = ExtResource("1_ydcfy")
@@ -146,10 +150,32 @@ position = Vector2(574, 122)
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("5_pk3k4")
 
-[node name="Welcome" parent="." instance=ExtResource("7_ejty5")]
-offset_left = 1651.0
-offset_top = 878.0
-offset_right = 1651.0
-offset_bottom = 878.0
+[node name="Screens" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Pause screen" parent="Screens" instance=ExtResource("6_dyqnk")]
+
+[node name="Welcome" parent="Screens" instance=ExtResource("7_ejty5")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="taskUI" parent="HUD" instance=ExtResource("8_2pdsk")]
+top_level = true
+
+[node name="murder rock!!!" parent="." instance=ExtResource("9_c6752")]
+position = Vector2(-1302, -296)
+
+[node name="Dialog" parent="." instance=ExtResource("10_uxkbi")]
+offset_left = -1211.0
+offset_top = -268.0
+offset_right = -1211.0
+offset_bottom = -268.0
+scale = Vector2(0.772414, 0.774292)
 
 [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="character/Camera2D" method="_on_hub_area_entered"]
+[connection signal="visibility_changed" from="Screens/Pause screen" to="character" method="_on_pause_screen_visibility_changed"]
+[connection signal="hidden" from="Screens/Welcome" to="character" method="_on_welcome_hidden"]
+[connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
+[connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
+[connection signal="dialog" from="murder rock!!!" to="character" method="_on_murder_rock_dialog"]
+[connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]
