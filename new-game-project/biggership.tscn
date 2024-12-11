@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bbs101ulhxbs5"]
+[gd_scene load_steps=24 format=4 uid="uid://burbymsch5mgk"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="8_2pdsk"]
 [ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://Characters/murder_rock!!!.tscn" id="9_c6752"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
+[ext_resource type="PackedScene" uid="uid://crwa1rkgjikf2" path="res://Characters/stickman.tscn" id="11_q35u0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7vld"]
 texture = ExtResource("1_ydcfy")
@@ -183,10 +184,14 @@ position = Vector2(574, 122)
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("5_pk3k4")
 
+[node name="stickman" parent="characters" instance=ExtResource("11_q35u0")]
+
+[node name="Camera2D" type="Camera2D" parent="characters/stickman"]
+
 [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/character/Camera2D" method="_on_hub_area_entered"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters/character" method="_on_pause_screen_visibility_changed"]
 [connection signal="hidden" from="Screens/Welcome" to="characters/character" method="_on_welcome_hidden"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
-[connection signal="dialog" from="murder rock!!!" to="characters/character" method="_on_murder_rock_dialog"]
 [connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]
+[connection signal="dialog" from="murder rock!!!" to="characters/character" method="_on_murder_rock_dialog"]
