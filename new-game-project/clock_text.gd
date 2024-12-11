@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	if c==21:
 		#var night = $ColorRect2
 		
-		$ColorRect2.color=Color(0,0,0,1)
+		$ColorRect2.get_color=Color(0,0,0,1)
 
 
 func _on_timer_timeout() -> void:
