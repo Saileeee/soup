@@ -8,6 +8,7 @@ const SPEED = 300.0
 var room_move = 0
 var currChar = "crowman"
 var chars = ["stickman", "crowman"]
+var camera = "camera"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -62,11 +63,13 @@ func _on_dialog_end_convo() -> void:
 	for char in chars:
 		get_node(char).speaking = false
 	print("end_convo recieved")
-	get_node(currChar).Camera2D.make_current()
+	get_node(currChar).get_node(camera).make_current() #will crash
 
 func _on_pause_screen_visibility_changed() -> void:
+	paused = not paused
 	for char in chars:
-		get_node(char).paused = not paused
+		get_node(char).paused = paused
+	print("crowman pause ",$crowman.paused)
 
 
 #func _on_room_1_area_body_exited(body: Node2D) -> void:
@@ -83,3 +86,19 @@ func _on_pause_screen_visibility_changed() -> void:
 	#for char in chars:
 		#get_node(char).room_move = -500
 		#get_node(char).entered_room = true
+
+
+func _on_task_ui_crowman_time() -> void:
+	currChar = "crowman"
+	for char in chars:
+		get_node(char).isCurrChar = false
+	$crowman.isCurrChar = true
+	$crowman/camera.make_current()
+
+
+func _on_task_ui_stickman_time() -> void:
+	currChar = "stickman"
+	for char in chars:
+		get_node(char).isCurrChar = false
+	$stickman.isCurrChar = true
+	$stickman/camera.make_current()

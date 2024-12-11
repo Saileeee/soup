@@ -9,7 +9,7 @@ var room_move = 0
 var isCurrChar = false
 
 func _ready() -> void:
-	position = Vector2(-1726,461)
+	pass
 	
 func _physics_process(_delta: float) -> void:
 	if started and not speaking and isCurrChar: 

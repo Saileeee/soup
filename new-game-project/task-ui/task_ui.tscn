@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkes1732debii"]
+[gd_scene load_steps=4 format=3 uid="uid://dkes1732debii"]
 
 [ext_resource type="Script" path="res://task-ui/task_ui.gd" id="1_b0xnu"]
+[ext_resource type="Script" path="res://task-ui/task node.gd" id="1_ir01q"]
 [ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="2_te8gi"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_ir01q")
 
 [node name="task-ui" type="Control" parent="."]
 layout_mode = 3
@@ -64,6 +66,23 @@ offset_right = 740.0
 offset_bottom = 262.0
 color = Color(0.427451, 0.309804, 0.792157, 1)
 
+[node name="crowman" type="Button" parent="task-ui/other characters"]
+layout_mode = 0
+offset_left = -138.0
+offset_top = -106.0
+offset_right = 27.0
+offset_bottom = -4.0
+text = "crowman"
+
+[node name="stickman" type="Button" parent="task-ui/other characters"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = -104.0
+offset_right = 292.0
+offset_bottom = -18.0
+text = "stickman
+"
+
 [node name="none" type="Button" parent="task-ui"]
 layout_mode = 0
 offset_left = 344.0
@@ -73,3 +92,5 @@ offset_bottom = 451.0
 text = "fun! doesn't do anything :( but is necessary for the code"
 
 [connection signal="tab_changed" from="task-ui/TabBar" to="task-ui" method="_on_tab_bar_tab_changed"]
+[connection signal="pressed" from="task-ui/other characters/crowman" to="." method="_on_crowman_pressed"]
+[connection signal="pressed" from="task-ui/other characters/stickman" to="." method="_on_stickman_pressed"]
