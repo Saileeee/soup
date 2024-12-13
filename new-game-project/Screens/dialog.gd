@@ -12,10 +12,14 @@ func _process(_delta: float) -> void:
 		hide()
 		end_convo.emit()
 		speaking = false
-	if speaking and Input.is_action_just_pressed("1"):
-		$Options.text="Then die."
-	if speaking and Input.is_action_just_pressed("2"):
-		$Options.text="Perhaps... You are not so bad."
+		$Speech.text="What do you want?"
+		$Options.text="1. To fight\n2. To love"
+	if speaking and Input.is_action_just_pressed("choice1") and $Speech.text=="What do you want?":
+		$Speech.text="Then die."
+		$Options.hide()
+	if speaking and Input.is_action_just_pressed("choice2") and $Speech.text=="What do you want?":
+		$Speech.text="Perhaps... You are not so bad."
+		$Options.hide()
 
 func _on_murder_rock_dialog() -> void:
 	show()
