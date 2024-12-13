@@ -193,6 +193,5 @@ script = ExtResource("5_pk3k4")
 [connection signal="hidden" from="Screens/Welcome" to="characters/character" method="_on_welcome_hidden"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
-[connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]
 [connection signal="dialog" from="murder rock!!!" to="characters/character" method="_on_murder_rock_dialog"]
 [connection signal="end_convo" from="Dialog" to="characters/character" method="_on_dialog_end_convo"]
