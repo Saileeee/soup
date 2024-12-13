@@ -6,10 +6,10 @@ var speaking = false
 var entered_room = false
 const SPEED = 300.0
 var room_move = 0
-var isCurrChar = true
+var isCurrChar = false
 
 func _init() -> void:
-	position = Vector2(-760,-1089)
+	pass
 
 func _physics_process(_delta: float) -> void:
 	if started and not speaking and isCurrChar: 
