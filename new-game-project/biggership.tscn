@@ -198,6 +198,8 @@ script = ExtResource("13_5hqk7")
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters/crowman" method="_on_pause_screen_visibility_changed"]
 [connection signal="hidden" from="Screens/Welcome" to="characters" method="_on_welcome_hidden"]
 [connection signal="hidden" from="Screens/Welcome" to="characters/crowman" method="_on_welcome_hidden"]
+[connection signal="crowman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_crowman_time"]
+[connection signal="stickman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_stickman_time"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
 [connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]
