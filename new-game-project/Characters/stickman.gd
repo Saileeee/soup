@@ -1,4 +1,4 @@
-extends CharacterBody2D #on mask 2 to not interact with crowman
+extends CharacterBody2D 
 
 var started = false
 var paused = false

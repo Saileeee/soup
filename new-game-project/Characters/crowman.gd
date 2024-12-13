@@ -1,4 +1,4 @@
-extends CharacterBody2D #on mask 1 to not interact with stickman
+extends CharacterBody2D 
 
 var started = false
 var paused = false
