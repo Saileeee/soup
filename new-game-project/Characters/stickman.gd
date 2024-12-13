@@ -1,4 +1,4 @@
-extends CharacterBody2D #on mask 1 to not interact with stickman
+extends CharacterBody2D #on mask 2 to not interact with crowman
 
 var started = false
 var paused = false
@@ -6,10 +6,10 @@ var speaking = false
 var entered_room = false
 const SPEED = 300.0
 var room_move = 0
-var isCurrChar = true
+var isCurrChar = false
 
 func _init() -> void:
-	position = Vector2(-760,-1089)
+	pass
 
 func _physics_process(_delta: float) -> void:
 	if started and not speaking and isCurrChar: 
