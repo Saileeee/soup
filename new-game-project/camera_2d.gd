@@ -11,6 +11,7 @@ var height = 762
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	make_current()
 	count = 0
 	#these values are based off the room size, should make them clearer
 	current_room = "room1"
