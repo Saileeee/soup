@@ -8,8 +8,8 @@ signal stickman_time
 func _ready() -> void:
 	$tasks.hide()
 	$"other characters".hide()
-	$stickman.hide()
-	$crowman.hide()
+	#$stickman.hide()
+	#$crowman.hide()
 	currTab = "none"
 	currChar = "Crowman"
 	$Label.text = currChar
@@ -21,16 +21,16 @@ func _process(_delta: float) -> void:
 
 func _on_tab_bar_tab_changed(tab: int) -> void:
 	get_node(currTab).hide()
-	$crowman.hide()
-	$stickman.hide()
+	#$crowman.hide()
+	#$stickman.hide()
 	if tab == 0:
 		currTab = "other characters"
-		$tasks.show()
+		$"other characters".show()
 	elif tab == 1:
 		currTab = "tasks"
-		$"other characters".show()
-		$crowman.show()
-		$stickman.show()
+		$tasks.show()
+		#$crowman.show()
+		#$stickman.show()
 
 func _on_stickman_pressed() -> void:
 	currChar = "Stickman"
