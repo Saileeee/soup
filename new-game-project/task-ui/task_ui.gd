@@ -35,7 +35,11 @@ func _on_tab_bar_tab_changed(tab: int) -> void:
 func _on_stickman_pressed() -> void:
 	currChar = "Stickman"
 	stickman_time.emit()
+	$tasks.hide()
+	$TabBar.current_tab = -1
 
 func _on_crowman_pressed() -> void:
 	currChar = "Crowman"
 	crowman_time.emit()
+	$tasks.hide()
+	$TabBar.current_tab = -1
