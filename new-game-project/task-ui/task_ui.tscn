@@ -46,7 +46,7 @@ tab_count = 2
 tab_0/title = "tasks"
 tab_1/title = "switch character"
 
-[node name="other characters" type="ColorRect" parent="."]
+[node name="tasks" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 758.0
 offset_top = 220.0
@@ -54,7 +54,25 @@ offset_right = 798.0
 offset_bottom = 260.0
 color = Color(0.913725, 0.768627, 0.133333, 1)
 
-[node name="tasks" type="ColorRect" parent="."]
+[node name="stickman" type="Button" parent="tasks"]
+layout_mode = 0
+offset_left = -252.0
+offset_top = 75.0
+offset_right = -116.0
+offset_bottom = 153.0
+text = "stickman
+"
+
+[node name="crowman" type="Button" parent="tasks"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 41.0
+offset_right = 161.0
+offset_bottom = 151.0
+text = "crowman
+"
+
+[node name="other characters" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 373.0
 offset_top = 222.0
@@ -70,24 +88,6 @@ offset_right = 780.0
 offset_bottom = 451.0
 text = "fun! doesn't do anything :( but is necessary for the code"
 
-[node name="stickman" type="Button" parent="."]
-layout_mode = 0
-offset_left = 506.0
-offset_top = 295.0
-offset_right = 642.0
-offset_bottom = 373.0
-text = "stickman
-"
-
-[node name="crowman" type="Button" parent="."]
-layout_mode = 0
-offset_left = 767.0
-offset_top = 261.0
-offset_right = 919.0
-offset_bottom = 371.0
-text = "crowman
-"
-
 [connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]
-[connection signal="pressed" from="stickman" to="." method="_on_stickman_pressed"]
-[connection signal="pressed" from="crowman" to="." method="_on_crowman_pressed"]
+[connection signal="pressed" from="tasks/stickman" to="." method="_on_stickman_pressed"]
+[connection signal="pressed" from="tasks/crowman" to="." method="_on_crowman_pressed"]
