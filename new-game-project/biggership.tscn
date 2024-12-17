@@ -181,6 +181,7 @@ scale = Vector2(0.772414, 0.774292)
 script = ExtResource("9_a45k0")
 
 [node name="crowman" parent="characters" instance=ExtResource("3_kfdvt")]
+editor_description = "motion must be set to floating"
 position = Vector2(574, 122)
 motion_mode = 1
 platform_on_leave = 2
