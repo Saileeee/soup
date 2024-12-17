@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://burbymsch5mgk"]
+[gd_scene load_steps=29 format=4 uid="uid://cy8pqvsusmrt5"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
 [ext_resource type="PackedScene" uid="uid://crwa1rkgjikf2" path="res://Characters/stickman.tscn" id="11_q35u0"]
 [ext_resource type="Script" path="res://Characters/stickman.gd" id="13_5hqk7"]
+[ext_resource type="Texture2D" uid="uid://bjprwmxskwown" path="res://Art/highlight.png" id="14_rfmyy"]
+[ext_resource type="Script" path="res://texture_button.gd" id="16_j3jir"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7vld"]
 texture = ExtResource("1_ydcfy")
@@ -87,6 +89,9 @@ size = Vector2(960.5, 261)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbme"]
 size = Vector2(54, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6cpy3"]
+radius = 255.096
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1652, -880)
@@ -197,6 +202,24 @@ script = ExtResource("13_5hqk7")
 [node name="camera" type="Camera2D" parent="characters/stickman"]
 position = Vector2(451, 305)
 zoom = Vector2(1.6, 1.6)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(573, -317)
+shape = SubResource("CircleShape2D_6cpy3")
+
+[node name="TextureButton" type="TextureButton" parent="Node2D"]
+offset_left = 443.0
+offset_top = -644.0
+offset_right = 707.0
+offset_bottom = -380.0
+texture_normal = ExtResource("1_ydcfy")
+texture_pressed = ExtResource("3_7cd2n")
+texture_hover = ExtResource("14_rfmyy")
+script = ExtResource("16_j3jir")
 
 [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/crowman/camera" method="_on_hub_area_entered"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
