@@ -1,4 +1,4 @@
-extends CharacterBody2D 
+extends CharacterBody2D #motion mode must be set to floating
 
 var started = false
 var paused = false

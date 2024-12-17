@@ -181,23 +181,30 @@ scale = Vector2(0.772414, 0.774292)
 script = ExtResource("9_a45k0")
 
 [node name="crowman" parent="characters" instance=ExtResource("3_kfdvt")]
+editor_description = "motion must be set to floating"
 position = Vector2(574, 122)
+motion_mode = 1
+platform_on_leave = 2
 
 [node name="camera" type="Camera2D" parent="characters/crowman"]
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("5_pk3k4")
 
 [node name="stickman" parent="characters" instance=ExtResource("11_q35u0")]
-collision_mask = 2
+motion_mode = 1
 script = ExtResource("13_5hqk7")
 
 [node name="camera" type="Camera2D" parent="characters/stickman"]
+position = Vector2(451, 305)
+zoom = Vector2(1.6, 1.6)
 
 [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/crowman/camera" method="_on_hub_area_entered"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters/crowman" method="_on_pause_screen_visibility_changed"]
 [connection signal="hidden" from="Screens/Welcome" to="characters" method="_on_welcome_hidden"]
 [connection signal="hidden" from="Screens/Welcome" to="characters/crowman" method="_on_welcome_hidden"]
+[connection signal="crowman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_crowman_time"]
+[connection signal="stickman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_stickman_time"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
 [connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]

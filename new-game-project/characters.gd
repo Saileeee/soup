@@ -73,17 +73,17 @@ func _on_pause_screen_visibility_changed() -> void:
 	print("crowman pause ",$crowman.paused)
 
 
-#func _on_task_ui_crowman_time() -> void:
-	#currChar = "crowman"
-	#for char in chars:
-		#get_node(char).isCurrChar = false
-	#$crowman.isCurrChar = true
-	#$crowman/camera.make_current()
-#
-#
-#func _on_task_ui_stickman_time() -> void:
-	#currChar = "stickman"
-	#for char in chars:
-		#get_node(char).isCurrChar = false
-	#$stickman.isCurrChar = true
-	#$stickman/camera.make_current()
+func _on_task_ui_crowman_time() -> void:
+	currChar = "crowman"
+	for char in chars:
+		get_node(char).isCurrChar = false
+	$crowman.isCurrChar = true
+	$crowman/camera.make_current()
+
+
+func _on_task_ui_stickman_time() -> void:
+	currChar = "stickman"
+	for char in chars:
+		get_node(char).isCurrChar = false
+	$stickman.isCurrChar = true
+	$stickman/camera.make_current()
