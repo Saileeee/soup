@@ -1,5 +1,6 @@
 extends Control
 signal end_convo
+signal violence
 var speaking = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,7 @@ func _process(_delta: float) -> void:
 	if speaking and Input.is_action_just_pressed("choice1") and $Speech.text=="What do you want?":
 		$Speech.text="Then die."
 		$Options.hide()
+		violence.emit()
 	if speaking and Input.is_action_just_pressed("choice2") and $Speech.text=="What do you want?":
 		$Speech.text="Perhaps... You are not so bad."
 		$Options.hide()
@@ -25,3 +27,7 @@ func _on_murder_rock_dialog() -> void:
 	show()
 	speaking = true
 	$"Dialog camera".make_current()
+
+
+func _on_violence() -> void:
+	pass # Replace with function body.

@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://b64o3mhm7c5by"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub8dh"]
+bg_color = Color(0.675621, 0.0902706, 0.0836555, 1)
+
+[node name="Healthbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background of bar" type="ColorRect" parent="."]
+show_behind_parent = true
+visibility_layer = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.31
+anchor_right = 0.014
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 71.12
+offset_right = 799.872
+offset_bottom = 28.0
+color = Color(0.905882, 0.854902, 0.72549, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 280.0
+offset_right = 808.0
+offset_bottom = 345.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ub8dh")
+value = 100.0
+metadata/_edit_use_anchors_ = true

@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkes1732debii"]
+[gd_scene load_steps=6 format=3 uid="uid://dkes1732debii"]
 
 [ext_resource type="Script" path="res://task-ui/task_ui.gd" id="1_b0xnu"]
 [ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="2_te8gi"]
+[ext_resource type="Script" path="res://task-ui/progress_bar.gd" id="3_kensx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe08r"]
+bg_color = Color(0.905882, 0.854902, 0.72549, 0.839216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jcp4"]
+bg_color = Color(0.542291, 0.030777, 1.92523e-07, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.905882, 0.854902, 0.72549, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Node2D" type="Node2D"]
 
@@ -71,5 +87,15 @@ offset_top = 420.0
 offset_right = 780.0
 offset_bottom = 451.0
 text = "fun! doesn't do anything :( but is necessary for the code"
+
+[node name="ProgressBar" type="ProgressBar" parent="task-ui"]
+layout_mode = 0
+offset_top = 591.0
+offset_right = 448.0
+offset_bottom = 647.0
+theme_override_styles/background = SubResource("StyleBoxFlat_pe08r")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3jcp4")
+value = 100.0
+script = ExtResource("3_kensx")
 
 [connection signal="tab_changed" from="task-ui/TabBar" to="task-ui" method="_on_tab_bar_tab_changed"]

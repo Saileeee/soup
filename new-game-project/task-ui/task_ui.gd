@@ -25,3 +25,7 @@ func _on_tab_bar_tab_changed(tab: int) -> void:
 		$tasks.show()
 
 		
+
+
+func _on_dialog_violence() -> void:
+	pass # Replace with function body.
