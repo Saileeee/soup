@@ -209,6 +209,7 @@ offset_left = 445.0
 offset_top = -639.0
 offset_right = 703.0
 offset_bottom = -383.0
+mouse_filter = 2
 texture_normal = ExtResource("14_3jaor")
 texture_pressed = ExtResource("3_7cd2n")
 texture_hover = ExtResource("14_rfmyy")
