@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cy8pqvsusmrt5"]
+[gd_scene load_steps=34 format=4 uid="uid://cy8pqvsusmrt5"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://Characters/crownman.tscn" id="3_kfdvt"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="5_pk3k4"]
 [ext_resource type="PackedScene" uid="uid://cvvwpf6wgsbi1" path="res://Screens/pause_screen.tscn" id="6_dyqnk"]
+[ext_resource type="Texture2D" uid="uid://cojshgw5xl7uj" path="res://Art/purple window highlight.png" id="7_dxvnv"]
 [ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://Screens/welcome.tscn" id="7_ejty5"]
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="8_2pdsk"]
 [ext_resource type="Script" path="res://characters.gd" id="9_a45k0"]
@@ -13,9 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
 [ext_resource type="PackedScene" uid="uid://crwa1rkgjikf2" path="res://Characters/stickman.tscn" id="11_q35u0"]
 [ext_resource type="Script" path="res://Characters/stickman.gd" id="13_5hqk7"]
-[ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="14_3jaor"]
+[ext_resource type="Script" path="res://fly.gd" id="13_w0bdt"]
 [ext_resource type="Texture2D" uid="uid://bjprwmxskwown" path="res://Art/highlight.png" id="14_rfmyy"]
 [ext_resource type="Script" path="res://texture_button.gd" id="16_j3jir"]
+[ext_resource type="Script" path="res://animation_player.gd" id="17_nbdtl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7vld"]
 texture = ExtResource("1_ydcfy")
@@ -91,8 +93,16 @@ size = Vector2(960.5, 261)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbme"]
 size = Vector2(54, 6)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6cpy3"]
-radius = 255.096
+[sub_resource type="CircleShape2D" id="CircleShape2D_tip2q"]
+
+[sub_resource type="Animation" id="Animation_rc612"]
+resource_name = "new_animation"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_38qdv"]
+_data = {
+"new_animation": SubResource("Animation_rc612")
+}
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1652, -880)
@@ -166,6 +176,18 @@ layer = 2
 
 [node name="taskUI" parent="HUD" instance=ExtResource("8_2pdsk")]
 top_level = true
+mouse_filter = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+z_index = 1
+offset_left = 443.0
+offset_top = -644.0
+offset_right = 707.0
+offset_bottom = -380.0
+texture_normal = ExtResource("7_dxvnv")
+texture_hover = ExtResource("14_rfmyy")
+ignore_texture_size = true
+script = ExtResource("16_j3jir")
 
 [node name="murder rock!!!" parent="." instance=ExtResource("9_c6752")]
 position = Vector2(-1002, -432)
@@ -186,9 +208,36 @@ scale = Vector2(0.772414, 0.774292)
 [node name="characters" type="Node2D" parent="."]
 script = ExtResource("9_a45k0")
 
+[node name="fly" type="CharacterBody2D" parent="characters"]
+script = ExtResource("13_w0bdt")
+
+[node name="camera" type="Camera2D" parent="characters/fly"]
+zoom = Vector2(1.6, 1.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="characters/fly"]
+shape = SubResource("CircleShape2D_tip2q")
+disabled = true
+
+[node name="ColorRect2" type="ColorRect" parent="characters/fly"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.790849, 0.447692, 0.590824, 1)
+
+[node name="ColorRect" type="ColorRect" parent="characters/fly"]
+offset_left = -40.0
+offset_top = -1.0
+offset_bottom = 39.0
+
+[node name="HSlider" type="HSlider" parent="characters/fly"]
+offset_left = -349.0
+offset_top = 122.0
+offset_right = 346.0
+offset_bottom = 252.0
+max_value = 1000.0
+
 [node name="crowman" parent="characters" instance=ExtResource("3_kfdvt")]
 editor_description = "motion must be set to floating"
-position = Vector2(574, 122)
+position = Vector2(550, 138)
 motion_mode = 1
 platform_on_leave = 2
 
@@ -204,24 +253,12 @@ script = ExtResource("13_5hqk7")
 position = Vector2(451, 305)
 zoom = Vector2(1.6, 1.6)
 
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 445.0
-offset_top = -639.0
-offset_right = 703.0
-offset_bottom = -383.0
-mouse_filter = 2
-texture_normal = ExtResource("14_3jaor")
-texture_pressed = ExtResource("3_7cd2n")
-texture_hover = ExtResource("14_rfmyy")
-script = ExtResource("16_j3jir")
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="Node2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-position = Vector2(573, -317)
-shape = SubResource("CircleShape2D_6cpy3")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_38qdv")
+}
+script = ExtResource("17_nbdtl")
 
 [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/crowman/camera" method="_on_hub_area_entered"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
@@ -229,6 +266,7 @@ shape = SubResource("CircleShape2D_6cpy3")
 [connection signal="hidden" from="Screens/Welcome" to="characters" method="_on_welcome_hidden"]
 [connection signal="hidden" from="Screens/Welcome" to="characters/crowman" method="_on_welcome_hidden"]
 [connection signal="crowman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_crowman_time"]
+[connection signal="fly_time" from="HUD/taskUI" to="characters" method="_on_task_ui_fly_time"]
 [connection signal="stickman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_stickman_time"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
@@ -237,3 +275,4 @@ shape = SubResource("CircleShape2D_6cpy3")
 [connection signal="dialog" from="murder rock!!!" to="characters/crowman" method="_on_murder_rock_dialog"]
 [connection signal="end_convo" from="Dialog" to="characters" method="_on_dialog_end_convo"]
 [connection signal="end_convo" from="Dialog" to="characters/crowman" method="_on_dialog_end_convo"]
+[connection signal="value_changed" from="characters/fly/HSlider" to="characters/fly" method="_on_h_slider_value_changed"]

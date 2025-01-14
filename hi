@@ -1,0 +1,96 @@
+[1mdiff --git a/OneDrive - Fairfax County Public Schools/Documents/GitHub/soup/new-game-project/testing.tscn b/OneDrive - Fairfax County Public Schools/Documents/GitHub/soup/new-game-project/testing.tscn[m
+[1mdeleted file mode 100644[m
+[1mindex 920e07b..0000000[m
+[1m--- a/OneDrive - Fairfax County Public Schools/Documents/GitHub/soup/new-game-project/testing.tscn[m	
+[1m+++ /dev/null[m
+[36m@@ -1,3 +0,0 @@[m
+[31m-[gd_scene format=3 uid="uid://dbm6iuf4le3l2"][m
+[31m-[m
+[31m-[node name="testing" type="Node2D"][m
+[1mdiff --git a/new-game-project/biggership.tscn b/new-game-project/biggership.tscn[m
+[1mindex c187327..af439ae 100644[m
+[1m--- a/new-game-project/biggership.tscn[m
+[1m+++ b/new-game-project/biggership.tscn[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-[gd_scene load_steps=30 format=4 uid="uid://cy8pqvsusmrt5"][m
+[32m+[m[32m[gd_scene load_steps=28 format=4 uid="uid://cy8pqvsusmrt5"][m
+ [m
+ [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"][m
+ [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"][m
+[36m@@ -13,7 +13,6 @@[m
+ [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"][m
+ [ext_resource type="PackedScene" uid="uid://crwa1rkgjikf2" path="res://Characters/stickman.tscn" id="11_q35u0"][m
+ [ext_resource type="Script" path="res://Characters/stickman.gd" id="13_5hqk7"][m
+[31m-[ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="14_3jaor"][m
+ [ext_resource type="Texture2D" uid="uid://bjprwmxskwown" path="res://Art/highlight.png" id="14_rfmyy"][m
+ [ext_resource type="Script" path="res://texture_button.gd" id="16_j3jir"][m
+ [m
+[36m@@ -91,9 +90,6 @@[m [msize = Vector2(960.5, 261)[m
+ [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbme"][m
+ size = Vector2(54, 6)[m
+ [m
+[31m-[sub_resource type="CircleShape2D" id="CircleShape2D_6cpy3"][m
+[31m-radius = 255.096[m
+[31m-[m
+ [node name="Node2D" type="Node2D"][m
+ position = Vector2(-1652, -880)[m
+ [m
+[36m@@ -166,6 +162,7 @@[m [mlayer = 2[m
+ [m
+ [node name="taskUI" parent="HUD" instance=ExtResource("8_2pdsk")][m
+ top_level = true[m
+[32m+[m[32mmouse_filter = 2[m
+ [m
+ [node name="murder rock!!!" parent="." instance=ExtResource("9_c6752")][m
+ position = Vector2(-1002, -432)[m
+[36m@@ -204,24 +201,24 @@[m [mscript = ExtResource("13_5hqk7")[m
+ position = Vector2(451, 305)[m
+ zoom = Vector2(1.6, 1.6)[m
+ [m
+[31m-[node name="TextureButton" type="TextureButton" parent="."][m
+[31m-offset_left = 445.0[m
+[31m-offset_top = -639.0[m
+[31m-offset_right = 703.0[m
+[31m-offset_bottom = -383.0[m
+[31m-mouse_filter = 2[m
+[31m-texture_normal = ExtResource("14_3jaor")[m
+[31m-texture_pressed = ExtResource("3_7cd2n")[m
+[32m+[m[32m[node name="Control" type="Control" parent="."][m
+[32m+[m[32mlayout_mode = 3[m
+[32m+[m[32manchors_preset = 0[m
+[32m+[m[32moffset_right = 40.0[m
+[32m+[m[32moffset_bottom = 40.0[m
+[32m+[m
+[32m+[m[32m[node name="TextureButton" type="TextureButton" parent="Control"][m
+[32m+[m[32mz_index = 1[m
+[32m+[m[32mlayout_mode = 0[m
+[32m+[m[32moffset_left = 443.0[m
+[32m+[m[32moffset_top = -644.0[m
+[32m+[m[32moffset_right = 707.0[m
+[32m+[m[32moffset_bottom = -380.0[m
+ texture_hover = ExtResource("14_rfmyy")[m
+[32m+[m[32mignore_texture_size = true[m
+ script = ExtResource("16_j3jir")[m
+ [m
+[31m-[node name="Node2D" type="Node2D" parent="."][m
+[31m-[m
+[31m-[node name="Area2D" type="Area2D" parent="Node2D"][m
+[31m-[m
+[31m-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"][m
+[31m-position = Vector2(573, -317)[m
+[31m-shape = SubResource("CircleShape2D_6cpy3")[m
+[32m+[m[32m[node name="Node" type="Node" parent="."][m
+ [m
+ [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/crowman/camera" method="_on_hub_area_entered"][m
+ [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"][m
+[1mdiff --git a/new-game-project/texture_button.gd b/new-game-project/texture_button.gd[m
+[1mindex eb4a077..474dd4c 100644[m
+[1m--- a/new-game-project/texture_button.gd[m
+[1m+++ b/new-game-project/texture_button.gd[m
+[36m@@ -8,5 +8,4 @@[m [mfunc _ready() -> void:[m
+ [m
+ # Called every frame. 'delta' is the elapsed time since the previous frame.[m
+ func _process(delta: float) -> void:[m
+[31m-	if button_pressed:[m
+[31m-		print("button pressed")[m
+[32m+[m	[32mpass[m
