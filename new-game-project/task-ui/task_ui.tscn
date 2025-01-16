@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkes1732debii"]
+[gd_scene load_steps=4 format=3 uid="uid://dkes1732debii"]
 
 [ext_resource type="Script" path="res://task-ui/task_ui.gd" id="1_b0xnu"]
 [ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="2_te8gi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54w0e"]
 
 [node name="task-ui" type="Control"]
 layout_mode = 3
@@ -60,6 +62,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "crowman
 "
+
+[node name="ProgressBar" type="ProgressBar" parent="tasks"]
+layout_mode = 0
+offset_top = 564.0
+offset_right = 448.0
+offset_bottom = 620.0
+theme_override_styles/background = SubResource("StyleBoxFlat_54w0e")
 
 [node name="other characters" type="ColorRect" parent="."]
 layout_mode = 0
