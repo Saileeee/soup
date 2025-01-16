@@ -21,6 +21,14 @@ offset_right = 1151.0
 offset_bottom = 645.0
 color = Color(0.886275, 0.764706, 0.360784, 0.588235)
 
+[node name="fly" type="Button" parent="tasks"]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 430.0
+offset_right = 663.0
+offset_bottom = 492.0
+text = "fly (for easier testing)"
+
 [node name="stickman" type="Button" parent="tasks"]
 layout_mode = 1
 anchors_preset = 8
@@ -101,6 +109,7 @@ offset_right = 788.0
 offset_bottom = 28.0
 text = "fun! doesn't do anything :( but is necessary for the code"
 
+[connection signal="pressed" from="tasks/fly" to="." method="_on_fly_pressed"]
 [connection signal="pressed" from="tasks/stickman" to="." method="_on_stickman_pressed"]
 [connection signal="pressed" from="tasks/crowman" to="." method="_on_crowman_pressed"]
 [connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]

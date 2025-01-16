@@ -3,6 +3,7 @@ var currTab
 var currChar
 signal crowman_time
 signal stickman_time
+signal fly_time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,11 +36,15 @@ func _on_tab_bar_tab_changed(tab: int) -> void:
 func _on_stickman_pressed() -> void:
 	currChar = "Stickman"
 	stickman_time.emit()
-	$tasks.hide()
 	$TabBar.current_tab = -1
 
 func _on_crowman_pressed() -> void:
 	currChar = "Crowman"
 	crowman_time.emit()
-	$tasks.hide()
 	$TabBar.current_tab = -1
+
+
+func _on_fly_pressed() -> void:
+	currChar = "none"
+	$TabBar.current_tab = -1
+	fly_time.emit()
