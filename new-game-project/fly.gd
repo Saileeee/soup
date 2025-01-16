@@ -2,11 +2,10 @@ extends CharacterBody2D
 
 
 var speed = 300.0
-const JUMP_VELOCITY = -400.0
 var isCurrChar = false
 
 func _ready():
-	$ColorRect2.hide()
+	$Collision.hide()
 
 func _physics_process(delta: float) -> void:
 	if isCurrChar:
@@ -18,9 +17,10 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			print("v")
 			$CollisionShape2D.disabled = not $CollisionShape2D.disabled
-			$ColorRect2.visible = not $ColorRect2.visible
+			$Collision.visible = not $Collision.visible
 	move_and_slide()
 
 
 func _on_h_slider_value_changed(value: float) -> void:
 	speed = value
+	$Speed.text = "Speed: "+str(value)
