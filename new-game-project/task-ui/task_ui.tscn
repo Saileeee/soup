@@ -4,9 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="2_te8gi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54w0e"]
+bg_color = Color(0.905882, 0.854902, 0.72549, 0.839216)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ms8d"]
 bg_color = Color(0.541176, 0.0313726, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="task-ui" type="Control"]
 layout_mode = 3
@@ -123,6 +133,7 @@ offset_right = 448.0
 offset_bottom = 647.0
 theme_override_styles/background = SubResource("StyleBoxFlat_54w0e")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1ms8d")
+value = 100.0
 
 [connection signal="pressed" from="tasks/fly" to="." method="_on_fly_pressed"]
 [connection signal="pressed" from="tasks/stickman" to="." method="_on_stickman_pressed"]
