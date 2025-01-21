@@ -4,6 +4,7 @@ var currChar
 signal crowman_time
 signal stickman_time
 signal fly_time
+var violence = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,14 +12,15 @@ func _ready() -> void:
 	$"other characters".hide()
 	#$stickman.hide()
 	#$crowman.hide()
+	$Health.hide()
 	currTab = "none"
 	currChar = "Crowman"
 	$Label.text = currChar
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
-
+	if violence and not get_node("%characters").speaking:
+		$Health.show()
 
 func _on_tab_bar_tab_changed(tab: int) -> void:
 	get_node(currTab).hide()
@@ -48,3 +50,11 @@ func _on_fly_pressed() -> void:
 	currChar = "none"
 	$TabBar.current_tab = -1
 	fly_time.emit()
+
+
+func _on_dialog_violence() -> void:
+	violence = true
+
+
+func _on_murder_rock_damage() -> void:
+	$Health.set_value_no_signal(-1)
