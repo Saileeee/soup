@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkes1732debii"]
+[gd_scene load_steps=5 format=3 uid="uid://dkes1732debii"]
 
 [ext_resource type="Script" path="res://task-ui/task_ui.gd" id="1_b0xnu"]
 [ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="2_te8gi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54w0e"]
+bg_color = Color(0.905882, 0.854902, 0.72549, 0.839216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ms8d"]
+bg_color = Color(0.541176, 0.0313726, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="task-ui" type="Control"]
 layout_mode = 3
@@ -14,7 +29,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b0xnu")
 
+[node name="GameOver" type="ColorRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 647.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 112.0
+offset_right = 1122.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 190
+text = "GAME OVER"
+
 [node name="tasks" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_top = 27.0
 offset_right = 1151.0
@@ -62,6 +95,7 @@ text = "crowman
 "
 
 [node name="other characters" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_top = 25.0
@@ -72,6 +106,7 @@ color = Color(0.403922, 0.352941, 0.54902, 0.588235)
 [node name="clock" parent="." instance=ExtResource("2_te8gi")]
 position = Vector2(-2, 21)
 scale = Vector2(0.102219, 0.102079)
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -79,6 +114,7 @@ offset_top = -1.0
 offset_right = 1152.0
 offset_bottom = 26.0
 color = Color(0.168627, 0.227451, 0.584314, 1)
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -108,6 +144,15 @@ offset_top = -3.0
 offset_right = 788.0
 offset_bottom = 28.0
 text = "fun! doesn't do anything :( but is necessary for the code"
+
+[node name="Health" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_top = 591.0
+offset_right = 448.0
+offset_bottom = 647.0
+theme_override_styles/background = SubResource("StyleBoxFlat_54w0e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1ms8d")
+value = 100.0
 
 [connection signal="pressed" from="tasks/fly" to="." method="_on_fly_pressed"]
 [connection signal="pressed" from="tasks/stickman" to="." method="_on_stickman_pressed"]

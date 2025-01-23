@@ -24,16 +24,26 @@ offset_right = 1150.0
 offset_bottom = 649.0
 color = Color(0.878431, 0.596078, 0.560784, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Speech" type="Label" parent="."]
 layout_mode = 0
 offset_left = 22.0
 offset_top = 462.0
 offset_right = 133.0
 offset_bottom = 485.0
 theme_override_font_sizes/font_size = 50
-text = "Blah blah blah"
+text = "What do you want?"
 
-[node name="Label2" type="Label" parent="."]
+[node name="Options" type="Label" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 536.0
+offset_right = 145.0
+offset_bottom = 608.0
+theme_override_font_sizes/font_size = 30
+text = "1. To fight 
+2. To love"
+
+[node name="CharName" type="Label" parent="."]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 419.0
