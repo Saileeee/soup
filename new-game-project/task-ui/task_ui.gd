@@ -13,6 +13,7 @@ func _ready() -> void:
 	#$stickman.hide()
 	#$crowman.hide()
 	$Health.hide()
+	$GameOver.hide()
 	currTab = "none"
 	currChar = "Crowman"
 	$Label.text = currChar
@@ -21,6 +22,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if violence and not get_node("%characters").speaking:
 		$Health.show()
+	if $Health.get_value() == 0:
+		$GameOver.show()
 
 func _on_tab_bar_tab_changed(tab: int) -> void:
 	get_node(currTab).hide()
@@ -57,4 +60,4 @@ func _on_dialog_violence() -> void:
 
 
 func _on_murder_rock_damage() -> void:
-	$Health.set_value_no_signal(-1)
+	$Health.set_value($Health.get_value()-30)
