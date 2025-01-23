@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cy8pqvsusmrt5"]
+[gd_scene load_steps=36 format=4 uid="uid://cy8pqvsusmrt5"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Characters/stickman.gd" id="13_5hqk7"]
 [ext_resource type="Script" path="res://Characters/fly.gd" id="13_w0bdt"]
 [ext_resource type="Texture2D" uid="uid://bjprwmxskwown" path="res://Art/highlight.png" id="14_rfmyy"]
+[ext_resource type="PackedScene" uid="uid://dog2gl8nfxwhm" path="res://microwave.tscn" id="17_gma52"]
 [ext_resource type="Script" path="res://tasks.gd" id="17_l7a4t"]
 [ext_resource type="Texture2D" uid="uid://dvgfrpe0x6tx6" path="res://Art/black test.png" id="18_3plvp"]
 [ext_resource type="Texture2D" uid="uid://cojshgw5xl7uj" path="res://Art/purple window highlight.png" id="19_lt36n"]
@@ -101,6 +102,10 @@ size = Vector2(46, 43)
 radius = 87.0
 height = 306.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1chr4"]
+radius = 32.0
+height = 134.0
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1652, -880)
 
@@ -166,6 +171,7 @@ shape = SubResource("RectangleShape2D_eon30")
 
 [node name="Screens" type="CanvasLayer" parent="."]
 layer = 3
+visible = false
 
 [node name="Pause screen" parent="Screens" instance=ExtResource("6_dyqnk")]
 
@@ -173,6 +179,7 @@ layer = 3
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="taskUI" parent="HUD" instance=ExtResource("8_2pdsk")]
 top_level = true
@@ -199,7 +206,7 @@ scale = Vector2(0.772414, 0.774292)
 script = ExtResource("9_a45k0")
 
 [node name="fly" type="CharacterBody2D" parent="characters"]
-position = Vector2(2025, -509)
+position = Vector2(1824, -475)
 script = ExtResource("13_w0bdt")
 metadata/_edit_group_ = true
 
@@ -260,34 +267,38 @@ zoom = Vector2(1.6, 1.6)
 [node name="tasks" type="CanvasLayer" parent="."]
 script = ExtResource("17_l7a4t")
 
+[node name="ReferenceRect" type="ReferenceRect" parent="tasks"]
+visible = false
+z_index = 4
+offset_left = 1099.0
+offset_top = 12.0
+offset_right = 1130.0
+offset_bottom = 62.0
+
 [node name="star task" type="Sprite2D" parent="tasks"]
 position = Vector2(576, 324)
 scale = Vector2(1.6, 1.56522)
 texture = ExtResource("18_3plvp")
-
-[node name="white" type="ColorRect" parent="tasks/star task"]
-offset_left = -360.0
-offset_top = -207.0
-offset_right = -320.0
-offset_bottom = -167.0
-
-[node name="brown" type="ColorRect" parent="tasks/star task"]
-offset_left = -316.0
-offset_top = 241.0
-offset_right = -276.0
-offset_bottom = 281.0
-color = Color(0.396078, 0.219608, 0.254902, 1)
-
-[node name="grey" type="ColorRect" parent="tasks/star task"]
-offset_left = -1454.0
-offset_top = -1207.0
-offset_right = -1414.0
-offset_bottom = -1167.0
-color = Color(0.701961, 0.709804, 0.772549, 1)
+metadata/_edit_lock_ = true
 
 [node name="star close" type="Button" parent="tasks/star task"]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 326.875
+offset_top = -198.694
+offset_right = 344.875
+offset_bottom = -167.694
+text = "X"
+
+[node name="microwave" parent="tasks" instance=ExtResource("17_gma52")]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="micro close" type="Button" parent="tasks/microwave"]
+offset_left = 522.0
+offset_top = -313.0
+offset_right = 553.0
+offset_bottom = -263.0
 text = "X"
 
 [node name="Stars" type="Node2D" parent="."]
@@ -309,6 +320,21 @@ position = Vector2(131, 290)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_h7pxk")
 
+[node name="Microwave" type="Node2D" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="Microwave"]
+offset_left = -1188.0
+offset_top = 469.0
+offset_right = -1065.0
+offset_bottom = 550.0
+
+[node name="Area2D" type="Area2D" parent="Microwave"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Microwave/Area2D"]
+position = Vector2(-1093, 652)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1chr4")
+
 [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/crowman/camera" method="_on_hub_area_entered"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters/crowman" method="_on_pause_screen_visibility_changed"]
@@ -329,6 +355,7 @@ shape = SubResource("CapsuleShape2D_h7pxk")
 [connection signal="end_convo" from="Dialog" to="characters/crowman" method="_on_dialog_end_convo"]
 [connection signal="value_changed" from="characters/fly/HSlider" to="characters/fly" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="tasks/star task/star close" to="tasks" method="_on_star_close_pressed"]
+[connection signal="pressed" from="tasks/microwave/micro close" to="tasks" method="_on_star_close_pressed"]
 [connection signal="pressed" from="Stars/star start" to="Stars" method="_on_texture_button_pressed"]
 [connection signal="body_entered" from="Stars/Area2D" to="Stars" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Stars/Area2D" to="Stars" method="_on_area_2d_body_exited"]
