@@ -171,7 +171,6 @@ shape = SubResource("RectangleShape2D_eon30")
 
 [node name="Screens" type="CanvasLayer" parent="."]
 layer = 3
-visible = false
 
 [node name="Pause screen" parent="Screens" instance=ExtResource("6_dyqnk")]
 
@@ -179,7 +178,6 @@ visible = false
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="taskUI" parent="HUD" instance=ExtResource("8_2pdsk")]
 top_level = true
@@ -282,10 +280,10 @@ texture = ExtResource("18_3plvp")
 metadata/_edit_lock_ = true
 
 [node name="star close" type="Button" parent="tasks/star task"]
-offset_left = 326.875
-offset_top = -198.694
-offset_right = 344.875
-offset_bottom = -167.694
+offset_left = 325.0
+offset_top = -155.889
+offset_right = 343.0
+offset_bottom = -124.889
 text = "X"
 
 [node name="microwave" parent="tasks" instance=ExtResource("17_gma52")]
@@ -295,10 +293,11 @@ offset_right = 1.0
 offset_bottom = 1.0
 
 [node name="micro close" type="Button" parent="tasks/microwave"]
-offset_left = 522.0
-offset_top = -313.0
-offset_right = 553.0
-offset_bottom = -263.0
+layout_mode = 0
+offset_left = 517.0
+offset_top = -245.0
+offset_right = 548.0
+offset_bottom = -195.0
 text = "X"
 
 [node name="Stars" type="Node2D" parent="."]

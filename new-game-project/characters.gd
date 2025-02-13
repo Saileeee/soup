@@ -4,6 +4,7 @@ var started = false
 var paused = false
 var speaking = false
 var entered_room = false
+var in_task = false #YOU ARE HERE (fixing movement while in task)
 const SPEED = 300.0
 var room_move = 0
 var currChar = "crowman"
