@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cy8pqvsusmrt5"]
+[gd_scene load_steps=33 format=4 uid="uid://cy8pqvsusmrt5"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
@@ -10,16 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="8_2pdsk"]
 [ext_resource type="Script" path="res://characters.gd" id="9_a45k0"]
 [ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://Characters/murder_rock!!!.tscn" id="9_c6752"]
-[ext_resource type="Script" path="res://stars.gd" id="10_qhe0l"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
 [ext_resource type="PackedScene" uid="uid://crwa1rkgjikf2" path="res://Characters/stickman.tscn" id="11_q35u0"]
 [ext_resource type="Script" path="res://Characters/stickman.gd" id="13_5hqk7"]
 [ext_resource type="Script" path="res://Characters/fly.gd" id="13_w0bdt"]
-[ext_resource type="Texture2D" uid="uid://bjprwmxskwown" path="res://Art/highlight.png" id="14_rfmyy"]
 [ext_resource type="PackedScene" uid="uid://dog2gl8nfxwhm" path="res://microwave.tscn" id="17_gma52"]
-[ext_resource type="Script" path="res://tasks.gd" id="17_l7a4t"]
+[ext_resource type="Script" path="res://tasks/tasks.gd" id="17_l7a4t"]
 [ext_resource type="Texture2D" uid="uid://dvgfrpe0x6tx6" path="res://Art/black test.png" id="18_3plvp"]
-[ext_resource type="Texture2D" uid="uid://cojshgw5xl7uj" path="res://Art/purple window highlight.png" id="19_lt36n"]
+[ext_resource type="Script" path="res://tasks/star_task.gd" id="19_b00i2"]
+[ext_resource type="PackedScene" uid="uid://dkoxsmy4poe6y" path="res://tasks/star task.tscn" id="24_fxuvn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7vld"]
 texture = ExtResource("1_ydcfy")
@@ -97,14 +96,6 @@ size = Vector2(54, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdm5m"]
 size = Vector2(46, 43)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7pxk"]
-radius = 87.0
-height = 306.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1chr4"]
-radius = 32.0
-height = 134.0
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1652, -880)
@@ -202,6 +193,7 @@ scale = Vector2(0.772414, 0.774292)
 
 [node name="characters" type="Node2D" parent="."]
 script = ExtResource("9_a45k0")
+metadata/_edit_lock_ = true
 
 [node name="fly" type="CharacterBody2D" parent="characters"]
 position = Vector2(1824, -475)
@@ -291,6 +283,7 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 1.0
 offset_bottom = 1.0
+metadata/_edit_lock_ = true
 
 [node name="micro close" type="Button" parent="tasks/microwave"]
 layout_mode = 0
@@ -300,39 +293,10 @@ offset_right = 548.0
 offset_bottom = -195.0
 text = "X"
 
-[node name="Stars" type="Node2D" parent="."]
-script = ExtResource("10_qhe0l")
-
-[node name="star start" type="TextureButton" parent="Stars"]
-offset_left = 443.0
-offset_top = -644.0
-offset_right = 707.0
-offset_bottom = -380.0
-texture_normal = ExtResource("14_rfmyy")
-texture_pressed = ExtResource("19_lt36n")
-
-[node name="Area2D" type="Area2D" parent="Stars"]
+[node name="Star task" parent="." node_paths=PackedStringArray("task") instance=ExtResource("24_fxuvn")]
 position = Vector2(443, -644)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Area2D"]
-position = Vector2(131, 290)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_h7pxk")
-
-[node name="Microwave" type="Node2D" parent="."]
-
-[node name="TextureButton" type="TextureButton" parent="Microwave"]
-offset_left = -1188.0
-offset_top = 469.0
-offset_right = -1065.0
-offset_bottom = 550.0
-
-[node name="Area2D" type="Area2D" parent="Microwave"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Microwave/Area2D"]
-position = Vector2(-1093, 652)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_1chr4")
+script = ExtResource("19_b00i2")
+task = NodePath("../tasks/star task")
 
 [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/crowman/camera" method="_on_hub_area_entered"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
@@ -340,11 +304,11 @@ shape = SubResource("CapsuleShape2D_1chr4")
 [connection signal="hidden" from="Screens/Welcome" to="characters" method="_on_welcome_hidden"]
 [connection signal="hidden" from="Screens/Welcome" to="characters/crowman" method="_on_welcome_hidden"]
 [connection signal="crowman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_crowman_time"]
-[connection signal="crowman_time" from="HUD/taskUI" to="Stars" method="_on_task_ui_crowman_time"]
+[connection signal="crowman_time" from="HUD/taskUI" to="Star task" method="_on_task_ui_crowman_time"]
 [connection signal="fly_time" from="HUD/taskUI" to="characters" method="_on_task_ui_fly_time"]
-[connection signal="fly_time" from="HUD/taskUI" to="Stars" method="_on_task_ui_fly_time"]
+[connection signal="fly_time" from="HUD/taskUI" to="Star task" method="_on_task_ui_fly_time"]
 [connection signal="stickman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_stickman_time"]
-[connection signal="stickman_time" from="HUD/taskUI" to="Stars" method="_on_task_ui_stickman_time"]
+[connection signal="stickman_time" from="HUD/taskUI" to="Star task" method="_on_task_ui_stickman_time"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
 [connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]
@@ -355,6 +319,3 @@ shape = SubResource("CapsuleShape2D_1chr4")
 [connection signal="value_changed" from="characters/fly/HSlider" to="characters/fly" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="tasks/star task/star close" to="tasks" method="_on_star_close_pressed"]
 [connection signal="pressed" from="tasks/microwave/micro close" to="tasks" method="_on_star_close_pressed"]
-[connection signal="pressed" from="Stars/star start" to="Stars" method="_on_texture_button_pressed"]
-[connection signal="body_entered" from="Stars/Area2D" to="Stars" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Stars/Area2D" to="Stars" method="_on_area_2d_body_exited"]

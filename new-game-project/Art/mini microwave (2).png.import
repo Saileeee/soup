@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvlj2n6g1kko"
-path="res://.godot/imported/mini microwave.png-183f5e078a995a069a015e186f47a7be.ctex"
+uid="uid://bavfum4lf8b53"
+path="res://.godot/imported/mini microwave (2).png-0c8c23e514eebc96806c502d46a83179.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/mini microwave.png"
-dest_files=["res://.godot/imported/mini microwave.png-183f5e078a995a069a015e186f47a7be.ctex"]
+source_file="res://Art/mini microwave (2).png"
+dest_files=["res://.godot/imported/mini microwave (2).png-0c8c23e514eebc96806c502d46a83179.ctex"]
 
 [params]
 

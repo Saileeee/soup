@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkoxsmy4poe6y"]
+
+[ext_resource type="PackedScene" uid="uid://cmd3vpup2hro7" path="res://tasks/base_task.tscn" id="1_esj84"]
+[ext_resource type="Texture2D" uid="uid://bjprwmxskwown" path="res://Art/highlight.png" id="2_76jj5"]
+[ext_resource type="Texture2D" uid="uid://cojshgw5xl7uj" path="res://Art/purple window highlight.png" id="3_0pcih"]
+[ext_resource type="Texture2D" uid="uid://cjsgynui5075a" path="res://Art/blank.png" id="4_kxml7"]
+
+[node name="Star task" instance=ExtResource("1_esj84")]
+
+[node name="task button" parent="." index="0"]
+texture_normal = ExtResource("2_76jj5")
+texture_hover = ExtResource("3_0pcih")
+texture_disabled = ExtResource("4_kxml7")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(135, 300)
+rotation = 1.5708
