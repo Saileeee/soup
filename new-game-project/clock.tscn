@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://ejcfw45m5p0v"]
 
-[ext_resource type="Script" path="res://clock_text.gd" id="1_06j2a"]
-[ext_resource type="Script" path="res://shhhh_real_clock.gd" id="2_qpbd5"]
+[ext_resource type="Script" path="res://clock.gd" id="1_2yrk4"]
+[ext_resource type="Script" path="res://real_clock.gd" id="2_f3o7x"]
 
 [node name="clock" type="Node2D"]
 position = Vector2(172, 140)
+script = ExtResource("1_2yrk4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 20.0
@@ -22,10 +23,9 @@ offset_bottom = 373.0
 theme_override_font_sizes/font_size = 200
 text = "6:00
 "
-script = ExtResource("1_06j2a")
 metadata/_edit_use_anchors_ = true
 
-[node name="Timer" type="Timer" parent="Label"]
-script = ExtResource("2_qpbd5")
+[node name="realClock" type="Timer" parent="Label"]
+script = ExtResource("2_f3o7x")
 
-[connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]
+[connection signal="timeout" from="Label/realClock" to="." method="_on_real_clock_timeout"]
