@@ -4,6 +4,7 @@ var started = false
 var paused = false
 var speaking = false
 var entered_room = false
+var in_task = false
 const SPEED = 300.0
 var room_move = 0
 var isCurrChar = true
@@ -12,7 +13,7 @@ func _init() -> void:
 	position = Vector2(-760,-1089)
 
 func _physics_process(_delta: float) -> void:
-	if started and not speaking and isCurrChar: 
+	if started and not speaking and isCurrChar and not in_task: 
 		if not paused: 
 			var x_direction = Input.get_axis("move_left", "move_right")
 			velocity.x = x_direction

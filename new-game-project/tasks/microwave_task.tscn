@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://cynqouhouusd8"]
+
+[ext_resource type="PackedScene" uid="uid://cmd3vpup2hro7" path="res://tasks/base_task.tscn" id="1_r0ron"]
+[ext_resource type="Texture2D" uid="uid://iho77wemuqri" path="res://Art/highlight mini microwave.png" id="2_o7hyl"]
+[ext_resource type="Texture2D" uid="uid://5cjltkwlv66q" path="res://Art/purple highlight mini microwave.png" id="3_qv6q5"]
+[ext_resource type="Texture2D" uid="uid://bavfum4lf8b53" path="res://Art/mini microwave (2).png" id="4_xha5f"]
+
+[node name="microwave task" instance=ExtResource("1_r0ron")]
+texture_normal = ExtResource("2_o7hyl")
+texture_hover = ExtResource("3_qv6q5")
+texture_disabled = ExtResource("4_xha5f")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(70, 172)
+rotation = 1.5708
