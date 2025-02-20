@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed = 300.0
+var speed = 500.0
 var isCurrChar = false
 
 func _ready():

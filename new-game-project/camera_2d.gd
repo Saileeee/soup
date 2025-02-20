@@ -23,10 +23,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	count += 1
-	if count == 100:
-		print(get_screen_center_position())
-		count = 0
+	pass
+	#count += 1
+	#if count == 100:
+		#print(get_screen_center_position())
+		#count = 0
 	
 
 

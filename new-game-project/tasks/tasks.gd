@@ -13,6 +13,16 @@ func _process(delta: float) -> void:
 	if count >= 100:
 		count = 0
 		print("star task visible: ",$"star task".visible)
+		print("microwave visible: ", $"microwave".visible)
 
 func _on_star_close_pressed() -> void:
 	$"star task".hide()
+
+func _on_micro_close_pressed() -> void:
+	$microwave.hide()
+
+func _on_star_task_pressed() -> void:
+	$"star task".show()
+
+func _on_microwave_task_pressed() -> void:
+	$microwave.show()

@@ -14,8 +14,7 @@ func _process(_delta: float) -> void:
 		else:
 			show()
 
-
-
+'
 func _on_room_1_area_body_entered(_body: Node2D) -> void:
 	between_rooms = true
 
@@ -26,7 +25,8 @@ func _on_room_2_area_body_entered(_body: Node2D) -> void:
 
 func _on_room_move_timer_timeout() -> void:
 	between_rooms = false
-
+'
 
 func _on_button_pressed() -> void:
 	hide()
+ 
