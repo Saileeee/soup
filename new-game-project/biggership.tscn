@@ -259,8 +259,10 @@ position = Vector2(451, 305)
 zoom = Vector2(1.6, 1.6)
 
 [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/crowman/camera" method="_on_hub_area_entered"]
+[connection signal="visibility_changed" from="Screens/Pause screen" to="HUD/taskUI" method="_on_pause_screen_visibility_changed"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters/crowman" method="_on_pause_screen_visibility_changed"]
+[connection signal="hidden" from="Screens/Welcome" to="HUD/taskUI" method="_on_welcome_hidden"]
 [connection signal="hidden" from="Screens/Welcome" to="characters" method="_on_welcome_hidden"]
 [connection signal="hidden" from="Screens/Welcome" to="characters/crowman" method="_on_welcome_hidden"]
 [connection signal="crowman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_crowman_time"]

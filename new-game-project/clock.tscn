@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ejcfw45m5p0v"]
+[gd_scene load_steps=2 format=3 uid="uid://ejcfw45m5p0v"]
 
 [ext_resource type="Script" path="res://clock.gd" id="1_2yrk4"]
-[ext_resource type="Script" path="res://real_clock.gd" id="2_f3o7x"]
 
 [node name="clock" type="Node2D"]
 position = Vector2(172, 140)
@@ -26,6 +25,6 @@ text = "6:00
 metadata/_edit_use_anchors_ = true
 
 [node name="realClock" type="Timer" parent="Label"]
-script = ExtResource("2_f3o7x")
+unique_name_in_owner = true
 
 [connection signal="timeout" from="Label/realClock" to="." method="_on_real_clock_timeout"]

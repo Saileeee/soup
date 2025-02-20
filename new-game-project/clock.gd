@@ -6,7 +6,7 @@ signal end;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Label.text = "20:40"# Replace with function body.
+	$Label.text = "6:00"# Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -61,3 +61,14 @@ func _on_dialog_violence() -> void:
 
 func _on_murder_rock_damage() -> void:
 	$Health.set_value($Health.get_value()-30)
+
+
+func _on_welcome_hidden() -> void:
+	get_node("clock/Label/realClock").start(2)
+
+
+func _on_pause_screen_visibility_changed() -> void:
+	if(get_node("clock/Label/realClock").is_paused()):
+		get_node("clock/Label/realClock").set_paused(false)
+	else:
+		get_node("clock/Label/realClock").set_paused(true)
