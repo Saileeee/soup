@@ -3,11 +3,13 @@ var in_range = []
 var chars = [] #crowman, stickman, fly
 var currChar
 var count = 0
+@export var crowman: Node
+@export var stickman: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	chars.append(get_node("../characters/crowman"))
-	chars.append(get_node("../characters/stickman"))
+	chars.append(crowman)
+	chars.append(stickman)
 	chars.append(get_node("../characters/fly"))
 	set_disabled(true)
 	currChar = chars[0]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://de08cpdfx5f5c"]
+
+[ext_resource type="PackedScene" uid="uid://dyjrw7gopo3sh" path="res://Characters/base_character.tscn" id="1_2acmg"]
+[ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="2_bjvhu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usjvp"]
+atlas = ExtResource("2_bjvhu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiu65"]
+atlas = ExtResource("2_bjvhu")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tetkc"]
+atlas = ExtResource("2_bjvhu")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugguh"]
+atlas = ExtResource("2_bjvhu")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4hk1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usjvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiu65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tetkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugguh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="the crow" instance=ExtResource("1_2acmg")]
+SPEED = 300
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(573, 297)
+scale = Vector2(3.60937, 4.42188)
+sprite_frames = SubResource("SpriteFrames_4hk1l")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(573, 430)
+
+[node name="Camera2D" parent="." index="2"]
+position = Vector2(576, 323)

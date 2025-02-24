@@ -1,19 +1,17 @@
-[gd_scene load_steps=33 format=4 uid="uid://cy8pqvsusmrt5"]
+[gd_scene load_steps=31 format=4 uid="uid://cy8pqvsusmrt5"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
 [ext_resource type="Texture2D" uid="uid://b04xdi4ueppvb" path="res://Art/Door.png" id="3_7cd2n"]
-[ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://Characters/crownman.tscn" id="3_kfdvt"]
-[ext_resource type="Script" path="res://camera_2d.gd" id="5_pk3k4"]
 [ext_resource type="PackedScene" uid="uid://cvvwpf6wgsbi1" path="res://Screens/pause_screen.tscn" id="6_dyqnk"]
 [ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://Screens/welcome.tscn" id="7_ejty5"]
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="8_2pdsk"]
 [ext_resource type="Script" path="res://characters.gd" id="9_a45k0"]
 [ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://Characters/murder_rock!!!.tscn" id="9_c6752"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
-[ext_resource type="PackedScene" uid="uid://crwa1rkgjikf2" path="res://Characters/stickman.tscn" id="11_q35u0"]
-[ext_resource type="Script" path="res://Characters/stickman.gd" id="13_5hqk7"]
 [ext_resource type="Script" path="res://Characters/fly.gd" id="13_w0bdt"]
+[ext_resource type="PackedScene" uid="uid://de08cpdfx5f5c" path="res://Characters/the_crow.tscn" id="15_cgcyx"]
+[ext_resource type="PackedScene" uid="uid://03uh2jp6e604" path="res://Characters/the_stick.tscn" id="16_fwunk"]
 [ext_resource type="PackedScene" uid="uid://dog2gl8nfxwhm" path="res://microwave.tscn" id="17_gma52"]
 [ext_resource type="Script" path="res://tasks/tasks.gd" id="17_l7a4t"]
 [ext_resource type="Texture2D" uid="uid://dvgfrpe0x6tx6" path="res://Art/black test.png" id="18_3plvp"]
@@ -224,24 +222,11 @@ offset_right = -293.0
 offset_bottom = 167.0
 text = "Speed: 500"
 
-[node name="crowman" parent="characters" instance=ExtResource("3_kfdvt")]
-editor_description = "motion must be set to floating"
-position = Vector2(550, 138)
-motion_mode = 1
-platform_on_leave = 2
+[node name="the crow" parent="characters" instance=ExtResource("15_cgcyx")]
+position = Vector2(-4, -184)
 
-[node name="camera" type="Camera2D" parent="characters/crowman"]
-zoom = Vector2(1.6, 1.6)
-script = ExtResource("5_pk3k4")
-
-[node name="stickman" parent="characters" instance=ExtResource("11_q35u0")]
-position = Vector2(267, -16)
-motion_mode = 1
-script = ExtResource("13_5hqk7")
-
-[node name="camera" type="Camera2D" parent="characters/stickman"]
-position = Vector2(451, 305)
-zoom = Vector2(1.6, 1.6)
+[node name="the stick" parent="characters" instance=ExtResource("16_fwunk")]
+position = Vector2(157, -155)
 
 [node name="tasks" type="CanvasLayer" parent="."]
 script = ExtResource("17_l7a4t")
@@ -282,46 +267,48 @@ offset_right = 548.0
 offset_bottom = -195.0
 text = "X"
 
-[node name="Star task" parent="." instance=ExtResource("24_fxuvn")]
-offset_left = 443.0
-offset_top = -644.0
-offset_right = 483.0
-offset_bottom = -604.0
+[node name="task buttons" type="Node2D" parent="."]
+position = Vector2(1652, 880)
+
+[node name="Star task" parent="task buttons" node_paths=PackedStringArray("crowman", "stickman") instance=ExtResource("24_fxuvn")]
+offset_left = -1209.0
+offset_top = -1524.0
+offset_right = -945.0
+offset_bottom = -1260.0
 texture_disabled = ExtResource("19_bilux")
+crowman = NodePath("../../characters/the crow")
+stickman = NodePath("../../characters/the stick")
 
-[node name="microwave task" parent="." instance=ExtResource("20_fpmt8")]
-offset_left = -1150.0
-offset_top = 516.0
-offset_right = -1014.0
-offset_bottom = 611.0
+[node name="microwave task" parent="task buttons" node_paths=PackedStringArray("crowman", "stickman") instance=ExtResource("20_fpmt8")]
+offset_left = -2802.0
+offset_top = -364.0
+offset_right = -2666.0
+offset_bottom = -269.0
+crowman = NodePath("../../characters/the crow")
+stickman = NodePath("../../characters/the stick")
 
-[connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/crowman/camera" method="_on_hub_area_entered"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
-[connection signal="visibility_changed" from="Screens/Pause screen" to="characters/crowman" method="_on_pause_screen_visibility_changed"]
 [connection signal="hidden" from="Screens/Welcome" to="characters" method="_on_welcome_hidden"]
-[connection signal="hidden" from="Screens/Welcome" to="characters/crowman" method="_on_welcome_hidden"]
 [connection signal="crowman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_crowman_time"]
-[connection signal="crowman_time" from="HUD/taskUI" to="Star task" method="_on_task_ui_crowman_time"]
-[connection signal="crowman_time" from="HUD/taskUI" to="microwave task" method="_on_task_ui_crowman_time"]
+[connection signal="crowman_time" from="HUD/taskUI" to="task buttons/Star task" method="_on_task_ui_crowman_time"]
+[connection signal="crowman_time" from="HUD/taskUI" to="task buttons/microwave task" method="_on_task_ui_crowman_time"]
 [connection signal="fly_time" from="HUD/taskUI" to="characters" method="_on_task_ui_fly_time"]
-[connection signal="fly_time" from="HUD/taskUI" to="Star task" method="_on_task_ui_fly_time"]
-[connection signal="fly_time" from="HUD/taskUI" to="microwave task" method="_on_task_ui_fly_time"]
+[connection signal="fly_time" from="HUD/taskUI" to="task buttons/Star task" method="_on_task_ui_fly_time"]
+[connection signal="fly_time" from="HUD/taskUI" to="task buttons/microwave task" method="_on_task_ui_fly_time"]
 [connection signal="stickman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_stickman_time"]
-[connection signal="stickman_time" from="HUD/taskUI" to="Star task" method="_on_task_ui_stickman_time"]
-[connection signal="stickman_time" from="HUD/taskUI" to="microwave task" method="_on_task_ui_stickman_time"]
+[connection signal="stickman_time" from="HUD/taskUI" to="task buttons/Star task" method="_on_task_ui_stickman_time"]
+[connection signal="stickman_time" from="HUD/taskUI" to="task buttons/microwave task" method="_on_task_ui_stickman_time"]
 [connection signal="body_entered" from="murder rock!!!" to="murder rock!!!" method="_on_body_entered"]
 [connection signal="body_exited" from="murder rock!!!" to="murder rock!!!" method="_on_body_exited"]
 [connection signal="damage" from="murder rock!!!" to="HUD/taskUI" method="_on_murder_rock_damage"]
 [connection signal="dialog" from="murder rock!!!" to="Dialog" method="_on_murder_rock_dialog"]
 [connection signal="dialog" from="murder rock!!!" to="characters" method="_on_murder_rock_dialog"]
-[connection signal="dialog" from="murder rock!!!" to="characters/crowman" method="_on_murder_rock_dialog"]
 [connection signal="timeout" from="murder rock!!!/Timer" to="murder rock!!!" method="_on_timer_timeout"]
 [connection signal="end_convo" from="Dialog" to="characters" method="_on_dialog_end_convo"]
-[connection signal="end_convo" from="Dialog" to="characters/crowman" method="_on_dialog_end_convo"]
 [connection signal="violence" from="Dialog" to="HUD/taskUI" method="_on_dialog_violence"]
 [connection signal="violence" from="Dialog" to="murder rock!!!" method="_on_dialog_violence"]
 [connection signal="value_changed" from="characters/fly/HSlider" to="characters/fly" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="tasks/star task/star close" to="tasks" method="_on_star_close_pressed"]
 [connection signal="pressed" from="tasks/microwave/micro close" to="tasks" method="_on_micro_close_pressed"]
-[connection signal="pressed" from="Star task" to="tasks" method="_on_star_task_pressed"]
-[connection signal="pressed" from="microwave task" to="tasks" method="_on_microwave_task_pressed"]
+[connection signal="pressed" from="task buttons/Star task" to="tasks" method="_on_star_task_pressed"]
+[connection signal="pressed" from="task buttons/microwave task" to="tasks" method="_on_microwave_task_pressed"]

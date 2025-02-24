@@ -1,4 +1,4 @@
-extends Label
+extends Label #4 numbers breaks this
 var timeStr: String
 var time = 0
 var t
