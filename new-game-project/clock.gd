@@ -1,5 +1,5 @@
 extends Node2D
-var min = 00
+var minute = 00
 var hour = 6
 var tra = 0;
 signal end;
@@ -15,19 +15,19 @@ func _process(_delta: float) -> void:
 
 
 func _on_real_clock_timeout() -> void:
-	min+=10
-	if min==60:
-		min=0
+	minute+=10
+	if minute==60:
+		minute=0
 		hour+=1
-		$Label.text = str(hour)+":0"+str(min)
+		$Label.text = str(hour)+":0"+str(minute)
 	else:
-		$Label.text = str(hour)+":"+str(min)
+		$Label.text = str(hour)+":"+str(minute)
 	if hour==21:
 		tra+=0.1
 		get_node("%Night").set_color(Color(0,0,0,(tra)))
 		print (tra)
 	elif hour==22:
 		hour=0;
-		min=0;
+		minute=0;
 		get_node("%Night").set_color(Color(0,0,0,255))
 		end.emit()
