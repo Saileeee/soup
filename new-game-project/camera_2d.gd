@@ -1,37 +1,58 @@
 extends Camera2D
-var current_room
-var left1 = 0
-var top1 = 0
-var left2 = 1152
-var top2 = 0
-var count
-var width = 1152
-var height = 762
+#var current_room
+#var count
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	make_current()
-	count = 0
+	#count = 0
 	#these values are based off the room size, should make them clearer
-	current_room = "room1"
-	#limit_left = left1
-	#limit_right = left1 + width
-	#limit_top = top1
-	#limit_bottom = top1 + height
+	#current_room = "room1"
+	limit_left = -1900
+	limit_right = -245
+	limit_top = -1583
+	limit_bottom = -176
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	count += 1
-	if count == 100:
-		print(get_screen_center_position())
-		count = 0
-	
+	#count += 1
+	#if count == 100:
+	#	print(get_screen_center_position())
+	#	count = 0
+	pass
 
 
 
 
 
 func _on_hub_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+	limit_left = -1900
+	limit_right = -245
+	limit_top = -1583
+	limit_bottom = -1776
+
+
+
+
+func _on_hallway_area_entered(area: Area2D) -> void:
+	limit_left = -2932
+	limit_right = -1845
+	limit_top = -560
+	limit_bottom = 80
+
+
+
+func _on_clinic_area_entered(area: Area2D) -> void:
+	limit_left = -2932
+	limit_right = -1845
+	limit_top = 143
+	limit_bottom = 975
+
+
+func _on_idk_room_area_entered(area: Area2D) -> void:
+	limit_left = -2932
+	limit_right = -1845
+	limit_top = -1520
+	limit_bottom = 143

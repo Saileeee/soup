@@ -97,6 +97,7 @@ size = Vector2(46, 43)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1652, -880)
+metadata/_edit_vertical_guides_ = [-1294.0]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-1, 0)
@@ -258,7 +259,11 @@ script = ExtResource("13_5hqk7")
 position = Vector2(451, 305)
 zoom = Vector2(1.6, 1.6)
 
+[connection signal="area_entered" from="TileMapLayer/Room Areas/IdkRoom" to="characters/crowman/camera" method="_on_idk_room_area_entered"]
 [connection signal="area_entered" from="TileMapLayer/Room Areas/Hub" to="characters/crowman/camera" method="_on_hub_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/Room Areas/Clinic" to="characters/crowman/camera" method="_on_clinic_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/Room Areas/Hallway" to="characters/crowman/camera" method="_on_hallway_area_entered"]
+[connection signal="area_shape_entered" from="TileMapLayer/Room Areas/Hallway" to="characters/crowman/camera" method="_on_hallway_area_shape_entered"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="HUD/taskUI" method="_on_pause_screen_visibility_changed"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters/crowman" method="_on_pause_screen_visibility_changed"]
