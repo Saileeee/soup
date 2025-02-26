@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://03uh2jp6e604"]
+[gd_scene load_steps=11 format=3 uid="uid://bohiyp0t84dv4"]
 
-[ext_resource type="PackedScene" uid="uid://dyjrw7gopo3sh" path="res://Characters/base_character.tscn" id="1_2hdyj"]
+[ext_resource type="PackedScene" uid="uid://b8aos6cx54icn" path="res://Characters/base_character.tscn" id="1_2hdyj"]
 [ext_resource type="Texture2D" uid="uid://svfy1rdsd76c" path="res://Art/New Piskel.png" id="2_4ckl3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mya42"]

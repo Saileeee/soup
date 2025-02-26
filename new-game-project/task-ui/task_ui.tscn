@@ -36,6 +36,7 @@ layout_mode = 0
 offset_top = -1.0
 offset_right = 1152.0
 offset_bottom = 647.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="GameOver" type="ColorRect" parent="."]

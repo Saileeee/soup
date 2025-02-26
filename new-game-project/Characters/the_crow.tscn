@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://de08cpdfx5f5c"]
+[gd_scene load_steps=8 format=3 uid="uid://d3p7rgktcp7br"]
 
-[ext_resource type="PackedScene" uid="uid://dyjrw7gopo3sh" path="res://Characters/base_character.tscn" id="1_2acmg"]
+[ext_resource type="PackedScene" uid="uid://b8aos6cx54icn" path="res://Characters/base_character.tscn" id="1_2acmg"]
 [ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="2_bjvhu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usjvp"]

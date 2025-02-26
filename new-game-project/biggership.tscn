@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://Characters/murder_rock!!!.tscn" id="9_c6752"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
 [ext_resource type="Script" path="res://Characters/fly.gd" id="13_w0bdt"]
-[ext_resource type="PackedScene" uid="uid://de08cpdfx5f5c" path="res://Characters/the_crow.tscn" id="15_cgcyx"]
-[ext_resource type="PackedScene" uid="uid://03uh2jp6e604" path="res://Characters/the_stick.tscn" id="16_fwunk"]
+[ext_resource type="PackedScene" uid="uid://d3p7rgktcp7br" path="res://Characters/the_crow.tscn" id="15_cgcyx"]
+[ext_resource type="PackedScene" uid="uid://bohiyp0t84dv4" path="res://Characters/the_stick.tscn" id="16_fwunk"]
 [ext_resource type="PackedScene" uid="uid://dog2gl8nfxwhm" path="res://microwave.tscn" id="17_gma52"]
 [ext_resource type="Script" path="res://tasks/tasks.gd" id="17_l7a4t"]
 [ext_resource type="Texture2D" uid="uid://dvgfrpe0x6tx6" path="res://Art/black test.png" id="18_3plvp"]
@@ -156,7 +156,6 @@ layer = 3
 layer = 2
 
 [node name="taskUI" parent="HUD" instance=ExtResource("8_2pdsk")]
-top_level = true
 offset_bottom = 0.0
 mouse_filter = 2
 
@@ -223,7 +222,7 @@ offset_bottom = 167.0
 text = "Speed: 500"
 
 [node name="the crow" parent="characters" instance=ExtResource("15_cgcyx")]
-position = Vector2(-4, -184)
+position = Vector2(13, -599)
 
 [node name="the stick" parent="characters" instance=ExtResource("16_fwunk")]
 position = Vector2(157, -155)

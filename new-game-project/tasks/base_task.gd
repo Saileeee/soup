@@ -23,8 +23,10 @@ func _process(delta: float) -> void:
 		print("disabled: ", str(disabled))
 	if currChar in in_range:
 		set_disabled(false)
+		#z_index = 3
 	else:
 		set_disabled(true)
+		#z_index = 0
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(str(body)," entered")
