@@ -7,14 +7,17 @@ var entered_room = false
 var in_task = false #YOU ARE HERE (fixing movement while in task)
 const SPEED = 300.0
 var room_move = 0
-var currChar = "crowman"
-var chars = ["stickman", "crowman"]
+var currChar = "the crow"
+var chars = ["the stick", "the crow"]
 var camera = "camera"
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	#$"the crow".position = Vector2(-760,-1089)
+	$"the crow".get_node("Camera2D").make_current()
+	$"the crow".isCurrChar = true
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -75,20 +78,22 @@ func _on_pause_screen_visibility_changed() -> void:
 
 func _on_task_ui_crowman_time() -> void:
 	currChar = "crowman"
+	$"the crow".get_node("Camera2D").make_current()
 	for char in chars:
 		get_node(char).isCurrChar = false
-	$fly.isCurrChar = false
-	$crowman.isCurrChar = true
-	$crowman/camera.make_current()
+	#$fly.isCurrChar = false
+	$"the crow".isCurrChar = true
+	#$crowman/camera.make_current()
 
 
 func _on_task_ui_stickman_time() -> void:
 	currChar = "stickman"
+	$"the stick".get_node("Camera2D").make_current()
 	for char in chars:
 		get_node(char).isCurrChar = false
-	$fly.isCurrChar = false
-	$stickman.isCurrChar = true
-	$stickman/camera.make_current()
+	#$fly.isCurrChar = false
+	$"the stick".isCurrChar = true
+	#$stickman/camera.make_current()
 
 
 func _on_task_ui_fly_time() -> void:

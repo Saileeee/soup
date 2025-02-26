@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://bohiyp0t84dv4"]
+
+[ext_resource type="PackedScene" uid="uid://b8aos6cx54icn" path="res://Characters/base_character.tscn" id="1_2hdyj"]
+[ext_resource type="Texture2D" uid="uid://svfy1rdsd76c" path="res://Art/New Piskel.png" id="2_4ckl3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mya42"]
+atlas = ExtResource("2_4ckl3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi8ya"]
+atlas = ExtResource("2_4ckl3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bp31"]
+atlas = ExtResource("2_4ckl3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xam8y"]
+atlas = ExtResource("2_4ckl3")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chep3"]
+atlas = ExtResource("2_4ckl3")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_561oh"]
+atlas = ExtResource("2_4ckl3")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx7sf"]
+atlas = ExtResource("2_4ckl3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ex0ro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mya42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi8ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bp31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xam8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chep3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_561oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx7sf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="the stick" instance=ExtResource("1_2hdyj")]
+SPEED = 300
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(591, 305)
+scale = Vector2(10.125, 7.5625)
+sprite_frames = SubResource("SpriteFrames_ex0ro")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(581.25, 410)
+
+[node name="Camera2D" parent="." index="2"]
+position = Vector2(576, 326)

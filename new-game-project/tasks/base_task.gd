@@ -3,11 +3,13 @@ var in_range = []
 var chars = [] #crowman, stickman, fly
 var currChar
 var count = 0
+@export var crowman: Node
+@export var stickman: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	chars.append(get_node("../characters/crowman"))
-	chars.append(get_node("../characters/stickman"))
+	chars.append(crowman)
+	chars.append(stickman)
 	chars.append(get_node("../characters/fly"))
 	set_disabled(true)
 	currChar = chars[0]
@@ -21,8 +23,10 @@ func _process(delta: float) -> void:
 		print("disabled: ", str(disabled))
 	if currChar in in_range:
 		set_disabled(false)
+		#z_index = 3
 	else:
 		set_disabled(true)
+		#z_index = 0
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(str(body)," entered")
