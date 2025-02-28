@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8aos6cx54icn"]
+[gd_scene load_steps=2 format=3 uid="uid://b8aos6cx54icn"]
 
 [ext_resource type="Script" path="res://Characters/base_character.gd" id="1_qv28k"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wybp"]
-size = Vector2(99.5, 13)
 
 [node name="base character" type="CharacterBody2D"]
 motion_mode = 1
@@ -12,6 +9,6 @@ script = ExtResource("1_qv28k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6wybp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.7, 1.7)

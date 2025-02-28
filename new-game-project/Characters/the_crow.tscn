@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3p7rgktcp7br"]
+[gd_scene load_steps=9 format=3 uid="uid://d3p7rgktcp7br"]
 
 [ext_resource type="PackedScene" uid="uid://b8aos6cx54icn" path="res://Characters/base_character.tscn" id="1_2acmg"]
 [ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="2_bjvhu"]
@@ -39,6 +39,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lit72"]
+size = Vector2(90, 20)
+
 [node name="the crow" instance=ExtResource("1_2acmg")]
 SPEED = 300
 
@@ -48,7 +51,8 @@ scale = Vector2(3.60937, 4.42188)
 sprite_frames = SubResource("SpriteFrames_4hk1l")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(573, 430)
+position = Vector2(575, 431)
+shape = SubResource("RectangleShape2D_lit72")
 
 [node name="Camera2D" parent="." index="2"]
 position = Vector2(576, 323)

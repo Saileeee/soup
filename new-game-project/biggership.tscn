@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cy8pqvsusmrt5"]
+[gd_scene load_steps=30 format=4 uid="uid://cy8pqvsusmrt5"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="8_2pdsk"]
 [ext_resource type="Script" path="res://characters.gd" id="9_a45k0"]
 [ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://Characters/murder_rock!!!.tscn" id="9_c6752"]
+[ext_resource type="PackedScene" uid="uid://cx1fr0qgl5buc" path="res://Characters/fly.tscn" id="10_6r8p1"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
-[ext_resource type="Script" path="res://Characters/fly.gd" id="13_w0bdt"]
 [ext_resource type="PackedScene" uid="uid://d3p7rgktcp7br" path="res://Characters/the_crow.tscn" id="15_cgcyx"]
 [ext_resource type="PackedScene" uid="uid://bohiyp0t84dv4" path="res://Characters/the_stick.tscn" id="16_fwunk"]
 [ext_resource type="PackedScene" uid="uid://dog2gl8nfxwhm" path="res://microwave.tscn" id="17_gma52"]
@@ -79,9 +79,6 @@ size = Vector2(960.5, 261)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbme"]
 size = Vector2(54, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdm5m"]
-size = Vector2(46, 43)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1652, -880)
@@ -181,45 +178,8 @@ unique_name_in_owner = true
 script = ExtResource("9_a45k0")
 metadata/_edit_lock_ = true
 
-[node name="fly" type="CharacterBody2D" parent="characters"]
-position = Vector2(1824, -475)
-script = ExtResource("13_w0bdt")
-metadata/_edit_group_ = true
-
-[node name="camera" type="Camera2D" parent="characters/fly"]
-zoom = Vector2(1.6, 1.6)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="characters/fly"]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_tdm5m")
-disabled = true
-
-[node name="ColorRect" type="ColorRect" parent="characters/fly"]
-offset_left = -24.0
-offset_top = -22.0
-offset_right = 21.0
-offset_bottom = 21.0
-
-[node name="HSlider" type="HSlider" parent="characters/fly"]
-offset_left = -349.0
-offset_top = 122.0
-offset_right = 346.0
-offset_bottom = 252.0
-max_value = 1000.0
-
-[node name="Collision" type="Label" parent="characters/fly"]
-offset_left = -347.0
-offset_top = 110.0
-offset_right = -237.0
-offset_bottom = 137.0
-text = "collisions on"
-
-[node name="Speed" type="Label" parent="characters/fly"]
-offset_left = -345.0
-offset_top = 144.0
-offset_right = -293.0
-offset_bottom = 167.0
-text = "Speed: 500"
+[node name="fly2" parent="characters" instance=ExtResource("10_6r8p1")]
+position = Vector2(290, 451)
 
 [node name="the crow" parent="characters" instance=ExtResource("15_cgcyx")]
 position = Vector2(13, -599)
@@ -306,7 +266,6 @@ stickman = NodePath("../../characters/the stick")
 [connection signal="end_convo" from="Dialog" to="characters" method="_on_dialog_end_convo"]
 [connection signal="violence" from="Dialog" to="HUD/taskUI" method="_on_dialog_violence"]
 [connection signal="violence" from="Dialog" to="murder rock!!!" method="_on_dialog_violence"]
-[connection signal="value_changed" from="characters/fly/HSlider" to="characters/fly" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="tasks/star task/star close" to="tasks" method="_on_star_close_pressed"]
 [connection signal="pressed" from="tasks/microwave/micro close" to="tasks" method="_on_micro_close_pressed"]
 [connection signal="pressed" from="task buttons/Star task" to="tasks" method="_on_star_task_pressed"]

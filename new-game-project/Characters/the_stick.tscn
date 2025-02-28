@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bohiyp0t84dv4"]
+[gd_scene load_steps=12 format=3 uid="uid://bohiyp0t84dv4"]
 
 [ext_resource type="PackedScene" uid="uid://b8aos6cx54icn" path="res://Characters/base_character.tscn" id="1_2hdyj"]
 [ext_resource type="Texture2D" uid="uid://svfy1rdsd76c" path="res://Art/New Piskel.png" id="2_4ckl3"]
@@ -60,6 +60,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fi367"]
+size = Vector2(111, 20)
+
 [node name="the stick" instance=ExtResource("1_2hdyj")]
 SPEED = 300
 
@@ -69,7 +72,8 @@ scale = Vector2(10.125, 7.5625)
 sprite_frames = SubResource("SpriteFrames_ex0ro")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(581.25, 410)
+position = Vector2(582, 409)
+shape = SubResource("RectangleShape2D_fi367")
 
 [node name="Camera2D" parent="." index="2"]
 position = Vector2(576, 326)

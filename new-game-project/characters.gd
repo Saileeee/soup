@@ -100,5 +100,5 @@ func _on_task_ui_fly_time() -> void:
 	currChar = "fly"
 	for char in chars:
 		get_node(char).isCurrChar = false
-	$fly.isCurrChar = true
-	$fly/camera.make_current()
+	$fly2.isCurrChar = true
+	$fly2.get_node("Camera2D").make_current()
