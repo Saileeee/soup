@@ -5,14 +5,10 @@ extends Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	make_current()
+	pass
 	#count = 0
 	#these values are based off the room size, should make them clearer
 	#current_room = "room1"
-	limit_left = -1900
-	limit_right = -245
-	limit_top = -1583
-	limit_bottom = -176
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,7 +28,6 @@ func _on_hub_area_entered(area: Area2D) -> void:
 	limit_right = -245
 	limit_top = -1583
 	limit_bottom = -1776
-
 
 
 
@@ -56,3 +51,11 @@ func _on_idk_room_area_entered(area: Area2D) -> void:
 	limit_right = -1845
 	limit_top = -1520
 	limit_bottom = 143
+
+
+func _on_welcome_hidden() -> void:
+	make_current()
+	limit_left = -1900
+	limit_right = -245
+	limit_top = -1583
+	limit_bottom = -176
