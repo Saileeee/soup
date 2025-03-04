@@ -114,9 +114,7 @@ position = Vector2(1, 0)
 position = Vector2(-767.5, -32.5)
 shape = SubResource("RectangleShape2D_sh4c6")
 
-[node name="Area2D" type="Area2D" parent="TileMapLayer/Room Areas/IdkRoom"]
-
-[node name="IdkRoomHall" type="CollisionShape2D" parent="TileMapLayer/Room Areas/IdkRoom/Area2D"]
+[node name="IdkRoomHall" type="CollisionShape2D" parent="TileMapLayer/Room Areas/IdkRoom"]
 position = Vector2(-770.5, 416)
 shape = SubResource("RectangleShape2D_x2vtj")
 
