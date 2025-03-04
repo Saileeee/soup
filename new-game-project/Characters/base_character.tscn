@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8aos6cx54icn"]
+[gd_scene load_steps=4 format=3 uid="uid://b8aos6cx54icn"]
 
 [ext_resource type="Script" path="res://Characters/base_character.gd" id="1_qv28k"]
+[ext_resource type="Script" path="res://Characters/camera_2d.gd" id="2_odf55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wybp"]
 size = Vector2(99.5, 13)
 
-[node name="base character" type="CharacterBody2D"]
+[node name="base character" type="CharacterBody2D" node_paths=PackedStringArray("camera")]
 motion_mode = 1
 script = ExtResource("1_qv28k")
+camera = NodePath("Camera2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
@@ -15,3 +17,5 @@ script = ExtResource("1_qv28k")
 shape = SubResource("RectangleShape2D_6wybp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.6, 1.6)
+script = ExtResource("2_odf55")

@@ -99,7 +99,6 @@ position = Vector2(252, 661)
 position = Vector2(-881, 145)
 build_mode = 1
 polygon = PackedVector2Array(1268, -105, 1269, -168, 1781, -166, 1781, -615, 1717, -616, 1718, -806, 1655, -808, 1652, -1000, 1591, -1000, 1592, -1128, 821, -1127, 821, -998, 757, -998, 755, -811, 695, -810, 694, -614, 628, -614, 626, -165, 1139, -166, 1143, -101, 374, -102, 375, -1511, 2039, -1513, 2040, -104)
-metadata/_edit_lock_ = true
 
 [node name="Hall + Rooms" type="CollisionPolygon2D" parent="TileMapLayer/Colliders"]
 position = Vector2(-251, -661)
@@ -115,7 +114,9 @@ position = Vector2(1, 0)
 position = Vector2(-767.5, -32.5)
 shape = SubResource("RectangleShape2D_sh4c6")
 
-[node name="IdkRoomHall" type="CollisionShape2D" parent="TileMapLayer/Room Areas/IdkRoom"]
+[node name="Area2D" type="Area2D" parent="TileMapLayer/Room Areas/IdkRoom"]
+
+[node name="IdkRoomHall" type="CollisionShape2D" parent="TileMapLayer/Room Areas/IdkRoom/Area2D"]
 position = Vector2(-770.5, 416)
 shape = SubResource("RectangleShape2D_x2vtj")
 
@@ -125,6 +126,7 @@ shape = SubResource("RectangleShape2D_x2vtj")
 polygon = PackedVector2Array(514, 702, 641, 702, 640, 639, 1150, 639, 1153, 194, 1087, 194, 1089, -2, 1024, -1, 1024, -190, 961, -191, 961, -318, 194, -320, 193, -194, 128, -191, 130, 2, 66, 0, 66, 194, 3, 193, 3, 639, 510, 644)
 
 [node name="Hub Hall" type="CollisionShape2D" parent="TileMapLayer/Room Areas/Hub"]
+visible = false
 position = Vector2(191.75, 768.25)
 shape = SubResource("RectangleShape2D_lbppu")
 
@@ -286,8 +288,13 @@ offset_bottom = -269.0
 crowman = NodePath("../../characters/the crow")
 stickman = NodePath("../../characters/the stick")
 
+[connection signal="body_entered" from="TileMapLayer/Room Areas/IdkRoom" to="characters/the crow" method="_on_idk_room_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/Room Areas/Hub" to="characters/the stick" method="_on_hub_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/Room Areas/Clinic" to="characters/the crow" method="_on_clinic_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/Room Areas/Hallway" to="characters/the crow" method="_on_hallway_body_entered"]
 [connection signal="visibility_changed" from="Screens/Pause screen" to="characters" method="_on_pause_screen_visibility_changed"]
 [connection signal="hidden" from="Screens/Welcome" to="characters" method="_on_welcome_hidden"]
+[connection signal="hidden" from="Screens/Welcome" to="characters/the crow" method="_on_welcome_hidden"]
 [connection signal="crowman_time" from="HUD/taskUI" to="characters" method="_on_task_ui_crowman_time"]
 [connection signal="crowman_time" from="HUD/taskUI" to="task buttons/Star task" method="_on_task_ui_crowman_time"]
 [connection signal="crowman_time" from="HUD/taskUI" to="task buttons/microwave task" method="_on_task_ui_crowman_time"]

@@ -1,5 +1,4 @@
 extends Node2D
-
 var started = false
 var paused = false
 var speaking = false
