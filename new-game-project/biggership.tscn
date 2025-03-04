@@ -182,6 +182,7 @@ script = ExtResource("9_a45k0")
 metadata/_edit_lock_ = true
 
 [node name="fly" type="CharacterBody2D" parent="characters"]
+visible = false
 position = Vector2(1824, -475)
 script = ExtResource("13_w0bdt")
 metadata/_edit_group_ = true

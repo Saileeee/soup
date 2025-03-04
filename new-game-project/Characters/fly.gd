@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 var speed = 500.0
 var isCurrChar = false
 

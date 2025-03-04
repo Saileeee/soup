@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvkngkk1mcby2"]
+
+[ext_resource type="PackedScene" uid="uid://b8aos6cx54icn" path="res://Characters/base_character.tscn" id="1_lv4fy"]
+[ext_resource type="Script" path="res://Characters/fly_collision.gd" id="2_pg6vd"]
+[ext_resource type="Texture2D" uid="uid://xq4kx1n356yk" path="res://Art/murder rock! (1).png" id="2_xncel"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74qjn"]
+atlas = ExtResource("2_xncel")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1jia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74qjn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4xfx"]
+size = Vector2(99, 110)
+
+[node name="fly" instance=ExtResource("1_lv4fy")]
+
+[node name="fly collision" type="ColorRect" parent="." index="0" node_paths=PackedStringArray("collision")]
+offset_left = -48.0
+offset_top = -59.0
+offset_right = 51.0
+offset_bottom = 50.0
+script = ExtResource("2_pg6vd")
+collision = NodePath("../CollisionShape2D")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-1225, -514)
+sprite_frames = SubResource("SpriteFrames_g1jia")
+offset = Vector2(1225, 514)
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0.5, -5)
+shape = SubResource("RectangleShape2D_o4xfx")
+disabled = true
+
+[node name="HSlider" type="HSlider" parent="." index="4"]
+offset_left = -333.0
+offset_top = 166.0
+offset_right = 330.0
+offset_bottom = 182.0
+max_value = 1000.0
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
