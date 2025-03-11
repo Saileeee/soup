@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://blax6asrlquxi"]
 
-[ext_resource type="Script" path="res://Characters/crowman.gd" id="1_krs7i"]
+[ext_resource type="Script" uid="uid://bvvnu46c45h8s" path="res://Characters/crowman.gd" id="1_krs7i"]
 [ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="2_661op"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah63b"]

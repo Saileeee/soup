@@ -1,8 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bvkngkk1mcby2"]
 
 [ext_resource type="PackedScene" uid="uid://b8aos6cx54icn" path="res://Characters/base_character.tscn" id="1_lv4fy"]
-[ext_resource type="Script" path="res://Characters/fly_collision.gd" id="2_pg6vd"]
 [ext_resource type="Texture2D" uid="uid://xq4kx1n356yk" path="res://Art/murder rock! (1).png" id="2_xncel"]
+
+[sub_resource type="Resource" id="Resource_d7cxc"]
+metadata/__load_path__ = "res://Characters/fly_collision.gd"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_74qjn"]
 atlas = ExtResource("2_xncel")
@@ -29,7 +31,7 @@ offset_left = -48.0
 offset_top = -59.0
 offset_right = 51.0
 offset_bottom = 50.0
-script = ExtResource("2_pg6vd")
+script = SubResource("Resource_d7cxc")
 collision = NodePath("../CollisionShape2D")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
