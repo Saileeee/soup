@@ -25,13 +25,6 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite2D.play()
 		elif room_move==0:
 			$AnimatedSprite2D.stop()
-			
-		if entered_room:
-			$"room move timer".start()
-			entered_room = false
-		if room_move != 0:
-			velocity.x = room_move
-			$AnimatedSprite2D.play()
 		
 	move_and_slide()
 
@@ -42,6 +35,8 @@ func _on_welcome_hidden() -> void:
 	camera.limit_right = -245
 	camera.limit_top = -1583 
 	camera.limit_bottom = -176
+	set_global_position(Vector2(-1800, -1050))
+	$"room move timer".start()
 
 
 func _on_hallway_body_entered(body: Node2D) -> void:
@@ -56,6 +51,7 @@ func _on_hub_body_entered(body: Node2D) -> void:
 	camera.limit_right = -245
 	camera.limit_top = -1583 
 	camera.limit_bottom = -176
+	set_global_position(Vector2(-1800, -1050))
 
 
 func _on_clinic_body_entered(body: Node2D) -> void:
@@ -63,10 +59,26 @@ func _on_clinic_body_entered(body: Node2D) -> void:
 	camera.limit_right = -1845
 	camera.limit_top = 143
 	camera.limit_bottom = 975
-
+	set_global_position(Vector2(-2994.826, 40))
 
 func _on_idk_room_body_entered(body: Node2D) -> void:
 	camera.limit_left = -2932
 	camera.limit_right = -1845
 	camera.limit_top = -1520
 	camera.limit_bottom = -625
+	set_global_position(Vector2(-2994.826, -1000))
+
+
+func _on_hub_body_exited(body: Node2D) -> void:
+	if $"room move timer".time_left <= 0:
+		set_global_position(Vector2(-2530, -470))
+
+
+func _on_clinic_body_exited(body: Node2D) -> void:
+	if $"room move timer".time_left <= 0:
+		set_global_position(Vector2(-2994.826, -100))
+
+
+func _on_idk_room_body_exited(body: Node2D) -> void:
+	if $"room move timer".time_left <= 0:
+		set_global_position(Vector2(-2994.826, -450))

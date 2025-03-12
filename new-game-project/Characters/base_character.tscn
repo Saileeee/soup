@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8aos6cx54icn"]
 
-[ext_resource type="Script" path="res://Characters/base_character.gd" id="1_qv28k"]
-[ext_resource type="Script" path="res://Characters/camera_2d.gd" id="2_odf55"]
+[ext_resource type="Script" uid="uid://cq4fk16g50i3j" path="res://Characters/base_character.gd" id="1_qv28k"]
+[ext_resource type="Script" uid="uid://bwsex2mmjgy54" path="res://Characters/camera_2d.gd" id="2_odf55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wybp"]
 size = Vector2(99.5, 13)
@@ -19,3 +19,8 @@ shape = SubResource("RectangleShape2D_6wybp")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.6, 1.6)
 script = ExtResource("2_odf55")
+
+[node name="room move timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="room move timer" to="." method="_on_room_move_timer_timeout"]

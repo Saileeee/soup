@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://jqaloto22mwj" path="res://starter_room.tscn" id="1_6hynw"]
 [ext_resource type="PackedScene" uid="uid://blax6asrlquxi" path="res://Characters/crownman.tscn" id="2_if3jr"]
-[ext_resource type="Script" path="res://tracking_camera.gd" id="3_mdauh"]
+[ext_resource type="Script" uid="uid://p7q45rw6j7py" path="res://tracking_camera.gd" id="3_mdauh"]
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="6_t7qfc"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="6_ucbhr"]
 [ext_resource type="PackedScene" uid="uid://cvvwpf6wgsbi1" path="res://Screens/pause_screen.tscn" id="7_yipv8"]
