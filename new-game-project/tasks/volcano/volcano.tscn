@@ -1,3 +1,166 @@
-[gd_scene format=3 uid="uid://c34lt7kdioy54"]
+[gd_scene load_steps=15 format=3 uid="uid://bfhd3fxta7up1"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://cqvhriqjwjip2" path="res://tasks/volcano/main space.gd" id="1_0l5ax"]
+[ext_resource type="Texture2D" uid="uid://bja0x1j2lq6dq" path="res://Art/volcano/volcano split.png" id="2_0l5ax"]
+[ext_resource type="Script" uid="uid://c8ltck8g0iuvt" path="res://tasks/volcano/piece.gd" id="3_vq1qq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvqa8"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(0, 684, 899, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23qv5"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(38, 526, 146, 138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svy8k"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(415, 522, 97, 145)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8llc7"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(737, 572, 92, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0pnb"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(44, 270, 244, 226)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapqm"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(349, 323, 228, 173)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3qwd"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(719, 306, 133, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugbp8"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(109, 0, 125, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j3v7"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(311, 58, 82, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hhra"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(475, 78, 129, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mph0e"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(696, 25, 111, 216)
+
+[node name="Volcano" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 646.0
+script = ExtResource("1_0l5ax")
+
+[node name="0" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 521.0
+offset_right = 1149.0
+offset_bottom = 656.0
+texture = SubResource("AtlasTexture_yvqa8")
+script = ExtResource("3_vq1qq")
+goal = Vector2(128, 392)
+
+[node name="1-0" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 483.0
+offset_right = 274.0
+offset_bottom = 621.0
+texture = SubResource("AtlasTexture_23qv5")
+script = ExtResource("3_vq1qq")
+goal = Vector2(349, 365)
+
+[node name="1-1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 442.0
+offset_right = 136.0
+offset_bottom = 587.0
+texture = SubResource("AtlasTexture_svy8k")
+script = ExtResource("3_vq1qq")
+goal = Vector2(468, 344)
+
+[node name="1-2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 439.0
+offset_top = -23.0
+offset_right = 531.0
+offset_bottom = 72.0
+texture = SubResource("AtlasTexture_8llc7")
+script = ExtResource("3_vq1qq")
+goal = Vector2(615, 341)
+
+[node name="2-0" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -85.0
+offset_top = 310.0
+offset_right = 159.0
+offset_bottom = 536.0
+texture = SubResource("AtlasTexture_i0pnb")
+script = ExtResource("3_vq1qq")
+goal = Vector2(261, 267)
+
+[node name="2-1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 975.0
+offset_top = 278.0
+offset_right = 1203.0
+offset_bottom = 451.0
+texture = SubResource("AtlasTexture_sapqm")
+script = ExtResource("3_vq1qq")
+goal = Vector2(492, 225)
+
+[node name="2-2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 995.0
+offset_top = 399.0
+offset_right = 1128.0
+offset_bottom = 591.0
+texture = SubResource("AtlasTexture_f3qwd")
+script = ExtResource("3_vq1qq")
+goal = Vector2(689, 304)
+
+[node name="3-0" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = -23.0
+offset_right = 193.0
+offset_bottom = 219.0
+texture = SubResource("AtlasTexture_ugbp8")
+script = ExtResource("3_vq1qq")
+goal = Vector2(412, 101)
+
+[node name="3-1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 151.0
+offset_right = 94.0
+offset_bottom = 332.0
+texture = SubResource("AtlasTexture_2j3v7")
+script = ExtResource("3_vq1qq")
+goal = Vector2(489, 100)
+
+[node name="3-2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1027.0
+offset_top = 137.0
+offset_right = 1156.0
+offset_bottom = 301.0
+texture = SubResource("AtlasTexture_3hhra")
+script = ExtResource("3_vq1qq")
+goal = Vector2(539, 99)
+
+[node name="3-3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = -21.0
+offset_right = 1071.0
+offset_bottom = 195.0
+texture = SubResource("AtlasTexture_mph0e")
+script = ExtResource("3_vq1qq")
+goal = Vector2(635, 110)
