@@ -3,7 +3,7 @@ extends TextureRect
 var is_dragging = false
 var is_in_position = false
 @export var goal: Vector2
-@onready var root = get_node("/root")
+@onready var root = get_node("/root") #runs an error
 
 func _process(delta: float) -> void:
 	if is_dragging and not is_in_position:
