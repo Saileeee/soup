@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bfhd3fxta7up1"]
+[gd_scene load_steps=27 format=3 uid="uid://bfhd3fxta7up1"]
 
 [ext_resource type="Script" uid="uid://cqvhriqjwjip2" path="res://tasks/volcano/main space.gd" id="1_0l5ax"]
 [ext_resource type="Texture2D" uid="uid://bja0x1j2lq6dq" path="res://Art/volcano/volcano split.png" id="2_0l5ax"]
 [ext_resource type="Script" uid="uid://c8ltck8g0iuvt" path="res://tasks/volcano/piece.gd" id="3_vq1qq"]
+[ext_resource type="Texture2D" uid="uid://cfdpkiwmisvgm" path="res://Art/volcano/volcano.png" id="4_vq1qq"]
+[ext_resource type="Texture2D" uid="uid://xq4kx1n356yk" path="res://Art/murder rock! (1).png" id="5_yvqa8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvqa8"]
 atlas = ExtResource("2_0l5ax")
@@ -48,6 +50,77 @@ region = Rect2(475, 78, 129, 164)
 atlas = ExtResource("2_0l5ax")
 region = Rect2(696, 25, 111, 216)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hpxq"]
+atlas = ExtResource("5_yvqa8")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x40xo"]
+atlas = ExtResource("5_yvqa8")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y7be"]
+atlas = ExtResource("5_yvqa8")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf51v"]
+atlas = ExtResource("5_yvqa8")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro33l"]
+atlas = ExtResource("5_yvqa8")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf63y"]
+atlas = ExtResource("5_yvqa8")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbmpl"]
+atlas = ExtResource("5_yvqa8")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u04f6"]
+atlas = ExtResource("5_yvqa8")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4xc1"]
+atlas = ExtResource("5_yvqa8")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6nfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hpxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x40xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y7be")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf51v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro33l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf63y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbmpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u04f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4xc1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Volcano" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -55,77 +128,78 @@ offset_right = 1153.0
 offset_bottom = 646.0
 script = ExtResource("1_0l5ax")
 
-[node name="0" type="TextureRect" parent="."]
+[node name="0" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
-offset_left = 250.0
-offset_top = 521.0
-offset_right = 1149.0
-offset_bottom = 656.0
+offset_left = 128.0
+offset_top = 392.0
+offset_right = 1027.0
+offset_bottom = 527.0
+mouse_filter = 2
 texture = SubResource("AtlasTexture_yvqa8")
 script = ExtResource("3_vq1qq")
 goal = Vector2(128, 392)
 
-[node name="1-0" type="TextureRect" parent="."]
+[node name="1-0" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 483.0
-offset_right = 274.0
-offset_bottom = 621.0
+offset_left = 74.0
+offset_top = 549.0
+offset_right = 220.0
+offset_bottom = 687.0
 texture = SubResource("AtlasTexture_23qv5")
 script = ExtResource("3_vq1qq")
 goal = Vector2(349, 365)
 
-[node name="1-1" type="TextureRect" parent="."]
+[node name="1-1" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 442.0
-offset_right = 136.0
-offset_bottom = 587.0
+offset_left = 2.0
+offset_top = 507.0
+offset_right = 99.0
+offset_bottom = 652.0
 texture = SubResource("AtlasTexture_svy8k")
 script = ExtResource("3_vq1qq")
 goal = Vector2(468, 344)
 
-[node name="1-2" type="TextureRect" parent="."]
+[node name="1-2" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
-offset_left = 439.0
-offset_top = -23.0
-offset_right = 531.0
-offset_bottom = 72.0
+offset_left = 1037.0
+offset_top = 8.0
+offset_right = 1129.0
+offset_bottom = 103.0
 texture = SubResource("AtlasTexture_8llc7")
 script = ExtResource("3_vq1qq")
 goal = Vector2(615, 341)
 
-[node name="2-0" type="TextureRect" parent="."]
+[node name="2-0" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
-offset_left = -85.0
-offset_top = 310.0
-offset_right = 159.0
-offset_bottom = 536.0
+offset_left = -82.0
+offset_top = 298.0
+offset_right = 162.0
+offset_bottom = 524.0
 texture = SubResource("AtlasTexture_i0pnb")
 script = ExtResource("3_vq1qq")
 goal = Vector2(261, 267)
 
-[node name="2-1" type="TextureRect" parent="."]
+[node name="2-1" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
-offset_left = 975.0
-offset_top = 278.0
-offset_right = 1203.0
-offset_bottom = 451.0
+offset_left = 1011.0
+offset_top = 322.0
+offset_right = 1239.0
+offset_bottom = 495.0
 texture = SubResource("AtlasTexture_sapqm")
 script = ExtResource("3_vq1qq")
 goal = Vector2(492, 225)
 
-[node name="2-2" type="TextureRect" parent="."]
+[node name="2-2" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
-offset_left = 995.0
-offset_top = 399.0
-offset_right = 1128.0
-offset_bottom = 591.0
+offset_left = 1044.0
+offset_top = 504.0
+offset_right = 1177.0
+offset_bottom = 696.0
 texture = SubResource("AtlasTexture_f3qwd")
 script = ExtResource("3_vq1qq")
 goal = Vector2(689, 304)
 
-[node name="3-0" type="TextureRect" parent="."]
+[node name="3-0" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
 offset_left = 68.0
 offset_top = -23.0
@@ -135,7 +209,7 @@ texture = SubResource("AtlasTexture_ugbp8")
 script = ExtResource("3_vq1qq")
 goal = Vector2(412, 101)
 
-[node name="3-1" type="TextureRect" parent="."]
+[node name="3-1" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 151.0
@@ -145,7 +219,7 @@ texture = SubResource("AtlasTexture_2j3v7")
 script = ExtResource("3_vq1qq")
 goal = Vector2(489, 100)
 
-[node name="3-2" type="TextureRect" parent="."]
+[node name="3-2" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
 offset_left = 1027.0
 offset_top = 137.0
@@ -155,7 +229,7 @@ texture = SubResource("AtlasTexture_3hhra")
 script = ExtResource("3_vq1qq")
 goal = Vector2(539, 99)
 
-[node name="3-3" type="TextureRect" parent="."]
+[node name="3-3" type="TextureRect" parent="." groups=["pieces"]]
 layout_mode = 0
 offset_left = 960.0
 offset_top = -21.0
@@ -164,3 +238,22 @@ offset_bottom = 195.0
 texture = SubResource("AtlasTexture_mph0e")
 script = ExtResource("3_vq1qq")
 goal = Vector2(635, 110)
+
+[node name="full image" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = 97.0
+offset_right = 1150.0
+offset_bottom = 645.0
+texture = ExtResource("4_vq1qq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 404.0
+offset_top = 269.0
+offset_right = 444.0
+offset_bottom = 309.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(603, 307)
+sprite_frames = SubResource("SpriteFrames_v6nfm")
