@@ -17,18 +17,11 @@ func _process(delta: float) -> void:
 	if num_in_place == 10:
 		$"full image".show()
 		get_tree().call_group("pieces", "hide")
-		if not timer_started:
-			$timer.start()
-			#move = Timer.new()
-			#move.one_shot = true
-			#move.wait_time = 5
-			#move.autostart = true
-			#print(move.time_left)
-			#print(move.wait_time)
-			timer_started = true
-		elif not $timer.is_stopped():
-			$"full image".position.x += 20-$timer.time_left*6
-			print($timer.time_left)
+		#if not timer_started:
+			#$timer.start()
+			#timer_started = true
+		#elif not $timer.is_stopped():
+			#$"full image".position.x += 20-$timer.time_left*6
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	#if data.is_in_position:

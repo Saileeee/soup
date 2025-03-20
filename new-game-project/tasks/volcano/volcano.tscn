@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bfhd3fxta7up1"]
+[gd_scene load_steps=30 format=3 uid="uid://bfhd3fxta7up1"]
 
 [ext_resource type="Script" uid="uid://cqvhriqjwjip2" path="res://tasks/volcano/main space.gd" id="1_0l5ax"]
 [ext_resource type="Texture2D" uid="uid://bja0x1j2lq6dq" path="res://Art/volcano/volcano split.png" id="2_0l5ax"]
@@ -121,11 +121,34 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_yvqa8"]
+_data = [Vector2(0.325123, 0.343396), 0.0, 0.0, 0, 0, Vector2(0.714286, 0.501887), 0.0, 0.0, 0, 0, Vector2(0.724138, 0.864151), 0.0, 0.0, 0, 0, Vector2(0.940887, 0.54717), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_23qv5"]
+width = 269
+curve = SubResource("Curve_yvqa8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_svy8k"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 41.25
+angle_min = -237.2
+angle_max = 275.9
+angle_curve = SubResource("CurveTexture_23qv5")
+inherit_velocity_ratio = 0.419
+spread = 87.177
+flatness = 0.532
+initial_velocity_max = 260.54
+gravity = Vector3(0, 98, 0)
+
 [node name="Volcano" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1153.0
-offset_bottom = 646.0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 1163.0
+offset_bottom = 657.0
 script = ExtResource("1_0l5ax")
 
 [node name="0" type="TextureRect" parent="." groups=["pieces"]]
@@ -264,3 +287,13 @@ sprite_frames = SubResource("SpriteFrames_v6nfm")
 [node name="timer" type="Timer" parent="."]
 wait_time = 4.5
 one_shot = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(622, 227)
+amount = 18
+amount_ratio = 0.5602
+explosiveness = 0.41
+randomness = 0.32
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_svy8k")
