@@ -3,7 +3,7 @@ extends TextureRect
 var is_dragging = false
 var is_in_position = false
 @export var goal: Vector2
-@onready var root = get_node("/root/Volcano") #runs an error
+@onready var root = get_node("/root/Volcano") 
 
 func _process(delta: float) -> void:
 	if is_dragging and not is_in_position:
@@ -13,8 +13,8 @@ func _process(delta: float) -> void:
 			show()
 			is_dragging = false
 			top_level = false
-			if goal.distance_to(position) < 50:
-				print(goal.distance_to(position))
+			if goal.distance_to(position) < 5000:
+				#print(goal.distance_to(position))
 				is_in_position = true
 				z_index = -1
 				position = goal

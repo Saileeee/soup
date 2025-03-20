@@ -249,11 +249,18 @@ offset_bottom = 645.0
 texture = ExtResource("4_vq1qq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
 offset_left = 404.0
 offset_top = 269.0
 offset_right = 444.0
 offset_bottom = 309.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(603, 307)
 sprite_frames = SubResource("SpriteFrames_v6nfm")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 4.5
+one_shot = true
