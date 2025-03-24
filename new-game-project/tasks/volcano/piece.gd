@@ -5,6 +5,9 @@ var is_in_position = false
 @export var goal: Vector2
 @onready var root = get_node("/root/Volcano") 
 
+func _ready() -> void:
+	modulate = Color.CORAL
+
 func _process(delta: float) -> void:
 	if is_dragging and not is_in_position:
 		hide()
@@ -20,6 +23,7 @@ func _process(delta: float) -> void:
 				position = goal
 				root.num_in_place += 1
 				mouse_filter = Control.MOUSE_FILTER_IGNORE
+				modulate = Color.WHITE
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if not is_in_position:
@@ -28,6 +32,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 		var image = TextureRect.new()
 		preview.add_child(image)
 		image.texture = texture
+		image.modulate = Color.CORAL
 		var pos = Vector2(-image.texture.region.size/2)
 		image.position = pos
 		set_drag_preview(preview)
