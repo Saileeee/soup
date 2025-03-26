@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://bfhd3fxta7up1"]
+[gd_scene load_steps=23 format=3 uid="uid://bfhd3fxta7up1"]
 
 [ext_resource type="Script" uid="uid://cqvhriqjwjip2" path="res://tasks/volcano/main space.gd" id="1_0l5ax"]
 [ext_resource type="Texture2D" uid="uid://bja0x1j2lq6dq" path="res://Art/volcano/volcano split.png" id="2_0l5ax"]
 [ext_resource type="Script" uid="uid://c8ltck8g0iuvt" path="res://tasks/volcano/piece.gd" id="3_vq1qq"]
 [ext_resource type="Texture2D" uid="uid://cfdpkiwmisvgm" path="res://Art/volcano/volcano.png" id="4_vq1qq"]
 [ext_resource type="Script" uid="uid://b6rdexghoyn07" path="res://tasks/volcano/beaker.gd" id="5_svy8k"]
+[ext_resource type="Script" uid="uid://dov3s200p5qry" path="res://tasks/volcano/full_image.gd" id="6_8llc7"]
 [ext_resource type="Texture2D" uid="uid://div7oe5f2scvi" path="res://Art/volcano/temp beaker (2).png" id="6_svy8k"]
 [ext_resource type="Texture2D" uid="uid://swx2rhiwvws6" path="res://Art/volcano/particle.png" id="7_svy8k"]
 
@@ -52,6 +53,12 @@ region = Rect2(475, 78, 129, 164)
 atlas = ExtResource("2_0l5ax")
 region = Rect2(696, 25, 111, 216)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8llc7"]
+emission_shape = 1
+emission_sphere_radius = 5.13
+gravity = Vector3(0, 98, 0)
+color = Color(0.882353, 0.0666667, 0.027451, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6nfm"]
 atlas = ExtResource("6_svy8k")
 region = Rect2(0, 0, 232, 281)
@@ -66,12 +73,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8llc7"]
-emission_shape = 1
-emission_sphere_radius = 5.13
-gravity = Vector3(0, 98, 0)
-color = Color(0.882353, 0.0666667, 0.027451, 1)
 
 [node name="Volcano" type="Control"]
 layout_mode = 3
@@ -191,13 +192,23 @@ texture = SubResource("AtlasTexture_mph0e")
 script = ExtResource("3_vq1qq")
 goal = Vector2(635, 110)
 
+[node name="particles" type="GPUParticles2D" parent="."]
+position = Vector2(1235, 424)
+emitting = false
+amount = 100
+texture = ExtResource("7_svy8k")
+lifetime = 3.5
+process_material = SubResource("ParticleProcessMaterial_8llc7")
+
 [node name="full image" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -2.0
 offset_top = 97.0
 offset_right = 1150.0
 offset_bottom = 645.0
 texture = ExtResource("4_vq1qq")
+script = ExtResource("6_8llc7")
 
 [node name="beaker" type="Control" parent="."]
 anchors_preset = 0
@@ -212,14 +223,6 @@ metadata/_edit_group_ = true
 position = Vector2(116, 141)
 sprite_frames = SubResource("SpriteFrames_0pqta")
 
-[node name="particles" type="GPUParticles2D" parent="beaker"]
-position = Vector2(28, 73)
-emitting = false
-amount = 100
-texture = ExtResource("7_svy8k")
-lifetime = 3.5
-process_material = SubResource("ParticleProcessMaterial_8llc7")
-
 [node name="timer" type="Timer" parent="."]
 wait_time = 4.5
 one_shot = true
@@ -232,5 +235,43 @@ offset_top = 258.0
 offset_right = 638.0
 offset_bottom = 312.0
 
+[node name="Label4" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 131.0
+offset_right = 104.0
+offset_bottom = 154.0
+text = "in pour area"
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = 89.0
+offset_right = 85.0
+offset_bottom = 112.0
+text = "in beaker"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 44.0
+offset_right = 119.0
+offset_bottom = 67.0
+text = "mouse clicked"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 120.0
+offset_bottom = 27.0
+text = "button clicked"
+
+[connection signal="mouse_entered" from="beaker" to="." method="_on_beaker_mouse_entered"]
+[connection signal="mouse_exited" from="beaker" to="." method="_on_beaker_mouse_exited"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="temp" to="." method="_on_temp_pressed"]

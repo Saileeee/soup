@@ -3,16 +3,37 @@ extends Control
 var num_in_place = 0
 var count = 0
 var timer_started = false
+var in_beaker = false
+var in_pour_area = false
+var clicked = false #in third stage or whatever, basically can pour
 #var move: Timer
 
 func _ready() -> void:
-	$AnimatedSprite2D.play()
+	#$AnimatedSprite2D.play()
+	pass
 
 func _process(delta: float) -> void:
-	$TextureRect.texture = $AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", $AnimatedSprite2D.frame) #set texture to current frame of animation
+	if clicked:
+		$Label.show()
+	else:
+		$Label.hide()
+	if Input.is_action_pressed("click"):
+		$Label2.show()
+	else:
+		$Label2.hide()
+	if in_beaker:
+		$Label3.show()
+	else:
+		$Label3.hide()
+	if in_pour_area:
+		$Label4.show()
+	else:
+		$Label4.hide()
+	#$TextureRect.texture = $AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", $AnimatedSprite2D.frame) #set texture to current frame of animation
 	#count += 1
 	#if count > 100:
 		#count = 0
+		#print(clicked, Input.is_action_pressed("click"), in_beaker, in_pour_area)
 		#print(num_in_place)
 	if num_in_place == 10:
 		$"full image".show()
@@ -25,6 +46,15 @@ func _process(delta: float) -> void:
 			$beaker.position.x -= 20-$timer.time_left*6
 			if $beaker.position.x<700:
 				$beaker.position.x = 700
+	var mouse_position = get_viewport().get_mouse_position()
+	if mouse_position<Vector2(750, 370) and mouse_position>Vector2(620, 0):
+		in_pour_area = true
+	else:
+		in_pour_area = false
+	if clicked and Input.is_action_pressed("click") and in_beaker and in_pour_area:
+		$particles.emitting = true
+	else:
+		$particles.emitting = false
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	#if data.is_in_position:
@@ -36,10 +66,7 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 		data.position = at_position + Vector2(-data.texture.region.size/2)
 	if data is Array:
 		data[0].position = at_position + Vector2(data[1])
-		if data[1].position<Vector2(750, 250) and data[1].position> :
-			pass
-
-
+		
 func _on_timer_timeout() -> void:
 	$temp.show()
 
@@ -47,3 +74,14 @@ func _on_timer_timeout() -> void:
 func _on_temp_pressed() -> void:
 	$"full image".position = Vector2(-2, 97)
 	$temp.hide()
+	clicked = true
+
+#some inane definitly not the most logical code
+func _on_beaker_mouse_entered() -> void:
+	in_beaker = true
+
+func _on_beaker_mouse_exited() -> void:
+	if Input.is_action_pressed("click") and in_beaker:
+		pass
+	else:
+		in_beaker = false

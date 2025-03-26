@@ -9,3 +9,6 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	image.position = pos
 	set_drag_preview(preview)
 	return [self, -image.texture.region.size/2]
+
+#func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	#return true
