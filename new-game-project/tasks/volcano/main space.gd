@@ -51,8 +51,25 @@ func _process(delta: float) -> void:
 		in_pour_area = true
 	else:
 		in_pour_area = false
+	var preview = Control.new()
+	var image = TextureRect.new()
+	preview.add_child(image)
+	image.texture = $beaker/image.get_sprite_frames().get_frame_texture("default", $beaker/image.frame)
+	var pos = Vector2(-image.texture.region.size/2)
+	image.position = pos
+	if clicked and Input.is_action_pressed("click"):
+		var dist = sqrt(abs(336400-mouse_position.x**2))
+		if dist>600 or mouse_position.y>250:
+			image.rotation = 0
+			print("distance", dist)
+		else:
+			image.rotation = dist/382
+			print("rotation", image.rotation)
+		$beaker.set_drag_preview(preview)
+		
 	if clicked and Input.is_action_pressed("click") and in_beaker and in_pour_area:
 		$particles.emitting = true
+		$particles.position = mouse_position - Vector2(90, 70)
 	else:
 		$particles.emitting = false
 

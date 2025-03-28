@@ -193,6 +193,7 @@ script = ExtResource("3_vq1qq")
 goal = Vector2(635, 110)
 
 [node name="particles" type="GPUParticles2D" parent="."]
+visibility_layer = 3
 position = Vector2(1235, 424)
 emitting = false
 amount = 100
