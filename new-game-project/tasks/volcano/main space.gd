@@ -13,22 +13,22 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if clicked:
-		$Label.show()
-	else:
-		$Label.hide()
-	if Input.is_action_pressed("click"):
-		$Label2.show()
-	else:
-		$Label2.hide()
-	if in_beaker:
-		$Label3.show()
-	else:
-		$Label3.hide()
-	if in_pour_area:
-		$Label4.show()
-	else:
-		$Label4.hide()
+	#if clicked:
+		#$Label.show()
+	#else:
+		#$Label.hide()
+	#if Input.is_action_pressed("click"):
+		#$Label2.show()
+	#else:
+		#$Label2.hide()
+	#if in_beaker:
+		#$Label3.show()
+	#else:
+		#$Label3.hide()
+	#if in_pour_area:
+		#$Label4.show()
+	#else:
+		#$Label4.hide()
 	#$TextureRect.texture = $AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", $AnimatedSprite2D.frame) #set texture to current frame of animation
 	#count += 1
 	#if count > 100:
@@ -58,13 +58,13 @@ func _process(delta: float) -> void:
 	var pos = Vector2(-image.texture.region.size/2)
 	image.position = pos
 	if clicked and Input.is_action_pressed("click"):
-		var dist = sqrt(abs(336400-mouse_position.x**2))
-		if dist>600 or mouse_position.y>250:
+		var dist = abs(670-mouse_position.x)
+		if dist>200 or mouse_position.y>250:
 			image.rotation = 0
-			print("distance", dist)
 		else:
-			image.rotation = dist/382
-			print("rotation", image.rotation)
+			image.rotation = -PI/2+dist*PI/400
+		#$Label5.text = "rotation: "+str(image.rotation*180/PI)
+		#$Label6.text = "distance: "+str(dist)+" mouse position: "+str(mouse_position.x)
 		$beaker.set_drag_preview(preview)
 		
 	if clicked and Input.is_action_pressed("click") and in_beaker and in_pour_area:

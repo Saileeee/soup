@@ -272,6 +272,20 @@ offset_right = 120.0
 offset_bottom = 27.0
 text = "button clicked"
 
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 575.0
+offset_right = 187.0
+offset_bottom = 631.0
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 948.0
+offset_top = 580.0
+offset_right = 1119.0
+offset_bottom = 627.0
+
 [connection signal="mouse_entered" from="beaker" to="." method="_on_beaker_mouse_entered"]
 [connection signal="mouse_exited" from="beaker" to="." method="_on_beaker_mouse_exited"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
