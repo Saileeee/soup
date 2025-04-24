@@ -12,7 +12,7 @@ func _ready() -> void:
 	#$AnimatedSprite2D.play()
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#if clicked:
 		#$Label.show()
 	#else:
@@ -61,19 +61,24 @@ func _process(delta: float) -> void:
 		var dist = abs(670-mouse_position.x)
 		if dist>200 or mouse_position.y>250:
 			image.rotation = 0
+			#$beaker/particles.position = Vector2(28, 73)
 		else:
 			image.rotation = -PI/2+dist*PI/400
+			#$particles.position = (mouse_position-Vector2(67, 86)).rotated(image.rotation)
+			#$rect.position = $particles.position
 		#$Label5.text = "rotation: "+str(image.rotation*180/PI)
 		#$Label6.text = "distance: "+str(dist)+" mouse position: "+str(mouse_position.x)
-		$beaker.set_drag_preview(preview)
 		
-	if clicked and Input.is_action_pressed("click") and in_beaker and in_pour_area:
-		$particles.emitting = true
-		$particles.position = mouse_position - Vector2(90, 70)
-	else:
-		$particles.emitting = false
+		#if in_beaker:
+			#$beaker.hide()
+		$beaker.set_drag_preview(preview)
+		if in_beaker and in_pour_area:
+			$particles.emitting = true
+			$particles.position = mouse_position - Vector2(90, 70)
+		else:
+			$particles.emitting = false
 
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	#if data.is_in_position:
 		#return false
 	return true

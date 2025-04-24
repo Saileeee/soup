@@ -1,6 +1,6 @@
 extends Control
 
-func _get_drag_data(at_position: Vector2) -> Variant:
+func _get_drag_data(_at_position: Vector2) -> Variant:
 	var preview = Control.new()
 	var image = TextureRect.new()
 	preview.add_child(image)

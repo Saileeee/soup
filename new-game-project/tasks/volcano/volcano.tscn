@@ -201,6 +201,14 @@ texture = ExtResource("7_svy8k")
 lifetime = 3.5
 process_material = SubResource("ParticleProcessMaterial_8llc7")
 
+[node name="rect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 348.0
+offset_top = 482.0
+offset_right = 1088.0
+offset_bottom = 585.0
+
 [node name="full image" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0

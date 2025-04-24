@@ -8,7 +8,7 @@ var is_in_position = false
 func _ready() -> void:
 	modulate = Color.CORAL
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_dragging and not is_in_position:
 		hide()
 		top_level = true
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 				mouse_filter = Control.MOUSE_FILTER_IGNORE
 				modulate = Color.WHITE
 
-func _get_drag_data(at_position: Vector2) -> Variant:
+func _get_drag_data(_at_position: Vector2) -> Variant:
 	if not is_in_position:
 		is_dragging = true
 		var preview = Control.new()
