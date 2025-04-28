@@ -13,22 +13,22 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	if clicked:
-		$Label.show()
-	else:
-		$Label.hide()
-	if Input.is_action_pressed("click"):
-		$Label2.show()
-	else:
-		$Label2.hide()
-	if in_beaker:
-		$Label3.show()
-	else:
-		$Label3.hide()
-	if in_pour_area:
-		$Label4.show()
-	else:
-		$Label4.hide()
+	#if clicked:
+		#$Label.show()
+	#else:
+		#$Label.hide()
+	#if Input.is_action_pressed("click"):
+		#$Label2.show()
+	#else:
+		#$Label2.hide()
+	#if in_beaker:
+		#$Label3.show()
+	#else:
+		#$Label3.hide()
+	#if in_pour_area:
+		#$Label4.show()
+	#else:
+		#$Label4.hide()
 	#$TextureRect.texture = $AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", $AnimatedSprite2D.frame) #set texture to current frame of animation
 	#count += 1
 	#if count > 100:
