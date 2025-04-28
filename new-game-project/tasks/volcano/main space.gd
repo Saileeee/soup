@@ -13,22 +13,22 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	#if clicked:
-		#$Label.show()
-	#else:
-		#$Label.hide()
-	#if Input.is_action_pressed("click"):
-		#$Label2.show()
-	#else:
-		#$Label2.hide()
-	#if in_beaker:
-		#$Label3.show()
-	#else:
-		#$Label3.hide()
-	#if in_pour_area:
-		#$Label4.show()
-	#else:
-		#$Label4.hide()
+	if clicked:
+		$Label.show()
+	else:
+		$Label.hide()
+	if Input.is_action_pressed("click"):
+		$Label2.show()
+	else:
+		$Label2.hide()
+	if in_beaker:
+		$Label3.show()
+	else:
+		$Label3.hide()
+	if in_pour_area:
+		$Label4.show()
+	else:
+		$Label4.hide()
 	#$TextureRect.texture = $AnimatedSprite2D.get_sprite_frames().get_frame_texture("default", $AnimatedSprite2D.frame) #set texture to current frame of animation
 	#count += 1
 	#if count > 100:
@@ -47,7 +47,8 @@ func _process(_delta: float) -> void:
 			if $beaker.position.x<700:
 				$beaker.position.x = 700
 	var mouse_position = get_viewport().get_mouse_position()
-	if mouse_position<Vector2(750, 370) and mouse_position>Vector2(620, 0):
+	if mouse_position.x<715 and mouse_position.x>545 and mouse_position.y<287 and mouse_position.y>78:
+	#if mouse_position<Vector2(755, 287) and mouse_position>Vector2(595, 78):
 		in_pour_area = true
 	else:
 		in_pour_area = false
@@ -57,15 +58,23 @@ func _process(_delta: float) -> void:
 	image.texture = $beaker/image.get_sprite_frames().get_frame_texture("default", $beaker/image.frame)
 	var pos = Vector2(-image.texture.region.size/2)
 	image.position = pos
-	if clicked and Input.is_action_pressed("click"):
+	if clicked and Input.is_action_pressed("click"): #particles only activating if in area and on old beaker
 		var dist = abs(670-mouse_position.x)
-		if dist>200 or mouse_position.y>250:
+		if dist>200 or mouse_position.y>285:
 			image.rotation = 0
+			#$particles.position = Vector2(28, 73)
+			$rect2.color = Color.ALICE_BLUE
+			#print("dist: ", dist, ", mouse position: ", mouse_position)
 			#$beaker/particles.position = Vector2(28, 73)
 		else:
 			image.rotation = -PI/2+dist*PI/400
+			$particles.position = mouse_position-Vector2(116, 140.5)+Vector2(29, 72).rotated(image.rotation)
+			$rect2.color = Color.AQUA
+			#-Vector2(77, 67.5).rotated(-image.rotation)
+			#Vector2(116, 140.5)-Vector2(29, 72)
 			#$particles.position = (mouse_position-Vector2(67, 86)).rotated(image.rotation)
-			#$rect.position = $particles.position
+			$rect.position = $particles.position
+			$rect2.position = mouse_position-Vector2(116, 140.5)+Vector2(29, 72)
 		#$Label5.text = "rotation: "+str(image.rotation*180/PI)
 		#$Label6.text = "distance: "+str(dist)+" mouse position: "+str(mouse_position.x)
 		
@@ -74,9 +83,11 @@ func _process(_delta: float) -> void:
 		$beaker.set_drag_preview(preview)
 		if in_beaker and in_pour_area:
 			$particles.emitting = true
-			$particles.position = mouse_position - Vector2(90, 70)
+			#$beaker/particles.position = mouse_position - Vector2(90, 70)
 		else:
 			$particles.emitting = false
+	else:
+		$particles.emitting = false
 
 func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	#if data.is_in_position:

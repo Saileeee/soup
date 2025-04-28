@@ -192,6 +192,21 @@ texture = SubResource("AtlasTexture_mph0e")
 script = ExtResource("3_vq1qq")
 goal = Vector2(635, 110)
 
+[node name="rect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1039.0
+offset_top = 541.0
+offset_right = 1088.0
+offset_bottom = 585.0
+
+[node name="rect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 981.0
+offset_top = 541.0
+offset_right = 1021.0
+offset_bottom = 581.0
+color = Color(1, 0.188235, 1, 1)
+
 [node name="particles" type="GPUParticles2D" parent="."]
 visibility_layer = 3
 position = Vector2(1235, 424)
@@ -200,14 +215,6 @@ amount = 100
 texture = ExtResource("7_svy8k")
 lifetime = 3.5
 process_material = SubResource("ParticleProcessMaterial_8llc7")
-
-[node name="rect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 348.0
-offset_top = 482.0
-offset_right = 1088.0
-offset_bottom = 585.0
 
 [node name="full image" type="TextureRect" parent="."]
 visible = false
@@ -225,6 +232,7 @@ offset_left = 1207.0
 offset_top = 351.0
 offset_right = 1439.0
 offset_bottom = 632.0
+mouse_filter = 1
 script = ExtResource("5_svy8k")
 metadata/_edit_group_ = true
 
