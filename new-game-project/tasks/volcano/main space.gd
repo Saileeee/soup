@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 			if $beaker.position.x<700:
 				$beaker.position.x = 700
 	var mouse_position = get_viewport().get_mouse_position()
-	if mouse_position.x<715 and mouse_position.x>545 and mouse_position.y<287 and mouse_position.y>78:
+	if mouse_position.x<700 and mouse_position.x>545 and mouse_position.y<287 and mouse_position.y>78:
 	#if mouse_position<Vector2(755, 287) and mouse_position>Vector2(595, 78):
 		in_pour_area = true
 	else:
@@ -58,7 +58,7 @@ func _process(_delta: float) -> void:
 	image.texture = $beaker/image.get_sprite_frames().get_frame_texture("default", $beaker/image.frame)
 	var pos = Vector2(-image.texture.region.size/2)
 	image.position = pos
-	if clicked and Input.is_action_pressed("click"): #particles only activating if in area and on old beaker
+	if clicked and Input.is_action_pressed("click"): 
 		var dist = abs(670-mouse_position.x)
 		if dist>200 or mouse_position.y>285:
 			image.rotation = 0

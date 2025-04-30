@@ -2,6 +2,7 @@ extends TextureRect
 
 var is_dragging = false
 var is_in_position = false
+var angle = -1
 @export var goal: Vector2
 @onready var root = get_node("/root/Volcano") 
 
@@ -16,14 +17,16 @@ func _process(_delta: float) -> void:
 			show()
 			is_dragging = false
 			top_level = false
-			if goal.distance_to(position) < 5000:
+			if goal.distance_to(position) < 25:
 				#print(goal.distance_to(position))
 				is_in_position = true
 				z_index = -1
 				position = goal
-				root.num_in_place += 1
+				#root.num_in_place += 1
 				mouse_filter = Control.MOUSE_FILTER_IGNORE
 				modulate = Color.WHITE
+	if angle != -1:
+		position += Vector2(5*sqrt(2), 5*sqrt(2)).rotated(angle)
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if not is_in_position:
@@ -37,3 +40,9 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		image.position = pos
 		set_drag_preview(preview)
 	return self
+
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	return true
+
+func explode():
+	angle = randi()%360

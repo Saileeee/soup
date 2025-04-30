@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://bfhd3fxta7up1"]
 
-[ext_resource type="Script" uid="uid://cqvhriqjwjip2" path="res://tasks/volcano/main space.gd" id="1_0l5ax"]
+[ext_resource type="Script" uid="uid://cgkhprpr4v7b0" path="res://tasks/volcano/volcano.gd" id="1_8llc7"]
 [ext_resource type="Texture2D" uid="uid://bja0x1j2lq6dq" path="res://Art/volcano/volcano split.png" id="2_0l5ax"]
 [ext_resource type="Script" uid="uid://c8ltck8g0iuvt" path="res://tasks/volcano/piece.gd" id="3_vq1qq"]
 [ext_resource type="Texture2D" uid="uid://cfdpkiwmisvgm" path="res://Art/volcano/volcano.png" id="4_vq1qq"]
@@ -81,9 +81,9 @@ offset_left = 10.0
 offset_top = 11.0
 offset_right = 1163.0
 offset_bottom = 657.0
-script = ExtResource("1_0l5ax")
+script = ExtResource("1_8llc7")
 
-[node name="0" type="TextureRect" parent="." groups=["pieces"]]
+[node name="0" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 392.0
@@ -191,6 +191,18 @@ offset_bottom = 195.0
 texture = SubResource("AtlasTexture_mph0e")
 script = ExtResource("3_vq1qq")
 goal = Vector2(635, 110)
+
+[node name="puzzle timer" type="Timer" parent="."]
+wait_time = 25.2
+one_shot = true
+
+[node name="time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_right = 144.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = "25.0"
 
 [node name="rect" type="ColorRect" parent="."]
 visible = false
@@ -307,6 +319,7 @@ offset_top = 580.0
 offset_right = 1119.0
 offset_bottom = 627.0
 
+[connection signal="timeout" from="puzzle timer" to="." method="_on_puzzle_timer_timeout"]
 [connection signal="mouse_entered" from="beaker" to="." method="_on_beaker_mouse_entered"]
 [connection signal="mouse_exited" from="beaker" to="." method="_on_beaker_mouse_exited"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
