@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ejcfw45m5p0v"]
 
-[ext_resource type="Script" path="res://clock.gd" id="1_2yrk4"]
-[ext_resource type="Script" path="res://real_clock.gd" id="2_f3o7x"]
+[ext_resource type="Script" uid="uid://di43chueamfw2" path="res://clock.gd" id="1_2yrk4"]
+[ext_resource type="Script" uid="uid://bti1d641p8poa" path="res://real_clock.gd" id="2_f3o7x"]
 
 [node name="clock" type="Node2D"]
 position = Vector2(172, 140)

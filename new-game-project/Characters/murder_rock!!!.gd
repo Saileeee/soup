@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if body is char:
 		print("character body entered")
 		in_range = true
 		$Label.show()
@@ -27,7 +27,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if body is char:
 		print("character body exited")
 		in_range = false
 		$Label.hide()

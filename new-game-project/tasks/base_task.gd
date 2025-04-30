@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 	count += 1
 	if count >= 100:
 		count = 0
-		print("currChar in range: ",str(currChar).get_slice(":", 0), ", ", str(currChar in in_range))
-		print("disabled: ", str(disabled))
+		#print("currChar in range: ",str(currChar).get_slice(":", 0), ", ", str(currChar in in_range))
+		#print("disabled: ", str(disabled))
 	if currChar in in_range:
 		set_disabled(false)
 		#z_index = 3

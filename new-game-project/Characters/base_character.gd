@@ -1,13 +1,13 @@
-extends CharacterBody2D #motion mode must be set to floating
+class_name char extends CharacterBody2D #motion mode must be set to floating
 
 @export var SPEED: int
-var started = false
-var paused = false
-var speaking = false
-var entered_room = false
-var in_task = false
-var room_move = 0
-var isCurrChar = false
+@export var started = false
+@export var paused = false
+@export var speaking = false
+@export var entered_room = false
+@export var in_task = false
+@export var room_move = 0
+@export var isCurrChar = false
 
 func _physics_process(_delta: float) -> void:
 	if started and not speaking and isCurrChar and not in_task: 
@@ -22,14 +22,41 @@ func _physics_process(_delta: float) -> void:
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * SPEED
 			$AnimatedSprite2D.play()
-		elif room_move==0:
+		elif velocity.length()==0:
 			$AnimatedSprite2D.stop()
-			
-		if entered_room:
-			$"room move timer".start()
-			entered_room = false
-		if room_move != 0:
-			velocity.x = room_move
-			$AnimatedSprite2D.play()
+			#
+		#if entered_room:
+			#$"room move timer".start()
+			#entered_room = false
+		#if room_move != 0:
+			#velocity.x = room_move
+			#$AnimatedSprite2D.play()
 		
 	move_and_slide()
+	
+func _on_welcome_hidden() -> void:
+	started = true
+
+func _on_murder_rock_dialog() -> void:
+	speaking = true
+
+func _on_dialog_end_convo() -> void:
+	speaking = false
+	if isCurrChar:
+		get_node("Camera2D").make_current()
+
+func _on_pause_screen_visibility_changed() -> void:
+	paused = not paused	
+
+func _on_task_ui_crowman_time() -> void:
+	isCurrChar=false
+
+
+func _on_task_ui_stickman_time() -> void:
+	isCurrChar=false
+
+
+func _on_task_ui_fly_time() -> void:
+	isCurrChar=false
+	$fly.isCurrChar = true
+	$fly/camera.make_current()
