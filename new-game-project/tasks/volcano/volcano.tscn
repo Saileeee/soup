@@ -1,0 +1,326 @@
+[gd_scene load_steps=23 format=3 uid="uid://bfhd3fxta7up1"]
+
+[ext_resource type="Script" uid="uid://cgkhprpr4v7b0" path="res://tasks/volcano/volcano.gd" id="1_8llc7"]
+[ext_resource type="Texture2D" uid="uid://bja0x1j2lq6dq" path="res://Art/volcano/volcano split.png" id="2_0l5ax"]
+[ext_resource type="Script" uid="uid://c8ltck8g0iuvt" path="res://tasks/volcano/piece.gd" id="3_vq1qq"]
+[ext_resource type="Texture2D" uid="uid://cfdpkiwmisvgm" path="res://Art/volcano/volcano.png" id="4_vq1qq"]
+[ext_resource type="Script" uid="uid://b6rdexghoyn07" path="res://tasks/volcano/beaker.gd" id="5_svy8k"]
+[ext_resource type="Script" uid="uid://dov3s200p5qry" path="res://tasks/volcano/full_image.gd" id="6_8llc7"]
+[ext_resource type="Texture2D" uid="uid://div7oe5f2scvi" path="res://Art/volcano/temp beaker (2).png" id="6_svy8k"]
+[ext_resource type="Texture2D" uid="uid://swx2rhiwvws6" path="res://Art/volcano/particle.png" id="7_svy8k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvqa8"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(0, 684, 899, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23qv5"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(38, 526, 146, 138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svy8k"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(415, 522, 97, 145)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8llc7"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(737, 572, 92, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0pnb"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(44, 270, 244, 226)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapqm"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(349, 323, 228, 173)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3qwd"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(719, 306, 133, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugbp8"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(109, 0, 125, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j3v7"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(311, 58, 82, 181)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hhra"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(475, 78, 129, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mph0e"]
+atlas = ExtResource("2_0l5ax")
+region = Rect2(696, 25, 111, 216)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8llc7"]
+emission_shape = 1
+emission_sphere_radius = 7.2
+gravity = Vector3(0, 98, 0)
+color = Color(0.882353, 0.0666667, 0.027451, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6nfm"]
+atlas = ExtResource("6_svy8k")
+region = Rect2(0, 0, 232, 281)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0pqta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6nfm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Volcano" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 1163.0
+offset_bottom = 657.0
+script = ExtResource("1_8llc7")
+
+[node name="0" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 392.0
+offset_right = 1027.0
+offset_bottom = 527.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_yvqa8")
+
+[node name="1-0" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 549.0
+offset_right = 220.0
+offset_bottom = 687.0
+texture = SubResource("AtlasTexture_23qv5")
+script = ExtResource("3_vq1qq")
+goal = Vector2(349, 365)
+
+[node name="1-1" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 507.0
+offset_right = 99.0
+offset_bottom = 652.0
+texture = SubResource("AtlasTexture_svy8k")
+script = ExtResource("3_vq1qq")
+goal = Vector2(468, 344)
+
+[node name="1-2" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = 1037.0
+offset_top = 8.0
+offset_right = 1129.0
+offset_bottom = 103.0
+texture = SubResource("AtlasTexture_8llc7")
+script = ExtResource("3_vq1qq")
+goal = Vector2(615, 341)
+
+[node name="2-0" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = -82.0
+offset_top = 298.0
+offset_right = 162.0
+offset_bottom = 524.0
+texture = SubResource("AtlasTexture_i0pnb")
+script = ExtResource("3_vq1qq")
+goal = Vector2(261, 267)
+
+[node name="2-1" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = 1011.0
+offset_top = 322.0
+offset_right = 1239.0
+offset_bottom = 495.0
+texture = SubResource("AtlasTexture_sapqm")
+script = ExtResource("3_vq1qq")
+goal = Vector2(492, 225)
+
+[node name="2-2" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = 1044.0
+offset_top = 504.0
+offset_right = 1177.0
+offset_bottom = 696.0
+texture = SubResource("AtlasTexture_f3qwd")
+script = ExtResource("3_vq1qq")
+goal = Vector2(689, 304)
+
+[node name="3-0" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = 68.0
+offset_top = -23.0
+offset_right = 193.0
+offset_bottom = 219.0
+texture = SubResource("AtlasTexture_ugbp8")
+script = ExtResource("3_vq1qq")
+goal = Vector2(412, 101)
+
+[node name="3-1" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 151.0
+offset_right = 94.0
+offset_bottom = 332.0
+texture = SubResource("AtlasTexture_2j3v7")
+script = ExtResource("3_vq1qq")
+goal = Vector2(489, 100)
+
+[node name="3-2" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = 1027.0
+offset_top = 137.0
+offset_right = 1156.0
+offset_bottom = 301.0
+texture = SubResource("AtlasTexture_3hhra")
+script = ExtResource("3_vq1qq")
+goal = Vector2(539, 99)
+
+[node name="3-3" type="TextureRect" parent="." groups=["pieces"]]
+layout_mode = 0
+offset_left = 960.0
+offset_top = -21.0
+offset_right = 1071.0
+offset_bottom = 195.0
+texture = SubResource("AtlasTexture_mph0e")
+script = ExtResource("3_vq1qq")
+goal = Vector2(635, 110)
+
+[node name="puzzle timer" type="Timer" parent="."]
+wait_time = 25.2
+one_shot = true
+
+[node name="time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_right = 144.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = "25.0"
+
+[node name="rect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1039.0
+offset_top = 541.0
+offset_right = 1088.0
+offset_bottom = 585.0
+
+[node name="rect2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 981.0
+offset_top = 541.0
+offset_right = 1021.0
+offset_bottom = 581.0
+color = Color(1, 0.188235, 1, 1)
+
+[node name="particles" type="GPUParticles2D" parent="."]
+visibility_layer = 3
+position = Vector2(1235, 424)
+emitting = false
+amount = 500
+texture = ExtResource("7_svy8k")
+lifetime = 3.5
+preprocess = 0.51
+fixed_fps = 50
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_8llc7")
+
+[node name="full image" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = 97.0
+offset_right = 1150.0
+offset_bottom = 645.0
+texture = ExtResource("4_vq1qq")
+script = ExtResource("6_8llc7")
+
+[node name="beaker" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1207.0
+offset_top = 351.0
+offset_right = 1439.0
+offset_bottom = 632.0
+mouse_filter = 1
+script = ExtResource("5_svy8k")
+metadata/_edit_group_ = true
+
+[node name="image" type="AnimatedSprite2D" parent="beaker"]
+position = Vector2(116, 141)
+sprite_frames = SubResource("SpriteFrames_0pqta")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 4.5
+one_shot = true
+
+[node name="temp" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 546.0
+offset_top = 258.0
+offset_right = 638.0
+offset_bottom = 312.0
+
+[node name="Label4" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 131.0
+offset_right = 104.0
+offset_bottom = 154.0
+text = "in pour area"
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = 89.0
+offset_right = 85.0
+offset_bottom = 112.0
+text = "in beaker"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 44.0
+offset_right = 119.0
+offset_bottom = 67.0
+text = "mouse clicked"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 120.0
+offset_bottom = 27.0
+text = "button clicked"
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 575.0
+offset_right = 187.0
+offset_bottom = 631.0
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 948.0
+offset_top = 580.0
+offset_right = 1119.0
+offset_bottom = 627.0
+
+[connection signal="timeout" from="puzzle timer" to="." method="_on_puzzle_timer_timeout"]
+[connection signal="mouse_entered" from="beaker" to="." method="_on_beaker_mouse_entered"]
+[connection signal="mouse_exited" from="beaker" to="." method="_on_beaker_mouse_exited"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="temp" to="." method="_on_temp_pressed"]
