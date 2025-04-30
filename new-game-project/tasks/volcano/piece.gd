@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 				is_in_position = true
 				z_index = -1
 				position = goal
-				#root.num_in_place += 1
+				root.num_in_place += 1
 				mouse_filter = Control.MOUSE_FILTER_IGNORE
 				modulate = Color.WHITE
 	if angle != -1:

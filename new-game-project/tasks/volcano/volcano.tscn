@@ -83,6 +83,16 @@ offset_right = 1163.0
 offset_bottom = 657.0
 script = ExtResource("1_8llc7")
 
+[node name="background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 1144.0
+offset_bottom = 636.0
+mouse_filter = 2
+color = Color(0.294118, 0.294118, 0.294118, 1)
+
 [node name="0" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 128.0
@@ -193,7 +203,7 @@ script = ExtResource("3_vq1qq")
 goal = Vector2(635, 110)
 
 [node name="puzzle timer" type="Timer" parent="."]
-wait_time = 25.2
+wait_time = 25.5
 one_shot = true
 
 [node name="time" type="Label" parent="."]
@@ -201,29 +211,30 @@ layout_mode = 0
 offset_left = 21.0
 offset_right = 144.0
 offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "25.0"
 
-[node name="rect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 1039.0
-offset_top = 541.0
-offset_right = 1088.0
-offset_bottom = 585.0
+[node name="other stuff" type="Node" parent="."]
 
-[node name="rect2" type="ColorRect" parent="."]
+[node name="rect" type="ColorRect" parent="other stuff"]
 visible = false
-layout_mode = 0
-offset_left = 981.0
-offset_top = 541.0
-offset_right = 1021.0
-offset_bottom = 581.0
+offset_left = 1049.0
+offset_top = 552.0
+offset_right = 1098.0
+offset_bottom = 596.0
+
+[node name="rect2" type="ColorRect" parent="other stuff"]
+visible = false
+offset_left = 991.0
+offset_top = 552.0
+offset_right = 1031.0
+offset_bottom = 592.0
 color = Color(1, 0.188235, 1, 1)
 
-[node name="particles" type="GPUParticles2D" parent="."]
+[node name="particles" type="GPUParticles2D" parent="other stuff"]
 visibility_layer = 3
-position = Vector2(1235, 424)
+position = Vector2(1245, 435)
 emitting = false
 amount = 500
 texture = ExtResource("7_svy8k")
@@ -233,94 +244,87 @@ fixed_fps = 50
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_8llc7")
 
-[node name="full image" type="TextureRect" parent="."]
+[node name="full image" type="TextureRect" parent="other stuff"]
 visible = false
-layout_mode = 0
-offset_left = -2.0
-offset_top = 97.0
-offset_right = 1150.0
-offset_bottom = 645.0
+offset_left = 8.0
+offset_top = 108.0
+offset_right = 1160.0
+offset_bottom = 656.0
 texture = ExtResource("4_vq1qq")
 script = ExtResource("6_8llc7")
 
-[node name="beaker" type="Control" parent="."]
+[node name="beaker" type="Control" parent="other stuff"]
+layout_mode = 3
 anchors_preset = 0
-offset_left = 1207.0
-offset_top = 351.0
-offset_right = 1439.0
-offset_bottom = 632.0
+offset_left = 1217.0
+offset_top = 362.0
+offset_right = 1449.0
+offset_bottom = 643.0
 mouse_filter = 1
 script = ExtResource("5_svy8k")
 metadata/_edit_group_ = true
 
-[node name="image" type="AnimatedSprite2D" parent="beaker"]
+[node name="image" type="AnimatedSprite2D" parent="other stuff/beaker"]
 position = Vector2(116, 141)
 sprite_frames = SubResource("SpriteFrames_0pqta")
 
-[node name="timer" type="Timer" parent="."]
+[node name="timer" type="Timer" parent="other stuff"]
 wait_time = 4.5
 one_shot = true
 
-[node name="temp" type="Button" parent="."]
+[node name="temp" type="Button" parent="other stuff"]
 visible = false
-layout_mode = 0
-offset_left = 546.0
-offset_top = 258.0
-offset_right = 638.0
-offset_bottom = 312.0
+offset_left = 556.0
+offset_top = 269.0
+offset_right = 648.0
+offset_bottom = 323.0
 
-[node name="Label4" type="Label" parent="."]
+[node name="Label4" type="Label" parent="other stuff"]
 visible = false
-layout_mode = 0
-offset_left = 9.0
-offset_top = 131.0
-offset_right = 104.0
-offset_bottom = 154.0
+offset_left = 19.0
+offset_top = 142.0
+offset_right = 114.0
+offset_bottom = 165.0
 text = "in pour area"
 
-[node name="Label3" type="Label" parent="."]
+[node name="Label3" type="Label" parent="other stuff"]
 visible = false
-layout_mode = 0
-offset_left = 12.0
-offset_top = 89.0
-offset_right = 85.0
-offset_bottom = 112.0
+offset_left = 22.0
+offset_top = 100.0
+offset_right = 95.0
+offset_bottom = 123.0
 text = "in beaker"
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="other stuff"]
 visible = false
-layout_mode = 0
-offset_left = 9.0
-offset_top = 44.0
-offset_right = 119.0
-offset_bottom = 67.0
+offset_left = 19.0
+offset_top = 55.0
+offset_right = 129.0
+offset_bottom = 78.0
 text = "mouse clicked"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="other stuff"]
 visible = false
-layout_mode = 0
-offset_left = 10.0
-offset_top = 4.0
-offset_right = 120.0
-offset_bottom = 27.0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 130.0
+offset_bottom = 38.0
 text = "button clicked"
 
-[node name="Label6" type="Label" parent="."]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 575.0
-offset_right = 187.0
-offset_bottom = 631.0
+[node name="Label6" type="Label" parent="other stuff"]
+offset_left = 17.0
+offset_top = 586.0
+offset_right = 197.0
+offset_bottom = 642.0
 
-[node name="Label5" type="Label" parent="."]
-layout_mode = 0
-offset_left = 948.0
-offset_top = 580.0
-offset_right = 1119.0
-offset_bottom = 627.0
+[node name="Label5" type="Label" parent="other stuff"]
+offset_left = 958.0
+offset_top = 591.0
+offset_right = 1129.0
+offset_bottom = 638.0
 
 [connection signal="timeout" from="puzzle timer" to="." method="_on_puzzle_timer_timeout"]
-[connection signal="mouse_entered" from="beaker" to="." method="_on_beaker_mouse_entered"]
-[connection signal="mouse_exited" from="beaker" to="." method="_on_beaker_mouse_exited"]
-[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="temp" to="." method="_on_temp_pressed"]
+[connection signal="mouse_entered" from="other stuff/beaker" to="." method="_on_beaker_mouse_entered"]
+[connection signal="mouse_exited" from="other stuff/beaker" to="." method="_on_beaker_mouse_exited"]
+[connection signal="timeout" from="other stuff/timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="other stuff/temp" to="." method="_on_temp_pressed"]

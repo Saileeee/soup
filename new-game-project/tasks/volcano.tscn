@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://wf512oc3te1v"]
+
+[ext_resource type="PackedScene" uid="uid://cmd3vpup2hro7" path="res://tasks/base_task.tscn" id="1_f3eg5"]
+[ext_resource type="Texture2D" uid="uid://bja0x1j2lq6dq" path="res://Art/volcano/volcano split.png" id="2_r5g1r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01ccq"]
+atlas = ExtResource("2_r5g1r")
+region = Rect2(737, 572, 92, 95)
+
+[node name="volcano" instance=ExtResource("1_f3eg5")]
+texture_normal = SubResource("AtlasTexture_01ccq")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(58, 208)
+rotation = 1.5708
