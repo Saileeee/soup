@@ -47,6 +47,11 @@ func _on_crowman_pressed() -> void:
 	currChar = "Crowman"
 	crowman_time.emit()
 	$TabBar.current_tab = -1
+	
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	print("---------------------------------------------")
+	print("taskUI", at_position, data)
+	print("---------------------------------------------")
 
 
 func _on_fly_pressed() -> void:

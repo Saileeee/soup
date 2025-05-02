@@ -8,12 +8,14 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	count += 1
-	if count >= 100:
-		count = 0
-		print("star task visible: ",$"star task".visible)
-		print("microwave visible: ", $"microwave".visible)
+func _process(_delta: float) -> void:
+	pass
+	#count += 1
+	#if count >= 100:
+		#count = 0
+		#print("star task visible: ",$"star task".visible)
+		#print("microwave visible: ", $"microwave".visible)
+		#print("volcano visible: ", $"Volcano".visible)
 
 func _on_star_close_pressed() -> void:
 	$"star task".hide()

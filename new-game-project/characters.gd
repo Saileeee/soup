@@ -20,7 +20,7 @@ func _ready() -> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	#if started and not speaking and entered_room: 
 		#$"room move timer".start()
@@ -30,8 +30,8 @@ func _process(delta: float) -> void:
 func _on_welcome_hidden() -> void:
 	started = true
 	print("started")
-	for char in chars:
-		get_node(char).started = true
+	for c in chars:
+		get_node(c).started = true
 
 #func _on_room_1_area_body_entered(_body: Node2D) -> void:
 	#room_move = -500
@@ -59,28 +59,28 @@ func _on_welcome_hidden() -> void:
 
 func _on_murder_rock_dialog() -> void:
 	speaking = true
-	for char in chars:
-		get_node(char).speaking = true
+	for c in chars:
+		get_node(c).speaking = true
 	print("dialog recieved")
 
 func _on_dialog_end_convo() -> void:
 	speaking = false
-	for char in chars:
-		get_node(char).speaking = false
+	for c in chars:
+		get_node(c).speaking = false
 	print("end_convo recieved")
 	get_node(currChar).get_node(camera).make_current()
 
 func _on_pause_screen_visibility_changed() -> void:
 	paused = not paused
-	for char in chars:
-		get_node(char).paused = paused
+	for c in chars:
+		get_node(c).paused = paused
 
 
 func _on_task_ui_crowman_time() -> void:
 	currChar = "crowman"
 	$"the crow".get_node("Camera2D").make_current()
-	for char in chars:
-		get_node(char).isCurrChar = false
+	for c in chars:
+		get_node(c).isCurrChar = false
 	#$fly.isCurrChar = false
 	$"the crow".isCurrChar = true
 	#$crowman/camera.make_current()
@@ -89,8 +89,8 @@ func _on_task_ui_crowman_time() -> void:
 func _on_task_ui_stickman_time() -> void:
 	currChar = "stickman"
 	$"the stick".get_node("Camera2D").make_current()
-	for char in chars:
-		get_node(char).isCurrChar = false
+	for c in chars:
+		get_node(c).isCurrChar = false
 	#$fly.isCurrChar = false
 	$"the stick".isCurrChar = true
 	#$stickman/camera.make_current()
@@ -98,7 +98,7 @@ func _on_task_ui_stickman_time() -> void:
 
 func _on_task_ui_fly_time() -> void:
 	currChar = "fly"
-	for char in chars:
-		get_node(char).isCurrChar = false
+	for c in chars:
+		get_node(c).isCurrChar = false
 	$fly.isCurrChar = true
 	$fly/camera.make_current()

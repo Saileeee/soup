@@ -25,3 +25,8 @@ func _process(_delta: float) -> void:
 
 func _button_pressed():
 	hide()
+
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	print("---------------------------------------------")
+	print("welcome", at_position, data)
+	print("---------------------------------------------")

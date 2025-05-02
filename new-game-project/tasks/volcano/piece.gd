@@ -4,7 +4,7 @@ var is_dragging = false
 var is_in_position = false
 var angle = -1
 @export var goal: Vector2
-@onready var root = get_node("/root/Volcano") 
+@onready var root = get_parent()#get_node("/root/tasks/Volcano") 
 
 func _ready() -> void:
 	modulate = Color.CORAL
@@ -41,7 +41,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		set_drag_preview(preview)
 	return self
 
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	return true
 
 func explode():

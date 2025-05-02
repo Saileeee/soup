@@ -28,3 +28,8 @@ func _on_murder_rock_dialog() -> void:
 	show()
 	speaking = true
 	$"Dialog camera".make_current()
+
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	print("---------------------------------------------")
+	print("dialog", at_position, data)
+	print("---------------------------------------------")

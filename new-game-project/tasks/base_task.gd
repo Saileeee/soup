@@ -10,17 +10,17 @@ var count = 0
 func _ready() -> void:
 	chars.append(crowman)
 	chars.append(stickman)
-	chars.append(get_node("../characters/fly"))
+	#chars.append(get_node("../characters/fly"))
 	set_disabled(true)
 	currChar = chars[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	count += 1
-	if count >= 100:
-		count = 0
-		print("currChar in range: ",str(currChar).get_slice(":", 0), ", ", str(currChar in in_range))
-		print("disabled: ", str(disabled))
+func _process(_delta: float) -> void:
+	#count += 1
+	#if count >= 100:
+		#count = 0
+		#print("currChar in range: ",str(currChar).get_slice(":", 0), ", ", str(currChar in in_range))
+		#print("disabled: ", str(disabled))
 	if currChar in in_range:
 		set_disabled(false)
 		#z_index = 3
@@ -48,3 +48,11 @@ func _on_task_ui_stickman_time() -> void:
 func _on_task_ui_fly_time() -> void:
 	print("currChar: fly")
 	currChar = chars[2]
+	
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	return true
+
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	print("---------------------------------------------")
+	print("task button", at_position, data)
+	print("---------------------------------------------")
