@@ -30,7 +30,3 @@ func _on_room_move_timer_timeout() -> void:
 func _on_button_pressed() -> void:
 	hide()
  
-func _drop_data(at_position: Vector2, data: Variant) -> void:
-	print("---------------------------------------------")
-	print("pause", at_position, data)
-	print("---------------------------------------------")

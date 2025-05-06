@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cy8pqvsusmrt5"]
+[gd_scene load_steps=33 format=4 uid="uid://cy8pqvsusmrt5"]
 
 [ext_resource type="Texture2D" uid="uid://58tidc3a5vtq" path="res://Art/floor.png" id="1_ydcfy"]
 [ext_resource type="Texture2D" uid="uid://bvm55u3cfb8fi" path="res://Art/wall (2) (1).png" id="2_1uifh"]
@@ -11,19 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
 [ext_resource type="Script" uid="uid://cfgvndstcp8g6" path="res://Characters/fly.gd" id="13_w0bdt"]
 [ext_resource type="PackedScene" uid="uid://bfhd3fxta7up1" path="res://tasks/volcano/volcano.tscn" id="14_d051u"]
-[ext_resource type="Script" uid="uid://bfrsdyimolse7" path="res://volcano_close.gd" id="15_7j1lu"]
 [ext_resource type="PackedScene" uid="uid://d3p7rgktcp7br" path="res://Characters/the_crow.tscn" id="15_cgcyx"]
 [ext_resource type="PackedScene" uid="uid://bohiyp0t84dv4" path="res://Characters/the_stick.tscn" id="16_fwunk"]
-[ext_resource type="PackedScene" uid="uid://dog2gl8nfxwhm" path="res://microwave.tscn" id="17_gma52"]
+[ext_resource type="PackedScene" uid="uid://dog2gl8nfxwhm" path="res://tasks/microwave.tscn" id="17_gma52"]
 [ext_resource type="Script" uid="uid://bhwuk0ppr3h7i" path="res://tasks/tasks.gd" id="17_l7a4t"]
-[ext_resource type="Script" uid="uid://qsb4co1cifw7" path="res://star_close.gd" id="17_yghxn"]
 [ext_resource type="Texture2D" uid="uid://dvgfrpe0x6tx6" path="res://Art/black test.png" id="18_3plvp"]
 [ext_resource type="Texture2D" uid="uid://cjsgynui5075a" path="res://Art/blank.png" id="19_bilux"]
-[ext_resource type="Script" uid="uid://dq1p8v7g7uiqu" path="res://testing_micro.gd" id="19_ikspu"]
 [ext_resource type="PackedScene" uid="uid://06ma12dtmkwi" path="res://tasks/volcano_task.tscn" id="20_7j1lu"]
-[ext_resource type="Script" uid="uid://c755i68d4gjyy" path="res://testing_microClose.gd" id="20_38yl6"]
 [ext_resource type="PackedScene" uid="uid://cynqouhouusd8" path="res://tasks/microwave_task.tscn" id="20_fpmt8"]
-[ext_resource type="Script" uid="uid://c1p27svknot1" path="res://one.gd" id="21_ikspu"]
 [ext_resource type="PackedScene" uid="uid://dkoxsmy4poe6y" path="res://tasks/star task.tscn" id="24_fxuvn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7vld"]
@@ -230,7 +225,7 @@ offset_bottom = 167.0
 text = "Speed: 500"
 
 [node name="the crow" parent="characters" instance=ExtResource("15_cgcyx")]
-position = Vector2(13, -599)
+position = Vector2(-1067, 369)
 
 [node name="the stick" parent="characters" instance=ExtResource("16_fwunk")]
 position = Vector2(157, -155)
@@ -244,15 +239,6 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="one" type="Control" parent="tasks/Volcano"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 391.0
-offset_top = 164.0
-offset_right = 771.0
-offset_bottom = 438.0
-script = ExtResource("21_ikspu")
-
 [node name="volcano close" type="Button" parent="tasks/Volcano"]
 layout_mode = 0
 offset_left = 1094.0
@@ -260,7 +246,6 @@ offset_top = 80.0
 offset_right = 1125.0
 offset_bottom = 130.0
 text = "X"
-script = ExtResource("15_7j1lu")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="tasks"]
 z_index = 4
@@ -282,14 +267,12 @@ offset_right = 358.0
 offset_bottom = -100.0
 scale = Vector2(0.6, 0.6)
 text = "X"
-script = ExtResource("17_yghxn")
 
 [node name="microwave" parent="tasks" instance=ExtResource("17_gma52")]
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 1.0
 offset_bottom = 1.0
-script = ExtResource("19_ikspu")
 metadata/_edit_lock_ = true
 
 [node name="micro close" type="Button" parent="tasks/microwave"]
@@ -299,7 +282,6 @@ offset_top = -245.0
 offset_right = 548.0
 offset_bottom = -195.0
 text = "X"
-script = ExtResource("20_38yl6")
 
 [node name="task buttons" type="Node2D" parent="."]
 position = Vector2(1652, 880)

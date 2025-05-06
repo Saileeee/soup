@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bfhd3fxta7up1"]
+[gd_scene load_steps=24 format=3 uid="uid://bfhd3fxta7up1"]
 
 [ext_resource type="Script" uid="uid://cgkhprpr4v7b0" path="res://tasks/volcano/volcano.gd" id="1_8llc7"]
 [ext_resource type="Texture2D" uid="uid://bja0x1j2lq6dq" path="res://Art/volcano/volcano split.png" id="2_0l5ax"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dov3s200p5qry" path="res://tasks/volcano/full_image.gd" id="6_8llc7"]
 [ext_resource type="Texture2D" uid="uid://div7oe5f2scvi" path="res://Art/volcano/temp beaker (2).png" id="6_svy8k"]
 [ext_resource type="Texture2D" uid="uid://swx2rhiwvws6" path="res://Art/volcano/particle.png" id="7_svy8k"]
+[ext_resource type="Script" uid="uid://c1mjlntorq6na" path="res://tasks/volcano/drop.gd" id="9_i0pnb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvqa8"]
 atlas = ExtResource("2_0l5ax")
@@ -82,6 +83,14 @@ offset_top = 11.0
 offset_right = 1163.0
 offset_bottom = 657.0
 script = ExtResource("1_8llc7")
+
+[node name="drop" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -9.0
+offset_top = -12.0
+offset_right = 1141.0
+offset_bottom = 639.0
+script = ExtResource("9_i0pnb")
 
 [node name="background" type="ColorRect" parent="."]
 z_index = -1

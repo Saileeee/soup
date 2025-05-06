@@ -49,10 +49,3 @@ func _on_task_ui_fly_time() -> void:
 	print("currChar: fly")
 	currChar = chars[2]
 	
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	return true
-
-func _drop_data(at_position: Vector2, data: Variant) -> void:
-	print("---------------------------------------------")
-	print("task button", at_position, data)
-	print("---------------------------------------------")

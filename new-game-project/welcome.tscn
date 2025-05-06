@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://djyku8rsg3hjc"]
+[gd_scene load_steps=2 format=3 uid="uid://boctndrmwieax"]
 
-[ext_resource type="Script" uid="uid://nqa8uynag4pg" path="res://welcome.gd" id="1_orny5"]
+[ext_resource type="Script" uid="uid://nqa8uynag4pg" path="res://Screens/welcome.gd" id="1_hp420"]
 
 [node name="Welcome" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_orny5")
+script = ExtResource("1_hp420")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
