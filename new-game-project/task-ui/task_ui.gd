@@ -48,7 +48,6 @@ func _on_crowman_pressed() -> void:
 	crowman_time.emit()
 	$TabBar.current_tab = -1
 
-
 func _on_fly_pressed() -> void:
 	currChar = "none"
 	$TabBar.current_tab = -1

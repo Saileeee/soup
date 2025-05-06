@@ -6,7 +6,7 @@ var isCurrChar = false
 func _ready():
 	$Collision.hide()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if isCurrChar:
 		var x_direction = Input.get_axis("move_left", "move_right")
 		velocity.x = x_direction
