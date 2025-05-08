@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://b13h8trbqd0du"]
+
+[ext_resource type="Script" uid="uid://bj1nc5ivgl6vk" path="res://tasks/garden/lettuce.gd" id="1_013xn"]
+
+[node name="lettuce" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -1015.0
+offset_bottom = -591.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_013xn")
+
+[node name="art" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 1.0
+offset_right = 103.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 40
+text = "type"
