@@ -1,4 +1,5 @@
-class_name char extends CharacterBody2D #motion mode must be set to floating
+extends CharacterBody2D #motion mode must be set to floating
+class_name char 
 
 @export var SPEED: int
 var started = false
@@ -22,8 +23,7 @@ func _physics_process(_delta: float) -> void:
 		if velocity.length() > 0:
 			velocity = velocity.normalized() * SPEED
 			$AnimatedSprite2D.play()
-		#elif room_move==0:
-		elif velocity.length()==0:
+		elif room_move==0:
 			$AnimatedSprite2D.stop()
 			
 		if entered_room:
