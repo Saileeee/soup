@@ -1,13 +1,14 @@
+#extends CharacterBody2D #motion mode must be set to floating
 class_name char extends CharacterBody2D #motion mode must be set to floating
 
 @export var SPEED: int
-@export var started = false
-@export var paused = false
-@export var speaking = false
-@export var entered_room = false
-@export var in_task = false
-@export var room_move = 0
-@export var isCurrChar = false
+var started = false
+var paused = false
+var speaking = false
+var entered_room = false
+var in_task = false
+var room_move = 0
+var isCurrChar = false
 
 func _physics_process(_delta: float) -> void:
 	if started and not speaking and isCurrChar and not in_task: 
