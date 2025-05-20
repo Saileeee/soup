@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddo2ook1pplxy"]
+[gd_scene load_steps=7 format=3 uid="uid://ddo2ook1pplxy"]
 
 [ext_resource type="Script" uid="uid://cfumxnhw6ysqx" path="res://tasks/garden/bed.gd" id="1_6po16"]
-[ext_resource type="Script" uid="uid://crxjxusjqrlor" path="res://tasks/garden/garden.gd" id="1_l7e0r"]
-[ext_resource type="PackedScene" uid="uid://b13h8trbqd0du" path="res://tasks/garden/lettuce.tscn" id="2_l7e0r"]
 [ext_resource type="Script" uid="uid://cp4ljma0j5p3d" path="res://tasks/garden/drop.gd" id="2_mx44p"]
 [ext_resource type="Script" uid="uid://brismkfsq68y6" path="res://tasks/garden/seeds.gd" id="4_t7sfj"]
 [ext_resource type="Texture2D" uid="uid://sm3golxs106o" path="res://Art/garden/seeds.png" id="4_uwxip"]
+[ext_resource type="Script" uid="uid://bj1nc5ivgl6vk" path="res://tasks/garden/lettuce.gd" id="6_uwxip"]
 [ext_resource type="Script" uid="uid://bh3y6gcxh4rj0" path="res://tasks/garden/level.gd" id="7_0ylxf"]
 
 [node name="garden" type="Control"]
@@ -15,7 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_l7e0r")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 0
@@ -91,27 +89,18 @@ offset_bottom = 300.0
 theme_override_font_sizes/font_size = 40
 text = "basket"
 
-[node name="lettuce1" parent="." instance=ExtResource("2_l7e0r")]
-visible = false
-layout_mode = 1
-offset_left = 64.0
-offset_top = 138.0
-offset_right = -970.0
-offset_bottom = -449.0
-
-[node name="lettuce2" parent="." instance=ExtResource("2_l7e0r")]
-visible = false
-layout_mode = 1
-offset_left = 425.0
-offset_top = 145.0
-offset_right = 307.0
-offset_bottom = -288.0
-level = 9
-
 [node name="level" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 45.0
+offset_top = 36.0
+offset_right = 108.0
+offset_bottom = 85.0
 script = ExtResource("7_0ylxf")
+
+[node name="TextureRect" type="TextureRect" parent="." groups=["lettuce"]]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_uwxip")
 
 [connection signal="pressed" from="level" to="level" method="_on_pressed"]

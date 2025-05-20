@@ -1,6 +1,6 @@
 extends Control
 
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	#if data.level == 9: return true
 	return false
 
