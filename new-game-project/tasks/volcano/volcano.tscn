@@ -1,14 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://bfhd3fxta7up1"]
+[gd_scene load_steps=24 format=3 uid="uid://dxxefx1mkjvs2"]
 
 [ext_resource type="Script" uid="uid://cgkhprpr4v7b0" path="res://tasks/volcano/volcano.gd" id="1_8llc7"]
 [ext_resource type="Texture2D" uid="uid://bja0x1j2lq6dq" path="res://Art/volcano/volcano split.png" id="2_0l5ax"]
-[ext_resource type="Script" uid="uid://c8ltck8g0iuvt" path="res://tasks/volcano/piece.gd" id="3_vq1qq"]
+[ext_resource type="Script" path="res://tasks/volcano/piece.gd" id="3_vq1qq"]
 [ext_resource type="Texture2D" uid="uid://cfdpkiwmisvgm" path="res://Art/volcano/volcano.png" id="4_vq1qq"]
-[ext_resource type="Script" uid="uid://b6rdexghoyn07" path="res://tasks/volcano/beaker.gd" id="5_svy8k"]
-[ext_resource type="Script" uid="uid://dov3s200p5qry" path="res://tasks/volcano/full_image.gd" id="6_8llc7"]
+[ext_resource type="Script" path="res://tasks/volcano/beaker.gd" id="5_svy8k"]
+[ext_resource type="Script" path="res://tasks/volcano/full_image.gd" id="6_8llc7"]
 [ext_resource type="Texture2D" uid="uid://div7oe5f2scvi" path="res://Art/volcano/temp beaker (2).png" id="6_svy8k"]
 [ext_resource type="Texture2D" uid="uid://swx2rhiwvws6" path="res://Art/volcano/particle.png" id="7_svy8k"]
-[ext_resource type="Script" uid="uid://c1mjlntorq6na" path="res://tasks/volcano/drop.gd" id="9_i0pnb"]
+[ext_resource type="Script" path="res://tasks/volcano/drop.gd" id="9_i0pnb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvqa8"]
 atlas = ExtResource("2_0l5ax")

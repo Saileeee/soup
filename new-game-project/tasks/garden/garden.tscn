@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddo2ook1pplxy"]
+[gd_scene load_steps=7 format=3 uid="uid://cpdipjkoehv0r"]
 
 [ext_resource type="Script" uid="uid://cfumxnhw6ysqx" path="res://tasks/garden/bed.gd" id="1_6po16"]
-[ext_resource type="Script" uid="uid://cp4ljma0j5p3d" path="res://tasks/garden/drop.gd" id="2_mx44p"]
-[ext_resource type="Script" uid="uid://brismkfsq68y6" path="res://tasks/garden/seeds.gd" id="4_t7sfj"]
+[ext_resource type="Script" path="res://tasks/garden/drop.gd" id="2_mx44p"]
+[ext_resource type="Script" path="res://tasks/garden/seeds.gd" id="4_t7sfj"]
 [ext_resource type="Texture2D" uid="uid://sm3golxs106o" path="res://Art/garden/seeds.png" id="4_uwxip"]
 [ext_resource type="Script" uid="uid://bj1nc5ivgl6vk" path="res://tasks/garden/lettuce.gd" id="6_uwxip"]
-[ext_resource type="Script" uid="uid://bh3y6gcxh4rj0" path="res://tasks/garden/level.gd" id="7_0ylxf"]
+[ext_resource type="Script" path="res://tasks/garden/level.gd" id="7_0ylxf"]
 
 [node name="garden" type="Control"]
 layout_mode = 3
@@ -33,6 +33,13 @@ color = Color(0.298039, 0.12549, 0.0431373, 1)
 script = ExtResource("1_6po16")
 metadata/_edit_lock_ = true
 
+[node name="debug" type="Label" parent="bed 2"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = -37.0
+offset_right = 200.0
+offset_bottom = -14.0
+
 [node name="bed 3" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 768.0
@@ -43,6 +50,12 @@ color = Color(0.298039, 0.12549, 0.0431373, 1)
 script = ExtResource("1_6po16")
 metadata/_edit_lock_ = true
 
+[node name="debug" type="Label" parent="bed 3"]
+offset_left = 50.0
+offset_top = -31.0
+offset_right = 227.0
+offset_bottom = -8.0
+
 [node name="bed 1" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 44.0
@@ -52,6 +65,12 @@ offset_bottom = 612.0
 color = Color(0.298039, 0.12549, 0.0431373, 1)
 script = ExtResource("1_6po16")
 metadata/_edit_lock_ = true
+
+[node name="debug" type="Label" parent="bed 1"]
+offset_left = 84.0
+offset_top = -36.0
+offset_right = 222.0
+offset_bottom = -13.0
 
 [node name="watering can" type="Label" parent="."]
 layout_mode = 0
@@ -98,10 +117,12 @@ offset_bottom = 85.0
 script = ExtResource("7_0ylxf")
 
 [node name="lettuce" type="TextureRect" parent="." groups=["lettuce"]]
-visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 526.0
+offset_top = 294.0
+offset_right = 566.0
+offset_bottom = 334.0
+mouse_filter = 0
 script = ExtResource("6_uwxip")
 
 [connection signal="pressed" from="level" to="level" method="_on_pressed"]
