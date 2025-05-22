@@ -1,8 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://b4fsg2fgc763o"]
 
 [ext_resource type="Texture2D" uid="uid://bgh7btrxbony3" path="res://Art/shippp.png" id="1_6e4f4"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://bp4rpb6xpu3l4" path="res://ship_sprite.gd" id="1_l0u82"]
 [ext_resource type="Script" uid="uid://bjubd43u2uvxe" path="res://tracking_camera.gd" id="3_w5umw"]
+=======
+[ext_resource type="Script" uid="uid://dik7a657jl35i" path="res://ship_sprite.gd" id="1_l0u82"]
+[ext_resource type="Script" uid="uid://p7q45rw6j7py" path="res://tracking_camera.gd" id="3_w5umw"]
+>>>>>>> charrr
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o1nyx"]
 radius = 29.0

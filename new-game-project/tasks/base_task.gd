@@ -15,10 +15,17 @@ func _ready() -> void:
 	currChar = chars[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+<<<<<<< HEAD
 func _process(_delta: float) -> void:
 	#count += 1
 	#if count >= 100:
 		#count = 0
+=======
+func _process(delta: float) -> void:
+	count += 1
+	if count >= 100:
+		count = 0
+>>>>>>> charrr
 		#print("currChar in range: ",str(currChar).get_slice(":", 0), ", ", str(currChar in in_range))
 		#print("disabled: ", str(disabled))
 	if currChar in in_range:
