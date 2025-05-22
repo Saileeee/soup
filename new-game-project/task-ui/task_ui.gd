@@ -20,7 +20,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if violence and not get_node("%base character").speaking:
+	if violence and not get_node("%characters").speaking:
 		$Health.show()
 	if $Health.get_value() == 0:
 		$GameOver.show()

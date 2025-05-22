@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8aos6cx54icn"]
 
-[ext_resource type="Script" uid="uid://b671i3yst3n4u" path="res://Characters/base_character.gd" id="1_qv28k"]
+[ext_resource type="Script" uid="uid://bkw0t6kj354i0" path="res://Characters/base_character.gd" id="1_qv28k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wybp"]
 size = Vector2(99.5, 13)
@@ -8,7 +8,6 @@ size = Vector2(99.5, 13)
 [node name="base character" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_qv28k")
-SPEED = 300
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 

@@ -1,10 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://boctndrmwieax"]
 
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://nqa8uynag4pg" path="res://Screens/welcome.gd" id="1_hp420"]
-=======
-[ext_resource type="Script" uid="uid://dn2qrqj3fk01x" path="res://welcome.gd" id="1_orny5"]
->>>>>>> charrr
 
 [node name="Welcome" type="Control"]
 layout_mode = 3

@@ -1,11 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dog2gl8nfxwhm"]
 
 [ext_resource type="Texture2D" uid="uid://18mvwxd6gxlm" path="res://Art/less big microwave.png" id="1_6k7cv"]
-<<<<<<< HEAD:new-game-project/tasks/microwave.tscn
 [ext_resource type="Script" uid="uid://b7kemf4nh5bia" path="res://display.gd" id="2_mrb4t"]
-=======
-[ext_resource type="Script" uid="uid://bff61jgb52rf7" path="res://display.gd" id="2_mrb4t"]
->>>>>>> charrr:new-game-project/microwave.tscn
 
 [node name="microwave" type="Control"]
 layout_mode = 3

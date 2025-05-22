@@ -1,10 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkes1732debii"]
 
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://ddx64ercbpmhj" path="res://task-ui/task_ui.gd" id="1_b0xnu"]
-=======
-[ext_resource type="Script" uid="uid://bufqjavy63fsb" path="res://task-ui/task_ui.gd" id="1_b0xnu"]
->>>>>>> charrr
 [ext_resource type="PackedScene" uid="uid://ejcfw45m5p0v" path="res://clock.tscn" id="2_te8gi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54w0e"]
