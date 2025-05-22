@@ -1,6 +1,6 @@
 extends TextureRect
 @export var level: int
-var planted = load("C:/Users/1600012/OneDrive - Fairfax County Public Schools/Documents/GitHub/soup/new-game-project/Art/garden/seed.png")
+var planted = load("res://Art/garden/seed.png")
 var small = load("res://Art/garden/small.png")
 #0-planted, 1-small, 2-medium, 3-ready, 4-overwatered, 5-underwatered, 6-cut, 7-regrowing, 8-bolting, 9-leaf
 
@@ -16,7 +16,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		set_drag_preview(texture)
 	return self
 
-func inc_level():
+func inc_day():
 	level += 1
 	match level:
 		0: set_texture(planted)
