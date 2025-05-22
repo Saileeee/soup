@@ -1,6 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmd3vpup2hro7"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://dnk0mohqswiwd" path="res://tasks/base_task.gd" id="1_lxlog"]
+=======
+[ext_resource type="Script" uid="uid://bd52ri0poip4v" path="res://tasks/base_task.gd" id="1_lxlog"]
+>>>>>>> charrr
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0yprq"]
 radius = 49.0
