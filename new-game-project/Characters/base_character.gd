@@ -1,4 +1,4 @@
-extends CharacterBody2D #motion mode must be set to floating
+class_name chars extends CharacterBody2D #motion mode must be set to floating
 
 @export var SPEED: int
 var started = false

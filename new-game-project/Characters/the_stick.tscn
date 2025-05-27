@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bohiyp0t84dv4"]
+[gd_scene load_steps=12 format=3 uid="uid://bohiyp0t84dv4"]
 
 [ext_resource type="PackedScene" uid="uid://b8aos6cx54icn" path="res://Characters/base_character.tscn" id="1_2hdyj"]
 [ext_resource type="Texture2D" uid="uid://svfy1rdsd76c" path="res://Art/New Piskel.png" id="2_4ckl3"]
+[ext_resource type="Script" uid="uid://b7koa57prmbgh" path="res://Characters/the_stick.gd" id="2_pouu2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mya42"]
 atlas = ExtResource("2_4ckl3")
@@ -61,7 +62,7 @@ animations = [{
 }]
 
 [node name="the stick" instance=ExtResource("1_2hdyj")]
-SPEED = 300
+script = ExtResource("2_pouu2")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(591, 305)

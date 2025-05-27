@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cvvwpf6wgsbi1" path="res://Screens/pause_screen.tscn" id="6_dyqnk"]
 [ext_resource type="PackedScene" uid="uid://dqu6m5vnlfexb" path="res://Screens/welcome.tscn" id="7_ejty5"]
 [ext_resource type="PackedScene" uid="uid://dkes1732debii" path="res://task-ui/task_ui.tscn" id="8_2pdsk"]
-[ext_resource type="Script" uid="uid://c86xgdum3co0c" path="res://characters.gd" id="9_a45k0"]
+[ext_resource type="Script" path="res://characters.gd" id="9_a45k0"]
 [ext_resource type="PackedScene" uid="uid://baoc77sueil74" path="res://Characters/murder_rock!!!.tscn" id="9_c6752"]
 [ext_resource type="PackedScene" uid="uid://gw27ib67vnj7" path="res://Screens/dialog.tscn" id="10_uxkbi"]
 [ext_resource type="Script" uid="uid://cfgvndstcp8g6" path="res://Characters/fly.gd" id="13_w0bdt"]
@@ -226,9 +226,11 @@ text = "Speed: 500"
 
 [node name="the crow" parent="characters" instance=ExtResource("15_cgcyx")]
 position = Vector2(-1067, 369)
+SPEED = 350
 
 [node name="the stick" parent="characters" instance=ExtResource("16_fwunk")]
 position = Vector2(157, -155)
+SPEED = 350
 
 [node name="tasks" type="CanvasLayer" parent="."]
 script = ExtResource("17_l7a4t")
