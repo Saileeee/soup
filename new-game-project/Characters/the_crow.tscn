@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3p7rgktcp7br"]
+[gd_scene load_steps=9 format=3 uid="uid://d3p7rgktcp7br"]
 
 [ext_resource type="PackedScene" uid="uid://b8aos6cx54icn" path="res://Characters/base_character.tscn" id="1_2acmg"]
 [ext_resource type="Texture2D" uid="uid://gm5je3qkrevo" path="res://Art/crowman.png" id="2_bjvhu"]
+[ext_resource type="Script" uid="uid://bxadmcqqt30op" path="res://Characters/the_crow.gd" id="2_nrpyl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usjvp"]
 atlas = ExtResource("2_bjvhu")
@@ -40,7 +41,7 @@ animations = [{
 }]
 
 [node name="the crow" instance=ExtResource("1_2acmg")]
-SPEED = 300
+script = ExtResource("2_nrpyl")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(573, 297)
