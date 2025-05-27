@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfumxnhw6ysqx" path="res://tasks/garden/bed.gd" id="1_6po16"]
 [ext_resource type="Script" path="res://tasks/garden/drop.gd" id="2_mx44p"]
-[ext_resource type="Script" path="res://tasks/garden/seeds.gd" id="4_t7sfj"]
+[ext_resource type="Script" uid="uid://brismkfsq68y6" path="res://tasks/garden/seeds.gd" id="4_t7sfj"]
 [ext_resource type="Texture2D" uid="uid://sm3golxs106o" path="res://Art/garden/seeds.png" id="4_uwxip"]
 [ext_resource type="Script" uid="uid://bj1nc5ivgl6vk" path="res://tasks/garden/lettuce.gd" id="6_uwxip"]
 [ext_resource type="Script" path="res://tasks/garden/level.gd" id="7_0ylxf"]
@@ -51,6 +51,7 @@ script = ExtResource("1_6po16")
 metadata/_edit_lock_ = true
 
 [node name="debug" type="Label" parent="bed 3"]
+layout_mode = 0
 offset_left = 50.0
 offset_top = -31.0
 offset_right = 227.0
@@ -67,6 +68,7 @@ script = ExtResource("1_6po16")
 metadata/_edit_lock_ = true
 
 [node name="debug" type="Label" parent="bed 1"]
+layout_mode = 0
 offset_left = 84.0
 offset_top = -36.0
 offset_right = 222.0
